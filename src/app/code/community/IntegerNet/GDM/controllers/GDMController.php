@@ -21,6 +21,10 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
             ->getBlock('content')
             ->append($this->getLayout()->createBlock('gdm/form'));
 
+        $this->getLayout()
+            ->getBlock('root')
+            ->unsetChild('notifications');
+
         $this->renderLayout();
     }
 
@@ -34,6 +38,46 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
         if ($this->getRequest()->isPost()) {
 
         }
-        $this->_redirect('*/*');
+
+        $this->_markNotificationsAsRead();
+
+        $this->_runGermanSetup();
+
+        $this->_reindexAll();
+
+        Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Magento was prepared successfully.'));
+
+        // Set a config flag to indicate that the setup has been initialized.
+        Mage::getModel('eav/entity_setup', 'core_setup')->setConfigData('gdm/is_initialized', '1');
+
+        $this->_redirect('');
+    }
+
+
+    protected function _reindexAll()
+    {
+        $processCollection = Mage::getModel('index/process')->getCollection();
+
+        foreach ($processCollection as $process) {
+            /* @var $process Mage_Index_Model_Process */
+            $process->reindexAll();
+        }
+    }
+
+    protected function _markNotificationsAsRead()
+    {
+        $notificationCollection = Mage::getModel('adminnotification/inbox')->getCollection();
+        foreach ($notificationCollection as $notification) {
+            /* @var $notification Mage_AdminNotification_Model_Inbox */
+            if (!$notification->getIsRead()) {
+                $notification->setIsRead(1)
+                    ->save();
+            }
+        }
+    }
+
+    protected function _runGermanSetup()
+    {
+        Mage::getSingleton('germansetup/setup')->setup();
     }
 }
