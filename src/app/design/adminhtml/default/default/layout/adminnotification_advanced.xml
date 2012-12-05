@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+    /**
+     * @category    AvS
+     * @package     AvS_AdminNotificationAdvanced
+     * @author      Andreas von Studnitz <avs@avs-webentwicklung.de>
+     */
+-->
+<layout>
+    <default>
+        <reference name="notifications">
+            <action method="unsetChild"><name>notification_toolbar</name></action>
+            <action method="unsetChild"><name>notification_window</name></action>
+            <block type="adminnotificationadvanced/toolbar" name="notification_toolbar" as="notification_toolbar" acl="system/adminnotification/show_toolbar" template="nnotification_advanced/toolbar.phtml" />
+            <block type="adminnotificationadvanced/window" name="notification_window" as="notification_window" acl="system/adminnotification/show_toolbar" template="notification_advanced/window.phtml" />
+        </reference>
+
+        <reference name="notification_toolbar">
+            <action method="setTemplate">
+                <template>notification_advanced/toolbar.phtml</template>
+            </action>
+        </reference>
+        <reference name="notification_window">
+            <action method="setType">
+                <type>adminnotificationadvanced/window</type>
+            </action>
+            <action method="setTemplate">
+                <template>notification_advanced/window.phtml</template>
+            </action>
+        </reference>
+    </default>
+</layout>
