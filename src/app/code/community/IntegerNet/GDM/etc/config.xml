@@ -35,7 +35,7 @@
                     <gdm>
                         <type>singleton</type>
                         <class>gdm/observer</class>
-                        <method>predispatchInstallWizard</method>
+                        <method>predispatchInstallStart</method>
                     </gdm>
                 </observers>
             </controller_action_predispatch_install_wizard_index>
@@ -44,10 +44,19 @@
                     <gdm>
                         <type>singleton</type>
                         <class>gdm/observer</class>
-                        <method>predispatchInstallWizard</method>
+                        <method>predispatchInstallStart</method>
                     </gdm>
                 </observers>
             </controller_action_predispatch_install_index_index>
+            <controller_action_predispatch_install_wizard_config>
+                <observers>
+                    <gdm>
+                        <type>singleton</type>
+                        <class>gdm/observer</class>
+                        <method>predispatchInstallWizard</method>
+                    </gdm>
+                </observers>
+            </controller_action_predispatch_install_wizard_config>
         </events>
     </global>
 
