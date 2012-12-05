@@ -61,6 +61,17 @@
                 </gdm>
             </modules>
         </translate>
+        <events>
+            <admin_session_user_login_success>
+                <observers>
+                    <gdm>
+                        <type>singleton</type>
+                        <class>gdm/observer</class>
+                        <method>afterAdminUserLogin</method>
+                    </gdm>
+                </observers>
+            </admin_session_user_login_success>
+        </events>
     </adminhtml>
 
     <admin>
@@ -95,6 +106,9 @@
                 <security>
                     <session_cookie_lifetime>36000</session_cookie_lifetime>
                 </security>
+                <startup>
+                    <page>system/gdm</page>
+                </startup>
             </admin>
         </dev>
     </default>

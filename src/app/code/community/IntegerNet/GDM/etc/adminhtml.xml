@@ -5,7 +5,7 @@
             <children>
                 <gdm translate="title">
                     <title>German Distribution for Magento</title>
-                    <sort_order>10</sort_order>
+                    <sort_order>11</sort_order>
                     <action>adminhtml/gdm</action>
                 </gdm>
             </children>
@@ -19,7 +19,7 @@
                         <children>
                             <gdm translate="title">
                                 <title>German Distribution for Magento</title>
-                                <sort_order>10</sort_order>
+                                <sort_order>11</sort_order>
                             </gdm>
                         </children>
                     </system>
