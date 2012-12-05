@@ -25,6 +25,7 @@
             <gdm_setup>
                 <setup>
                     <module>IntegerNet_GDM</module>
+                    <class>gdm/setup</class>
                 </setup>
             </gdm_setup>
         </resources>
@@ -50,11 +51,51 @@
         </events>
     </global>
 
+    <adminhtml>
+        <translate>
+            <modules>
+                <gdm>
+                    <files>
+                        <default>IntegerNet_GDM.csv</default>
+                    </files>
+                </gdm>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <IntegerNet_GDM after="Mage_Adminhtml">IntegerNet_GDM</IntegerNet_GDM>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
     <default>
         <general>
             <locale>
                 <code>de_DE</code>
             </locale>
         </general>
+        <dev>
+            <log>
+                <active>1</active>
+            </log>
+            <js>
+                <merge_files>0</merge_files>
+            </js>
+            <css>
+                <merge_css_files>0</merge_css_files>
+            </css>
+            <admin>
+                <security>
+                    <session_cookie_lifetime>36000</session_cookie_lifetime>
+                </security>
+            </admin>
+        </dev>
     </default>
 </config>
