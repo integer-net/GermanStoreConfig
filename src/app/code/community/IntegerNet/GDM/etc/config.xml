@@ -54,8 +54,6 @@
         <general>
             <locale>
                 <code>de_DE</code>
-                <timezone>Europe/Berlin</timezone>
-                <currency>EUR</currency>
             </locale>
         </general>
     </default>
