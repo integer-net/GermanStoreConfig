@@ -6,7 +6,7 @@ class IntegerNet_GDM_Block_Form extends Mage_Adminhtml_Block_Widget
     {
         parent::__construct();
         $this->setTemplate('gdm/form.phtml');
-        $this->setTitle('German Distribution for Magento');
+        $this->setTitle(Mage::helper('gdm') ->__('German Distribution for Magento'));
     }
 
     /**

@@ -97,6 +97,9 @@
 
     <default>
         <general>
+            <country>
+                <allow>DE</allow>
+            </country>
             <locale>
                 <code>de_DE</code>
             </locale>
