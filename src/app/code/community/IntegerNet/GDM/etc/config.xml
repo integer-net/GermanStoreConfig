@@ -123,6 +123,9 @@
             <store_information>
                 <merchant_country>DE</merchant_country>
             </store_information>
+            <imprint>
+                <country>DE</country>
+            </imprint>
         </general>
         <design>
             <header>

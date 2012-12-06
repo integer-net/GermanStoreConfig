@@ -75,3 +75,11 @@ Licence
 Copyright
 ---------
 (c) 2012 integer_net GmbH
+
+Thanks to
+---------
+- Thomas Fleck and the [magento app factory](http://www.magentoappfactory.com) for ideas, cooperation, marketing and support
+- the [FireGento team](https://github.com/firegento) for [GermanSetup](https://github.com/firegento/firegento-germansetup) and [FireGento_Pdf](https://github.com/firegento/firegento-pdf)
+- Rico Neitzel and Daniel Sasse for the [German Language Pack](https://github.com/riconeitzel/German_LocalePack_de_DE)
+- [Phoenix Media](http://www.phoenix-media.eu) and [ITABS](http://www.itabs.de) for the payment modules
+- Fabian Blechschmidt for [ideas regarding the default configuration](https://github.com/Schrank/DefaultDeveloperConfig)

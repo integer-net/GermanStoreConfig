@@ -32,9 +32,12 @@
                             <td class="value">
                                 <?php if ($field['type'] == 'select'): ?>
                                 <select name="field[<?php echo $field['name'] ?>]" id="field_<?php echo $field['label'] ?>" style="width:150px !important;">
-                                    <option value="de" selected="selected"><?php echo $this->__('Germany')?></option>
-                                    <option value="at"><?php echo $this->__('Austria')?></option>
-                                    <option value="ch"><?php echo $this->__('Switzerland')?></option>
+                                    <?php $value = $this->getValue($field['name']) ?>
+                                    <?php foreach(Mage::getSingleton($field['source_model'])->toOptionArray() as $option): ?>
+                                    <option value="<?php echo $option['value'] ?>"<?php if($option['value'] == $value): ?> selected="selected"<?php endif ?>>
+                                        <?php echo $option['label'] ?>
+                                    </option>
+                                    <?php endforeach ?>
                                 </select>
                                 <?php elseif($field['type'] == 'textarea'): ?>
                                 <textarea name="field[<?php echo $field['name'] ?>]" id="field_<?php echo $field['label'] ?>"><?php echo $this->getValue($field['name']) ?></textarea>
