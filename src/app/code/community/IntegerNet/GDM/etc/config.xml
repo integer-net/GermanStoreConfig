@@ -102,6 +102,16 @@
         </routers>
     </admin>
 
+    <frontend>
+        <layout>
+            <updates>
+                <gdm>
+                    <file>gdm.xml</file>
+                </gdm>
+            </updates>
+        </layout>
+    </frontend>
+
     <default>
         <general>
             <country>
@@ -119,7 +129,10 @@
                 <welcome>Herzlich Willkommen!</welcome>
             </header>
             <theme>
-                <default>modern</default>
+                <locale>custom</locale>
+                <template>custom</template>
+                <skin>custom</skin>
+                <layout>custom</layout>
             </theme>
         </design>
         <catalog>
