@@ -33,7 +33,7 @@
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
             <groups>
-								<settings translate="label">
+                <settings translate="label">
                     <label>Settings</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>1</sort_order>
@@ -41,7 +41,7 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                		<enabled translate="label">
+                        <enabled translate="label">
                             <label>Enable Auto Shipping</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
@@ -50,7 +50,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </enabled>
-										<country_id translate="label">
+                        <country_id translate="label">
                             <label>Default Country</label>
                             <frontend_type>select</frontend_type>
                             <frontend_class>countries</frontend_class>
@@ -59,11 +59,10 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                    </country_id>
-
+                        </country_id>
                     </fields>
                 </settings>
-                    </groups>
+            </groups>
         </autoshipping>
     </sections>
 </config>

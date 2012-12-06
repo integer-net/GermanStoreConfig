@@ -143,6 +143,12 @@
                 <checkout_multiple>0</checkout_multiple>
             </option>
         </shipping>
+        <autoshipping>
+            <settings>
+                <enabled>1</enabled>
+                <country_id>DE</country_id>
+            </settings>
+        </autoshipping>
         <admin>
             <security>
                 <session_cookie_lifetime>36000</session_cookie_lifetime>

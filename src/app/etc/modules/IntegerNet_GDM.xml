@@ -4,6 +4,9 @@
         <IntegerNet_GDM>
             <active>true</active>
             <codePool>community</codePool>
+            <depends>
+                <PRWD_Autoshipping />
+            </depends>
         </IntegerNet_GDM>
     </modules>
 </config>

@@ -23,62 +23,64 @@
  */
 -->
 <config>
-		<modules>
-				<PRWD_Autoshipping>
-						<version>1.1.0</version>
-				</PRWD_Autoshipping>
-		</modules>
+    <modules>
+        <PRWD_Autoshipping>
+            <version>1.1.0</version>
+        </PRWD_Autoshipping>
+    </modules>
     <global>
-		<helpers>
-				<autoshipping>
-						<class>PRWD_Autoshipping_Helper</class>
-				</autoshipping>
-		</helpers>
+        <helpers>
+            <autoshipping>
+                <class>PRWD_Autoshipping_Helper</class>
+            </autoshipping>
+        </helpers>
 
-    <models>
-        <autoshipping>
-             <class>PRWD_Autoshipping_Model</class>
-        </autoshipping>
-    </models>
-	<cache>
-		<types>
-			<checkout_quote><label>Shopping Cart data</label></checkout_quote>
-		</types>
-	</cache>
-   </global>
-   <frontend>
-    <events>
-			<controller_action_postdispatch_checkout_cart_updatePost>
-        <observers>
-          <prwd_autoshipping_observer>
-            <type>singleton</type>
-            <class>autoshipping/observer</class>
-            <method>add_shipping</method>
-          </prwd_autoshipping_observer>
-        </observers>
-			</controller_action_postdispatch_checkout_cart_updatePost>
-			<controller_action_postdispatch_checkout_cart_add>
-        <observers>
-          <prwd_autoshipping_observer>
-            <type>singleton</type>
-            <class>autoshipping/observer</class>
-            <method>add_shipping</method>
-          </prwd_autoshipping_observer>
-        </observers>
-			</controller_action_postdispatch_checkout_cart_add>
-			<controller_action_predispatch>
-				<observers>
-						<prwd_autoshipping_observer>
-								<type>singleton</type>
-								<class>autoshipping/observer</class>
-								<method>check_country</method>
-						</prwd_autoshipping_observer>
-				</observers>
-			</controller_action_predispatch>
-    </events>
-  </frontend>
+        <models>
+            <autoshipping>
+                <class>PRWD_Autoshipping_Model</class>
+            </autoshipping>
+        </models>
+        <cache>
+            <types>
+                <checkout_quote>
+                    <label>Shopping Cart data</label>
+                </checkout_quote>
+            </types>
+        </cache>
+    </global>
+    <frontend>
+        <events>
+            <controller_action_postdispatch_checkout_cart_updatePost>
+                <observers>
+                    <prwd_autoshipping_observer>
+                        <type>singleton</type>
+                        <class>autoshipping/observer</class>
+                        <method>add_shipping</method>
+                    </prwd_autoshipping_observer>
+                </observers>
+            </controller_action_postdispatch_checkout_cart_updatePost>
+            <controller_action_postdispatch_checkout_cart_add>
+                <observers>
+                    <prwd_autoshipping_observer>
+                        <type>singleton</type>
+                        <class>autoshipping/observer</class>
+                        <method>add_shipping</method>
+                    </prwd_autoshipping_observer>
+                </observers>
+            </controller_action_postdispatch_checkout_cart_add>
+            <controller_action_predispatch>
+                <observers>
+                    <prwd_autoshipping_observer>
+                        <type>singleton</type>
+                        <class>autoshipping/observer</class>
+                        <method>check_country</method>
+                    </prwd_autoshipping_observer>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+    </frontend>
 
-  <adminhtml>
+    <adminhtml>
         <translate>
             <modules>
                 <PRWD_Autoshipping>
