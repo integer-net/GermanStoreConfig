@@ -103,6 +103,26 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
                     $fieldData['general__imprint__iban'],
                     $fieldData['general__imprint__swift']
                 ));
+
+                $defaultStore = Mage::getModel('core/store')->load('Default Store View', 'name');
+                if ($defaultStore->getId()) {
+                    $defaultStore->setName('Deutsch')->setCode('de')->save();
+                }
+                $defaultStoreGroup = Mage::getModel('core/store_group')->load('Main Website Store', 'name');
+                if ($defaultStoreGroup->getId()) {
+                    $defaultStoreGroup->setName($fieldData['general__imprint__shop_name'])->save();
+                }
+                $defaultWebsite = Mage::getModel('core/website')->load('Main Website', 'name');
+                if ($defaultWebsite->getId()) {
+                    $defaultWebsite->setName($fieldData['general__imprint__shop_name'])->save();
+                }
+                $defaultCategory = Mage::getModel('catalog/category')
+                    ->getCollection()
+                    ->addAttributeToFilter('name', 'Default Category')
+                    ->getFirstItem();
+                if ($defaultCategory->getId()) {
+                    $defaultCategory->setName($this->__('Default Category'))->save();
+                }
             }
 
             $payPalEmailAddress = $this->getRequest()->getParam('paypal_email');
@@ -111,8 +131,6 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
                 $this->_setConfigData('payment/paypal_standard/active', 1);
                 $this->_setConfigData('payment/paypal_standard/title', 'PayPal');
                 $this->_setConfigData('payment/paypal_standard/sort_order', 10);
-
-
             }
         }
 
