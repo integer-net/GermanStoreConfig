@@ -3,6 +3,5 @@
 "Please enter your data:","Bitte geben Sie Ihre Daten ein:"
 "Shop Data","Shop-Daten"
 "Magento was prepared successfully.","Magento wurde erfolgreich vorbereitet."
-"After completion of this order, please transfer the order amount to: %s, Account %s, Bank number %s, %s (IBAN %s, SWIFT %s)","Bitte überweisen Sie den Bestellbetrag nach Abschluss dieser Bestellung an: %s, Kto. %s, BLZ %s, %s (IBAN %s, SWIFT %s)"
+"After completion of this order, please transfer the order amount to: %s, Account %s, Bank number %s, %s (IBAN %s, SWIFT %s)","Bitte überweisen Sie den Bestellbetrag nach Abschluss dieser Bestellung an: %s, Kto. %s, BLZ %s, %s (IBAN %s, SWIFT %s)."
 "PayPal Merchant Account Email Address","Email-Adresse des PayPal-Händleraccounts"
-"Please go to <a href=""%s"" target=""_blank"">Backend</a> now in order to complete the preconfiguration.","Bitte gehen Sie jetzt zum <a href=""%s"" target=""_blank"">AdminPanel</a>, um die Vorkonfiguration abzuschließen."

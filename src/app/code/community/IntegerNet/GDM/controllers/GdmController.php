@@ -73,7 +73,7 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
                 $this->_setConfigData('design/head/default_description', $fieldData['general__imprint__shop_name']);
                 $this->_setConfigData('design/head/default_keywords', $fieldData['general__imprint__shop_name']);
                 $this->_setConfigData('design/header/logo_alt', $fieldData['general__imprint__shop_name']);
-                $this->_setConfigData('design/footer/copyright', '&copy; ' . date('Y') . ' ' . $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('design/footer/copyright', '&copy; ' . date('Y') . ' ' . $fieldData['general__imprint__company_first']);
                 $this->_setConfigData('trans_email/ident_general/name', $fieldData['general__imprint__shop_name']);
                 $this->_setConfigData('trans_email/ident_general/email', $fieldData['general__imprint__email']);
                 $this->_setConfigData('trans_email/ident_sales/name', $fieldData['general__imprint__shop_name']);
