@@ -78,6 +78,7 @@ Copyright
 
 Thanks to
 ---------
+- [Magento Inc.](http://www.magentocommerce.com/) for Magento Community Edition
 - Thomas Fleck and the [magento app factory](http://www.magentoappfactory.com) for ideas, cooperation, marketing and support
 - the [FireGento team](https://github.com/firegento) for [GermanSetup](https://github.com/firegento/firegento-germansetup) and [FireGento_Pdf](https://github.com/firegento/firegento-pdf)
 - Rico Neitzel and Daniel Sasse for the [German Language Pack](https://github.com/riconeitzel/German_LocalePack_de_DE)
