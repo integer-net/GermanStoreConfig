@@ -18,12 +18,12 @@ A few useful and preconfigured modules are shipped with the distribution:
 - German Language Pack
 - FireGento_GermanSetup (for base settings and adjustments for the German market; will be called on form submit)
 - FireGento_Pdf (to create better PDF invoices)
-- PRWD_Autoshipping (for displaying shipping costs even when no shipping address is entered yet)
+- PRWD_Autoshipping (for displaying shipping costs in cart even when no shipping address is entered yet, see [this blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/versandkosten-im-warenkorb-anzeigen.html))
 - Phoenix_CashOnDelivery (Payment Method)
 - Mage_Debit (Payment Method)
 - IntegerNet_RemoveCustomerAccountLinks (for hiding unneeded links in customer account)
-- AvS_AdminNotificationAdvanced (for better handling of notifications)
-- AvS_ScopeHint (to show conflicts in configuration)
+- AvS_AdminNotificationAdvanced (for better handling of notifications, see [this blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/magento-verbesserte-benachrichtigungen-im-admin-bereich.html))
+- AvS_ScopeHint (to show conflicts in configuration, see [this blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/warnung-bei-ueberschriebenen-konfigurations-optionen-kostenloses-magento-modul.html))
 
 On top, some core modules are disabled which are not needed for typical German Shops:
 - Mage_Usa
