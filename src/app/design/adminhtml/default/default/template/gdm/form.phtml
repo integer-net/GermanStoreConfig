@@ -18,24 +18,32 @@
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="setup_form">
         <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
         <div class="entry-edit-head">
-            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Shop Settings') ?></h4>
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Shop Data') ?></h4>
             <div class="form-buttons"></div>
         </div>
 
         <div class="fieldset fieldset-wide" id="group_fields7">
             <div class="hor-scroll">
-                <table cellspacing="0" class="form-list">
+                <table cellspacing="0" class="form-list" style="width: 500px !important;">
                     <tbody>
+                    <?php foreach($this->getInputFields() as $field): ?>
                         <tr>
-                            <td class="label"><label for="select_country"><?php echo $this->__('Shipping from') ?></label></td>
-                            <td class="value" style="width:160px !important;">
-                                <select name="country" id="select_country" style="width:150px !important;">
+                            <td class="label"><label for="field_<?php echo $field['name'] ?>"><?php echo $field['label'] ?></label></td>
+                            <td class="value">
+                                <?php if ($field['type'] == 'select'): ?>
+                                <select name="field[<?php echo $field['name'] ?>]" id="field_<?php echo $field['label'] ?>" style="width:150px !important;">
                                     <option value="de" selected="selected"><?php echo $this->__('Germany')?></option>
                                     <option value="at"><?php echo $this->__('Austria')?></option>
                                     <option value="ch"><?php echo $this->__('Switzerland')?></option>
                                 </select>
+                                <?php elseif($field['type'] == 'textarea'): ?>
+                                <textarea name="field[<?php echo $field['name'] ?>]" id="field_<?php echo $field['label'] ?>"><?php echo $this->getValue($field['name']) ?></textarea>
+                                <?php else: ?>
+                                <input type="text" name="field[<?php echo $field['name'] ?>]" id="field_<?php echo $field['label'] ?>"class="input-text" value="<?php echo $this->getValue($field['name']) ?>" />
+                                <?php endif ?>
                             </td>
                         </tr>
+                    <?php endforeach ?>
                     </tbody>
                 </table>
             </div>

@@ -88,17 +88,6 @@
                 </gdm>
             </modules>
         </translate>
-        <events>
-            <admin_session_user_login_success>
-                <observers>
-                    <gdm>
-                        <type>singleton</type>
-                        <class>gdm/observer</class>
-                        <method>afterAdminUserLogin</method>
-                    </gdm>
-                </observers>
-            </admin_session_user_login_success>
-        </events>
     </adminhtml>
 
     <admin>
@@ -121,7 +110,47 @@
             <locale>
                 <code>de_DE</code>
             </locale>
+            <store_information>
+                <merchant_country>DE</merchant_country>
+            </store_information>
         </general>
+        <design>
+            <header>
+                <welcome>Herzlich Willkommen!</welcome>
+            </header>
+        </design>
+        <catalog>
+            <custom_options>
+                <time_format>24h</time_format>
+                <date_fields_order>d,m,y</date_fields_order>
+            </custom_options>
+        </catalog>
+        <persistent>
+            <options>
+                <enabled>1</enabled>
+            </options>
+        </persistent>
+        <sales_pdf>
+            <invoice>
+                <engine>firegento_pdf/invoice</engine>
+            </invoice>
+            <firegento_pdf>
+                <show_footer>1</show_footer>
+            </firegento_pdf>
+        </sales_pdf>
+        <shipping>
+            <option>
+                <checkout_multiple>0</checkout_multiple>
+            </option>
+        </shipping>
+        <admin>
+            <security>
+                <session_cookie_lifetime>36000</session_cookie_lifetime>
+            </security>
+            <startup>
+                <page>system/gdm</page>
+            </startup>
+        </admin>
         <dev>
             <log>
                 <active>1</active>
@@ -132,14 +161,6 @@
             <css>
                 <merge_css_files>0</merge_css_files>
             </css>
-            <admin>
-                <security>
-                    <session_cookie_lifetime>36000</session_cookie_lifetime>
-                </security>
-                <startup>
-                    <page>system/gdm</page>
-                </startup>
-            </admin>
         </dev>
     </default>
 </config>

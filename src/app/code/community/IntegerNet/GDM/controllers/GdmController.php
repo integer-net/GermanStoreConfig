@@ -35,22 +35,84 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
      */
     public function saveAction()
     {
-        if ($this->getRequest()->isPost()) {
+        $this->_deactivateCache();
 
-        }
+        $this->_updateConfigData();
 
-        $this->_markNotificationsAsRead();
+        //$this->_markNotificationsAsRead();
 
-        $this->_runGermanSetup();
+        //$this->_runGermanSetup();
 
-        $this->_reindexAll();
+        //$this->_reindexAll();
 
         Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Magento was prepared successfully.'));
 
         // Set a config flag to indicate that the setup has been initialized.
-        Mage::getModel('eav/entity_setup', 'core_setup')->setConfigData('gdm/is_initialized', '1');
+        $this->_setConfigData('gdm/is_initialized', 1);
 
         $this->_redirect('');
+    }
+
+    public function _updateConfigData()
+    {
+        if ($this->getRequest()->isPost()) {
+
+            $fieldData = $this->getRequest()->getParam('field');
+            if (is_array($fieldData)) {
+                foreach ($fieldData as $key => $value) {
+                    $fieldCode = implode('/', explode('__', $key));
+                    $this->_setConfigData($fieldCode, $value);
+                }
+                $this->_setConfigData('general/store_information/name', $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('general/store_information/phone', $fieldData['general__imprint__telephone']);
+                $this->_setConfigData('general/store_information/merchant_vat_number', $fieldData['general__imprint__vat_id']);
+                $this->_setConfigData('general/store_information/address', $this->_getAddress($fieldData));
+                $this->_setConfigData('sales/identity/address', $this->_getAddress($fieldData));
+                $this->_setConfigData('design/head/default_title', $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('design/head/title_suffix', ' - ' . $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('design/head/default_description', $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('design/head/default_keywords', $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('design/header/logo_alt', $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('design/footer/copyright', '&copy; ' . date('Y') . ' ' . $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('trans_email/ident_general/name', $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('trans_email/ident_general/email', $fieldData['general__imprint__email']);
+                $this->_setConfigData('trans_email/ident_sales/name', $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('trans_email/ident_sales/email', $fieldData['general__imprint__email']);
+                $this->_setConfigData('trans_email/ident_support/name', $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('trans_email/ident_support/email', $fieldData['general__imprint__email']);
+                $this->_setConfigData('trans_email/ident_custom1/name', $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('trans_email/ident_custom1/email', $fieldData['general__imprint__email']);
+                $this->_setConfigData('trans_email/ident_custom2/name', $fieldData['general__imprint__shop_name']);
+                $this->_setConfigData('trans_email/ident_custom2/email', $fieldData['general__imprint__email']);
+                $this->_setConfigData('contacts/email/recipient_email', $fieldData['general__imprint__email']);
+                $this->_setConfigData('removecustomeraccountlinks/settings/remove', 'recurring_profiles,billing_agreements,tags,OAuth Customer Tokens');
+                $this->_setConfigData('sales_email/order/copy_to', $fieldData['general__imprint__email']);
+                $this->_setConfigData('sales_pdf/firegento_pdf/sender_address_bar', $this->_getAddress($fieldData, ' - '));
+                $this->_setConfigData('checkout/payment_failed/copy_to', $fieldData['general__imprint__email']);
+                $this->_setConfigData('shipping/origin/postcode', $fieldData['general__imprint__zip']);
+                $this->_setConfigData('shipping/origin/city', $fieldData['general__imprint__city']);
+                $this->_setConfigData('shipping/origin/street_line1', $fieldData['general__imprint__street']);
+                $this->_setConfigData('admin/startup/page', 'dashboard');
+            }
+        }
+
+        $this->_setConfigData('general/region/state_required', '');
+        $this->_setConfigData('general/region/display_all', 0);
+    }
+
+    protected function _getAddress($fieldData, $seperator = "\n")
+    {
+        $address = ($fieldData['general__imprint__company_first'] ? $fieldData['general__imprint__company_first'] . $seperator : '');
+        $address .= ($fieldData['general__imprint__company_second'] ? $fieldData['general__imprint__company_second'] . $seperator : '');
+        $address .= ($fieldData['general__imprint__street'] ? $fieldData['general__imprint__street'] . $seperator : '');
+        $address .= ($fieldData['general__imprint__zip'] ? $fieldData['general__imprint__zip'] . ' ' : '');
+        $address .= ($fieldData['general__imprint__city'] ? $fieldData['general__imprint__city'] : '');
+        return $address;
+    }
+
+    protected function _setConfigData($key, $value)
+    {
+        Mage::getModel('eav/entity_setup', 'core_setup')->setConfigData($key, $value);
     }
 
 
@@ -79,5 +141,21 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
     protected function _runGermanSetup()
     {
         Mage::getSingleton('germansetup/setup')->setup();
+    }
+
+    protected  function _deactivateCache()
+    {
+        /* @var $cache Mage_Core_Model_Cache */
+        $cache = Mage::getModel('core/cache');
+
+        /* @var $options array */
+        $options = $cache->canUse(null);
+
+        $newOptions = array();
+        foreach ($options as $option => $value) {
+            $newOptions[$option] = 0;
+        }
+
+        $cache->saveOptions($newOptions);
     }
 }
