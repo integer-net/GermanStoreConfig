@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>PRWD_Autoshipping</name>
+ <channel>connect.magentocommerce.com/community</channel>
+ <summary>PRWD Autoshipping Module</summary>
+ <description>This module automatically applies your top-weighted shipping option, recalculating each time a visitor modifies their basket contents.  This means that free shipping will be automatically applied to suitable orders.
+
+How To Use:
+
+* Install the module using Magento Connect (or manually install to the app/code/community directory)
+* If logged in to the admin panel, log out and back in again
+* You will now find a configuration page under the Sytem -&gt; Configuration -&gt; Sales tab
+* Enable the module, and select the default country to use when calculating available shipping options
+* You may want to adjust the weights on the shipping methods tab - the lowest &apos;weight&apos; number will be applied first.  For example, &apos;Free Shipping&apos; could be 1, ahead of Fixed Rate which could be 2.  This means that free shipping will be attempted first, if the order qualifies.  If not, Fixed Rate will be applied.</description>
+ <lead>
+  <name>Rob Knight</name>
+  <user>robknight</user>
+  <email>robknight@prwd.co.uk</email>
+  <active>yes</active>
+ </lead>
+ <date>2009-06-05</date>
+ <time>09:52:12</time>
+ <version>
+  <release>1.0.2</release>
+  <api>1.0.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.gnu.org/licenses/">GPL</license>
+ <notes>First release
+
+Please send all bug reports to robknight@prwd.co.uk</notes>
+ <contents>
+  <dir name="/">
+   <dir name="PRWD">
+    <dir name="Autoshipping">
+     <dir name="etc">
+      <file md5sum="d13029bd25fae9fd6a1d728b40b7d49a" name="config.xml" role="magecommunity" />
+      <file md5sum="adaee40e932e6087d9b1df0446da6999" name="system.xml" role="magecommunity" />
+     </dir> <!-- //PRWD/Autoshipping/etc -->
+     <dir name="Helper">
+      <file md5sum="f025ce08028ab762537bc4030fc16810" name="Data.php" role="magecommunity" />
+     </dir> <!-- //PRWD/Autoshipping/Helper -->
+     <dir name="Model">
+      <file md5sum="6be195a0e9deb088044740fa00b4cc11" name="Observer.php" role="magecommunity" />
+     </dir> <!-- //PRWD/Autoshipping/Model -->
+    </dir> <!-- //PRWD/Autoshipping -->
+   </dir> <!-- //PRWD -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.0</min>
+    <max>6.0.0</max>
+    <exclude>6.0.0</exclude>
+   </php>
+   <pearinstaller>
+    <min>1.6.2</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+</package>
