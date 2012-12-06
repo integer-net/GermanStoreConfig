@@ -22,9 +22,9 @@
             <div class="form-buttons"></div>
         </div>
 
-        <div class="fieldset fieldset-wide" id="group_fields7">
+        <div class="fieldset" id="group_fields">
             <div class="hor-scroll">
-                <table cellspacing="0" class="form-list" style="width: 500px !important;">
+                <table cellspacing="0" class="form-list">
                     <tbody>
                     <?php foreach($this->getInputFields() as $field): ?>
                         <tr>
@@ -44,6 +44,26 @@
                             </td>
                         </tr>
                     <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('PayPal') ?></h4>
+            <div class="form-buttons"></div>
+        </div>
+
+        <div class="fieldset" id="group_paypal">
+            <div class="hor-scroll">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <tr>
+                            <td class="label"><label for="field_paypal_email"><?php echo $this->__('PayPal Merchant Account Email Address') ?></label></td>
+                            <td class="value">
+                                <input type="text" name="paypal_email" id="field_paypal_email"class="input-text" value="<?php echo Mage::getStoreConfig('payment/wps_required_settings/business_account') ?>" />
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

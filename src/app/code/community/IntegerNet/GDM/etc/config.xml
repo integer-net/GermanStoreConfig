@@ -125,6 +125,11 @@
                 <date_fields_order>d,m,y</date_fields_order>
             </custom_options>
         </catalog>
+        <removecustomeraccountlinks>
+            <settings>
+                <remove>recurring_profiles,billing_agreements,tags,OAuth Customer Tokens</remove>
+            </settings>
+        </removecustomeraccountlinks>
         <persistent>
             <options>
                 <enabled>1</enabled>
@@ -175,7 +180,25 @@
             <banktransfer>
                 <active>1</active>
                 <title>Vorkasse</title>
+                <sort_order>20</sort_order>
             </banktransfer>
+            <debit>
+                <active>1</active>
+                <title>Lastschrift</title>
+                <sort_order>30</sort_order>
+                <order_status>pending</order_status>
+                <allowspecific>1</allowspecific>
+                <specificcountry>DE</specificcountry>
+            </debit>
+            <cashondelivery>
+                <active>1</active>
+                <title>Nachnahme</title>
+                <sort_order>40</sort_order>
+                <order_status>pending</order_status>
+                <shippingallowspecific>1</shippingallowspecific>
+                <shippingspecificcountry>DE</shippingspecificcountry>
+                <inlandcosts>2</inlandcosts>
+            </cashondelivery>
         </payment>
         <admin>
             <security>

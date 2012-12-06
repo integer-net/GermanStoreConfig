@@ -39,11 +39,11 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
 
         $this->_updateConfigData();
 
-        //$this->_markNotificationsAsRead();
+        $this->_markNotificationsAsRead();
 
-        //$this->_runGermanSetup();
+        $this->_runGermanSetup();
 
-        //$this->_reindexAll();
+        $this->_reindexAll();
 
         Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Magento was prepared successfully.'));
 
@@ -85,7 +85,6 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
                 $this->_setConfigData('trans_email/ident_custom2/name', $fieldData['general__imprint__shop_name']);
                 $this->_setConfigData('trans_email/ident_custom2/email', $fieldData['general__imprint__email']);
                 $this->_setConfigData('contacts/email/recipient_email', $fieldData['general__imprint__email']);
-                $this->_setConfigData('removecustomeraccountlinks/settings/remove', 'recurring_profiles,billing_agreements,tags,OAuth Customer Tokens');
                 $this->_setConfigData('sales_email/order/copy_to', $fieldData['general__imprint__email']);
                 $this->_setConfigData('sales_pdf/firegento_pdf/sender_address_bar', $this->_getAddress($fieldData, ' - '));
                 $this->_setConfigData('checkout/payment_failed/copy_to', $fieldData['general__imprint__email']);
@@ -101,6 +100,16 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
                     $fieldData['general__imprint__iban'],
                     $fieldData['general__imprint__swift']
                 ));
+            }
+
+            $payPalEmailAddress = $this->getRequest()->getParam('paypal_email');
+            if ($payPalEmailAddress) {
+                $this->_setConfigData('paypal/general/business_account', $payPalEmailAddress);
+                $this->_setConfigData('payment/paypal_standard/active', 1);
+                $this->_setConfigData('payment/paypal_standard/title', 'PayPal');
+                $this->_setConfigData('payment/paypal_standard/sort_order', 10);
+
+
             }
         }
 

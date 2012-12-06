@@ -4,3 +4,4 @@
 "Shop Data","Shop-Daten"
 "Magento was prepared successfully.","Magento wurde erfolgreich vorbereitet."
 "After completion of this order, please transfer the order amount to: %s, Account %s, Bank number %s, %s (IBAN %s, SWIFT %s)","Bitte überweisen Sie den Bestellbetrag nach Abschluss dieser Bestellung an: %s, Kto. %s, BLZ %s, %s (IBAN %s, SWIFT %s)"
+"PayPal Merchant Account Email Address","Email-Adresse des PayPal-Händleraccounts"
