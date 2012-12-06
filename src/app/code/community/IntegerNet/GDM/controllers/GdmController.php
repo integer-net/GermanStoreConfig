@@ -53,6 +53,9 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
         $this->_redirect('');
     }
 
+    /**
+     * Update configuration based on form entries
+     */
     public function _updateConfigData()
     {
         if ($this->getRequest()->isPost()) {
@@ -118,6 +121,13 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
         $this->_setConfigData('admin/startup/page', 'dashboard');
     }
 
+    /**
+     * Return formatted company address
+     *
+     * @param array $fieldData
+     * @param string $seperator
+     * @return string
+     */
     protected function _getAddress($fieldData, $seperator = "\n")
     {
         $address = ($fieldData['general__imprint__company_first'] ? $fieldData['general__imprint__company_first'] . $seperator : '');
@@ -128,12 +138,21 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
         return $address;
     }
 
+    /**
+     * Set configuration data
+     *
+     * @param string $key
+     * @param string|int $value
+     */
     protected function _setConfigData($key, $value)
     {
         Mage::getModel('eav/entity_setup', 'core_setup')->setConfigData($key, $value);
     }
 
 
+    /**
+     * Reindex all indices
+     */
     protected function _reindexAll()
     {
         $processCollection = Mage::getModel('index/process')->getCollection();
@@ -144,6 +163,9 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
         }
     }
 
+    /**
+     * Mark all notifications as read
+     */
     protected function _markNotificationsAsRead()
     {
         $notificationCollection = Mage::getModel('adminnotification/inbox')->getCollection();
@@ -156,11 +178,17 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
         }
     }
 
+    /**
+     * Run Setup of GermanSetup as if the form had been filled and submitted
+     */
     protected function _runGermanSetup()
     {
         Mage::getSingleton('germansetup/setup')->setup();
     }
 
+    /**
+     * Deactivate all caches
+     */
     protected  function _deactivateCache()
     {
         /* @var $cache Mage_Core_Model_Cache */
