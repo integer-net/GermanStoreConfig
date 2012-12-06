@@ -49,7 +49,7 @@ Installation Instructions
 
 Uninstallation
 --------------
-1. Remove all extension files from your Magento installation
+1. Remove all files from your Magento installation
 2. Delete the database
 
 Support
@@ -63,7 +63,9 @@ Any contribution is highly appreciated. The best way to contribute code is to op
 Developer
 ---------
 Andreas von Studnitz, Christian Philipp, integer_net GmbH
+
 [http://www.integer-net.de](http://www.integer-net.de)
+
 [@integer_net](https://twitter.com/integer_net)
 
 Licence
