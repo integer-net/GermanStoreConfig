@@ -5,6 +5,7 @@
             <active>true</active>
             <codePool>community</codePool>
             <depends>
+                <FireGento_GermanSetup />
                 <PRWD_Autoshipping />
             </depends>
         </IntegerNet_GDM>

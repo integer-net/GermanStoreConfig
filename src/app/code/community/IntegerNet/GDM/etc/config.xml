@@ -149,6 +149,34 @@
                 <country_id>DE</country_id>
             </settings>
         </autoshipping>
+        <carriers>
+            <flatrate>
+                <title>Pauschale Versandkosten</title>
+                <type>O</type>
+                <price>4.90</price>
+            </flatrate>
+            <freeshipping>
+                <active>1</active>
+                <title>Versandkostenfrei</title>
+                <name>Versandkostenfrei</name>
+                <free_shipping_subtotal>50</free_shipping_subtotal>
+            </freeshipping>
+        </carriers>
+        <payment>
+            <ccsave>
+                <active>0</active>
+            </ccsave>
+            <checkmo>
+                <active>0</active>
+            </checkmo>
+            <checkmo>
+                <title>Kostenfrei</title>
+            </checkmo>
+            <banktransfer>
+                <active>1</active>
+                <title>Vorkasse</title>
+            </banktransfer>
+        </payment>
         <admin>
             <security>
                 <session_cookie_lifetime>36000</session_cookie_lifetime>

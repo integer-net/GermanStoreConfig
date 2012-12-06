@@ -92,12 +92,21 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
                 $this->_setConfigData('shipping/origin/postcode', $fieldData['general__imprint__zip']);
                 $this->_setConfigData('shipping/origin/city', $fieldData['general__imprint__city']);
                 $this->_setConfigData('shipping/origin/street_line1', $fieldData['general__imprint__street']);
-                $this->_setConfigData('admin/startup/page', 'dashboard');
+                $this->_setConfigData('payment/banktransfer/instructions', $this->__(
+                    'After completion of this order, please transfer the order amount to: %s, Account %s, Bank number %s, %s (IBAN %s, SWIFT %s)',
+                    $fieldData['general__imprint__bank_account_owner'],
+                    $fieldData['general__imprint__bank_account'],
+                    $fieldData['general__imprint__bank_code_number'],
+                    $fieldData['general__imprint__bank_name'],
+                    $fieldData['general__imprint__iban'],
+                    $fieldData['general__imprint__swift']
+                ));
             }
         }
 
         $this->_setConfigData('general/region/state_required', '');
         $this->_setConfigData('general/region/display_all', 0);
+        $this->_setConfigData('admin/startup/page', 'dashboard');
     }
 
     protected function _getAddress($fieldData, $seperator = "\n")
