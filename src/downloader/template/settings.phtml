@@ -48,29 +48,32 @@ function changeDeploymentType (element)
 </script>
 
 <div class="settings-page">
-    <h2 class="page-head">Settings</h2>
+    <h2 class="page-head">Einstellungen</h2>
     <form action="<?php echo $this->url('settingsPost') ?>" method="post">
         <fieldset>
-            <p>Magento Extensions are available in three different versions.</p>
+            <p>Magento Erweiterungen sind in 3 verschiedenen Varianten verf&uuml;gbar.</p>
             <ul class="disc">
-                <li><strong>Stable</strong> means the extension can be used in a production environment.</li>
-                <li><strong>Beta</strong> means the extension is not recommended for use in a production environment.</li>
-                <li><strong>Alpha</strong> means the extension is still in development.</li>
+                <li><strong>Stable</strong> - bedeutet, dass die Erweiterung auf einer Produktiv-Umgebung eingesetzt werden kann.</li>
+                <li><strong>Beta</strong> - bedeutet, dass <u>nicht</u> empfohlen wird die Erweiterung auf einer Produktiv-Umgebung einzusetzen.</li>
+                <li><strong>Alpha</strong> - bedeutet, die Erweiterung befindet sich noch in der Entwicklung.</li>
             </ul>
-            <p><strong>Please note: extensions are provided as is. Make sure to backup your data before installing new extensions.</strong></p>
+            <p><b>Bitte beachten Sie:</b> Erweiterungen werden per Internet-Server bereitgestellt. <br />
+		       Stellen Sie sicher das Ihre Daten entsprechend gesichert wurden, bevor Sie neue Erweiterungen installieren, <br />
+		       da ansonsten Ihre Anpassungen und/oder Konfigurationen durch &Uuml;berschreibungen verloren gehen k&ouml;nnen.
+			</p>
             <table cellspacing="0" class="form-list">
                 <tr>
-                    <td class="label">Magento Connect Channel Protocol:</td>
+                    <td class="label">Magento Connect Channel Protokoll:</td>
                     <td class="value">
                         <select id="protocol" name="protocol">
-                            <option value="http" <?php if ($this->get('protocol')=='http'):?>selected="selected"<?php endif ?>>Http</option>
-                            <option value="ftp" <?php if ($this->get('protocol')=='ftp'):?>selected="selected"<?php endif ?>>Ftp</option>
+                            <option value="http" <?php if ($this->get('protocol')=='http'):?>selected="selected"<?php endif ?>>HTTP</option>
+                            <option value="ftp" <?php if ($this->get('protocol')=='ftp'):?>selected="selected"<?php endif ?>>FTP</option>
                         </select>
                     </td>
                 </tr>
                 <?php echo $this->get('channel_protocol_fields'); ?>
                 <tr>
-                    <td class="label">Preferred State:</td>
+                    <td class="label">Bevorzugter Status:</td>
                     <td class="value">
                         <select id="preferred_state" name="preferred_state">
                             <option value="stable" <?php if ($this->get('preferred_state')=='stable'):?>selected="selected"<?php endif ?>>Stable</option>
@@ -86,78 +89,78 @@ function changeDeploymentType (element)
                 </tr>
                 -->
             </table>
-            <p><strong>Permission to create new files and folders.</strong></p>
+            <p><strong>Schreibrechte zum erstellen neuer Dateien und Verzeichnisse.</strong></p>
             <table cellspacing="0" class="form-list">
                 <tr>
-                    <td class="label">Use custom permissions:</td>
+                    <td class="label">Verwende eigene Schreibrechte:</td>
                     <td class="value">
                         <select onchange="useCustomPermissions(this)" id="use_custom_permissions_mode" name="use_custom_permissions_mode">
-                            <option value="1" <?php if ($this->get('use_custom_permissions_mode')=='1'):?>selected="selected"<?php endif ?>>Yes</option>
-                            <option value="0" <?php if ($this->get('use_custom_permissions_mode')=='0'):?>selected="selected"<?php endif ?>>No</option>
+                            <option value="1" <?php if ($this->get('use_custom_permissions_mode')=='1'):?>selected="selected"<?php endif ?>>Ja</option>
+                            <option value="0" <?php if ($this->get('use_custom_permissions_mode')=='0'):?>selected="selected"<?php endif ?>>Nein</option>
                         </select>
                     </td>
                 </tr>
             </table>
             <table cellspacing="0" class="form-list" id="use_custom_permissions_mode_panel" <?php if ($this->get('use_custom_permissions_mode')=='0'):?>style="display:none;"<?php endif ?>>
                 <tr>
-                    <td class="label">Folders:</td>
+                    <td class="label">Verzeichnisse:</td>
                     <td class="value">
                         <input id="mkdir_mode" name="mkdir_mode" value="<?php echo($this->get('mkdir_mode'));?>" class="input-text" type="text"></input>
                     </td>
                 </tr>
                 <tr>
-                    <td class="label">Files:</td>
+                    <td class="label">Dateien:</td>
                     <td class="value">
                         <input id="chmod_file_mode" name="chmod_file_mode" value="<?php echo($this->get('chmod_file_mode'));?>" class="input-text" type="text"></input>
                     </td>
                 </tr>
             </table>
 
-            <p><strong>Deployment.</strong></p>
+            <p><strong>Bereitstellung</strong></p>
             <table cellspacing="0" class="form-list">
                 <tr>
-                    <td class="label">Deployment Type:</td>
+                    <td class="label">Art der Bereitstellung:</td>
                     <td class="value">
                         <input value="fs" type="radio" name="deployment_type" id="deployment_fs" onclick="changeDeploymentType(this)" <?php if ($this->get('deployment_type')=='fs'):?>checked="checked"<?php endif ?> <?php if ($this->get('fs_disabled')):?>disabled="disabled"<?php endif ?> />
-                        <label for="deployment_fs"> <span class="label">Local Filesystem</span> </label>
+                        <label for="deployment_fs"> <span class="label">Lokales Dateisystem</span> </label>
                     </td>
                 </tr>
                 <tr>
                     <td class="label">&nbsp;</td>
                     <td class="value">
                         <input value="ftp" type="radio" name="deployment_type" id="deployment_ftp" onclick="changeDeploymentType(this)" <?php if ($this->get('deployment_type')=='ftp'):?>checked="checked"<?php endif ?> />
-                        <label for="deployment_ftp"><span class="label">FTP Connection</span></label>
+                        <label for="deployment_ftp"><span class="label">FTP Verbindung</span></label>
                     </td>
                 </tr>
             </table>
             <table cellspacing="0" class="form-list" id="deployment_type_panel" <?php if ($this->get('deployment_type')!='ftp'):?>style="display:none;"<?php endif ?>>
                 <tr>
-                    <td class="label">FTP Host:</td>
+                    <td class="label">FTP Server:</td>
                     <td class="value">
                         <input id="ftp_host" name="ftp_host" value="<?php echo($this->get('ftp_host'));?>" class="input-text" type="text"></input>
                     </td>
                 </tr>
                 <tr>
-                    <td class="label">FTP Login:</td>
+                    <td class="label">FTP Benutzer:</td>
                     <td class="value">
                         <input id="ftp_login" name="ftp_login" value="<?php echo($this->get('ftp_login'));?>" class="input-text" type="text"></input>
                     </td>
                 </tr>
                 <tr>
-                    <td class="label">FTP Password:</td>
+                    <td class="label">FTP Passwort:</td>
                     <td class="value">
                         <input id="ftp_password" name="ftp_password" value="<?php echo($this->get('ftp_password'));?>" class="input-text" type="password"></input>
                     </td>
                 </tr>
                 <tr>
-                    <td class="label">Installation Path:</td>
+                    <td class="label">Installationspfad:</td>
                     <td class="value">
                         <input id="ftp_path" name="ftp_path" value="<?php echo($this->get('ftp_path'));?>" class="input-text" type="text"></input>
                     </td>
                 </tr>
             </table>
 
-            <p><button type="submit">Save Settings</button></p>
+            <p><button type="submit">Einstellungen speichern</button></p>
         </fieldset>
     </form>
 </div>

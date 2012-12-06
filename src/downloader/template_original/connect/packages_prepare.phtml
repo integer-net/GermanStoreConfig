@@ -30,7 +30,7 @@
     $cnt = count($packages);
     if($cnt):
 ?>
-Extension Abh&auml;ngigkeiten
+Extension dependencies
 <form action="<?php
     echo $this->url('connectInstallPackagePost')?>" method="post" target="connect_iframe" onsubmit="onSubmit(this)">
     <input type="hidden" name="install_package_id" value="<?php echo $this->get('package_id'); ?>">
@@ -42,7 +42,7 @@ Extension Abh&auml;ngigkeiten
         <thead>
             <tr>
                 <th class="first">Channel</th>
-                <th class="first">Paket Name</th>
+                <th class="first">Package Name</th>
                 <th>Version</th>
                 <th class="last">Status</th>
             </tr>
@@ -59,8 +59,8 @@ Extension Abh&auml;ngigkeiten
         </tbody>
     </table>
     <div class="form-btn-set">
-        <button class="f-right" type="submit">Fotsetzen</button>
-        <button class="f-right" style="margin-right:10px;" onclick="$('prepare_package_result').update();" type="reset">Installation abbrechen</button>
+        <button class="f-right" type="submit">Proceed</button>
+        <button class="f-right" style="margin-right:10px;" onclick="$('prepare_package_result').update();" type="reset">Cancel installation</button>
     </div>
 </form>
 <?php
