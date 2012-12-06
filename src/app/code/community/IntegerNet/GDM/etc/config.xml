@@ -118,6 +118,9 @@
             <header>
                 <welcome>Herzlich Willkommen!</welcome>
             </header>
+            <theme>
+                <default>modern</default>
+            </theme>
         </design>
         <catalog>
             <custom_options>
@@ -127,7 +130,7 @@
         </catalog>
         <removecustomeraccountlinks>
             <settings>
-                <remove>recurring_profiles,billing_agreements,tags,OAuth Customer Tokens</remove>
+                <remove>recurring_profiles,billing_agreements,OAuth Customer Tokens</remove>
             </settings>
         </removecustomeraccountlinks>
         <persistent>
