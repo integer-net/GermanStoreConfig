@@ -110,6 +110,17 @@
                 </gdm>
             </updates>
         </layout>
+        <events>
+            <core_collection_abstract_load_after>
+                <observers>
+                    <mymodule_collection_load_after>
+                        <type>singleton</type>
+                        <class>gdm/observer</class>
+                        <method>afterLoadCollection</method>
+                    </mymodule_collection_load_after>
+                </observers>
+            </core_collection_abstract_load_after>
+        </events>
     </frontend>
 
     <default>
@@ -175,13 +186,14 @@
         </autoshipping>
         <carriers>
             <flatrate>
-                <title>Pauschale Versandkosten</title>
+                <title>Versandkosten</title>
+                <name>Pauschal</name>
                 <type>O</type>
                 <price>4.90</price>
             </flatrate>
             <freeshipping>
                 <active>1</active>
-                <title>Versandkostenfrei</title>
+                <title>Versandkosten</title>
                 <name>Versandkostenfrei</name>
                 <free_shipping_subtotal>50</free_shipping_subtotal>
             </freeshipping>
