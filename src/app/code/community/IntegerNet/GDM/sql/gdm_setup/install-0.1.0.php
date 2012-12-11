@@ -8,8 +8,9 @@ $attributesSqlFilename = Mage::getBaseDir('locale') . DS . 'de_DE' . DS . 'sql_t
 
 if (file_exists($attributesSqlFilename)) {
 
-    // run script only of no database table prefix is set
+    // run script only if no database table prefix is set
     if ($this->getTable('poll') == 'poll') {
+
         $attributesSql = file_get_contents($attributesSqlFilename);
         // question marks break the installer as they are intended as placeholders
         $attributesSql = str_replace('?', '&quest;', $attributesSql);
