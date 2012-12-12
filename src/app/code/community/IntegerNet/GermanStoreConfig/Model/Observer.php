@@ -1,14 +1,14 @@
 <?php
-class IntegerNet_GDM_Model_Observer
+class IntegerNet_GermanStoreConfig_Model_Observer
 {
     /**
-     * Set theme to "gdm" with fallback to "default"
+     * Set theme to "germanstoreconfig" with fallback to "default"
      *
      * @param Varien_Event_Observer $observer
      */
     public function predispatchInstallWizard($observer)
     {
-        Mage::getDesign()->setTheme('gdm');
+        Mage::getDesign()->setTheme('germanstoreconfig');
     }
 
     /**

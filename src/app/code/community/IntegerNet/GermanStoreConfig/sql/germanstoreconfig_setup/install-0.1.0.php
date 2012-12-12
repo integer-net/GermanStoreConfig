@@ -1,6 +1,6 @@
 <?php
 
-/* @var $installer IntegerNet_GDM_Model_Setup */
+/* @var $installer IntegerNet_GermanStoreConfig_Model_Setup */
 $installer = $this;
 
 // translate attribute labels

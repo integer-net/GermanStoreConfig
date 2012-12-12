@@ -1,12 +1,12 @@
 <?php
 
-class IntegerNet_GDM_Block_Form extends Mage_Adminhtml_Block_Widget
+class IntegerNet_GermanStoreConfig_Block_Form extends Mage_Adminhtml_Block_Widget
 {
     public function __construct()
     {
         parent::__construct();
-        $this->setTemplate('gdm/form.phtml');
-        $this->setTitle(Mage::helper('gdm') ->__('German Distribution for Magento'));
+        $this->setTemplate('germanstoreconfig/form.phtml');
+        $this->setTitle(Mage::helper('germanstoreconfig') ->__('German Distribution for Magento'));
     }
 
     /**

@@ -1,5 +1,5 @@
 <?php
-class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
+class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Adminhtml_Controller_Action
 {
     /**
      * Basic action: setup form
@@ -8,18 +8,18 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
      */
     public function indexAction()
     {
-        $helper = Mage::helper('gdm');
+        $helper = Mage::helper('germanstoreconfig');
 
         $this->_title($helper->__('System'))
             ->_title($helper->__('German Distribution for Magento'));
 
         $this->loadLayout()
-            ->_setActiveMenu('system/gdm')
+            ->_setActiveMenu('system/germanstoreconfig')
             ->_addBreadcrumb($helper->__('German Distribution for Magento'), $helper->__('German Distribution for Magento'));
 
         $this->getLayout()
             ->getBlock('content')
-            ->append($this->getLayout()->createBlock('gdm/form'));
+            ->append($this->getLayout()->createBlock('germanstoreconfig/form'));
 
         $this->getLayout()
             ->getBlock('root')
@@ -48,7 +48,7 @@ class IntegerNet_GDM_GdmController extends Mage_Adminhtml_Controller_Action
         Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Magento was prepared successfully.'));
 
         // Set a config flag to indicate that the setup has been initialized.
-        $this->_setConfigData('gdm/is_initialized', 1);
+        $this->_setConfigData('germanstoreconfig/is_initialized', 1);
 
         $this->_redirect('');
     }

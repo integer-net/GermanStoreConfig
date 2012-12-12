@@ -3,11 +3,11 @@
     <menu>
         <system>
             <children>
-                <gdm translate="title">
-                    <title>German Distribution for Magento</title>
+                <germanstoreconfig translate="title">
+                    <title>German Store Configuration for Magento CE</title>
                     <sort_order>11</sort_order>
-                    <action>adminhtml/gdm</action>
-                </gdm>
+                    <action>adminhtml/germanstoreconfig</action>
+                </germanstoreconfig>
             </children>
         </system>
     </menu>
@@ -17,10 +17,10 @@
                 <children>
                     <system>
                         <children>
-                            <gdm translate="title">
-                                <title>German Distribution for Magento</title>
+                            <germanstoreconfig translate="title">
+                                <title>German Store Configuration for Magento CE</title>
                                 <sort_order>11</sort_order>
-                            </gdm>
+                            </germanstoreconfig>
                         </children>
                     </system>
                 </children>

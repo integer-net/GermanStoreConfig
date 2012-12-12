@@ -1,78 +1,78 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <IntegerNet_GDM>
+        <IntegerNet_GermanStoreConfig>
             <version>0.1.0</version>
-        </IntegerNet_GDM>
+        </IntegerNet_GermanStoreConfig>
     </modules>
     <global>
         <models>
-            <gdm>
-                <class>IntegerNet_GDM_Model</class>
-            </gdm>
+            <germanstoreconfig>
+                <class>IntegerNet_GermanStoreConfig_Model</class>
+            </germanstoreconfig>
         </models>
         <blocks>
-            <gdm>
-                <class>IntegerNet_GDM_Block</class>
-            </gdm>
+            <germanstoreconfig>
+                <class>IntegerNet_GermanStoreConfig_Block</class>
+            </germanstoreconfig>
         </blocks>
         <helpers>
-            <gdm>
-                <class>IntegerNet_GDM_Helper</class>
-            </gdm>
+            <germanstoreconfig>
+                <class>IntegerNet_GermanStoreConfig_Helper</class>
+            </germanstoreconfig>
         </helpers>
         <resources>
-            <gdm_setup>
+            <germanstoreconfig_setup>
                 <setup>
-                    <module>IntegerNet_GDM</module>
-                    <class>gdm/setup</class>
+                    <module>IntegerNet_GermanStoreConfig</module>
+                    <class>germanstoreconfig/setup</class>
                 </setup>
-            </gdm_setup>
+            </germanstoreconfig_setup>
         </resources>
         <events>
             <controller_action_predispatch_install_wizard_index>
                 <observers>
-                    <gdm>
+                    <germanstoreconfig>
                         <type>singleton</type>
-                        <class>gdm/observer</class>
+                        <class>germanstoreconfig/observer</class>
                         <method>predispatchInstallStart</method>
-                    </gdm>
+                    </germanstoreconfig>
                 </observers>
             </controller_action_predispatch_install_wizard_index>
             <controller_action_predispatch_install_index_index>
                 <observers>
-                    <gdm>
+                    <germanstoreconfig>
                         <type>singleton</type>
-                        <class>gdm/observer</class>
+                        <class>germanstoreconfig/observer</class>
                         <method>predispatchInstallStart</method>
-                    </gdm>
+                    </germanstoreconfig>
                 </observers>
             </controller_action_predispatch_install_index_index>
             <controller_action_predispatch_install_wizard_config>
                 <observers>
-                    <gdm>
+                    <germanstoreconfig>
                         <type>singleton</type>
-                        <class>gdm/observer</class>
+                        <class>germanstoreconfig/observer</class>
                         <method>predispatchInstallWizard</method>
-                    </gdm>
+                    </germanstoreconfig>
                 </observers>
             </controller_action_predispatch_install_wizard_config>
             <controller_action_predispatch_install_wizard_administrator>
                 <observers>
-                    <gdm>
+                    <germanstoreconfig>
                         <type>singleton</type>
-                        <class>gdm/observer</class>
+                        <class>germanstoreconfig/observer</class>
                         <method>predispatchInstallWizard</method>
-                    </gdm>
+                    </germanstoreconfig>
                 </observers>
             </controller_action_predispatch_install_wizard_administrator>
             <controller_action_predispatch_install_wizard_end>
                 <observers>
-                    <gdm>
+                    <germanstoreconfig>
                         <type>singleton</type>
-                        <class>gdm/observer</class>
+                        <class>germanstoreconfig/observer</class>
                         <method>predispatchInstallWizard</method>
-                    </gdm>
+                    </germanstoreconfig>
                 </observers>
             </controller_action_predispatch_install_wizard_end>
         </events>
@@ -81,11 +81,11 @@
     <adminhtml>
         <translate>
             <modules>
-                <gdm>
+                <germanstoreconfig>
                     <files>
-                        <default>IntegerNet_GDM.csv</default>
+                        <default>IntegerNet_GermanStoreConfig.csv</default>
                     </files>
-                </gdm>
+                </germanstoreconfig>
             </modules>
         </translate>
     </adminhtml>
@@ -95,7 +95,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <IntegerNet_GDM after="Mage_Adminhtml">IntegerNet_GDM</IntegerNet_GDM>
+                        <IntegerNet_GermanStoreConfig after="Mage_Adminhtml">IntegerNet_GermanStoreConfig</IntegerNet_GermanStoreConfig>
                     </modules>
                 </args>
             </adminhtml>
@@ -105,9 +105,9 @@
     <frontend>
         <layout>
             <updates>
-                <gdm>
-                    <file>gdm.xml</file>
-                </gdm>
+                <germanstoreconfig>
+                    <file>germanstoreconfig.xml</file>
+                </germanstoreconfig>
             </updates>
         </layout>
         <events>
@@ -115,7 +115,7 @@
                 <observers>
                     <mymodule_collection_load_after>
                         <type>singleton</type>
-                        <class>gdm/observer</class>
+                        <class>germanstoreconfig/observer</class>
                         <method>afterLoadCollection</method>
                     </mymodule_collection_load_after>
                 </observers>
@@ -236,7 +236,7 @@
                 <session_cookie_lifetime>36000</session_cookie_lifetime>
             </security>
             <startup>
-                <page>system/gdm</page>
+                <page>system/germanstoreconfig</page>
             </startup>
         </admin>
         <dev>

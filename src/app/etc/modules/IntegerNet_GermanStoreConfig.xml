@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <IntegerNet_GDM>
+        <IntegerNet_GermanStoreConfig>
             <active>true</active>
             <codePool>community</codePool>
             <depends>
@@ -10,7 +10,7 @@
                 <Phoenix_CashOnDelivery />
                 <IntegerNet_RemoveCustomerAccountLinks />
             </depends>
-        </IntegerNet_GDM>
+        </IntegerNet_GermanStoreConfig>
 
         <Mage_Usa>
             <active>false</active>
