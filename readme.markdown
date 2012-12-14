@@ -1,12 +1,12 @@
-German Distribution for Magento (GDM)
+German Store Configuration for Magento CE
 =====================
 A preconfigured Magento CE installation for German Merchants
 
 Facts
 -----
 - version: 0.1.0 (beta)
-- [On GitHub](https://github.com/avstudnitz/GDM)
-- [direct download link](https://github.com/avstudnitz/GDM/archive/master.zip)
+- [On GitHub](https://github.com/integer-net/GermanStoreConfig)
+- [direct download link](https://github.com/integer-net/GermanStoreConfig/archive/master.zip)
 
 Description
 -----------
@@ -21,7 +21,7 @@ A few useful and preconfigured modules are shipped with the distribution:
 - PRWD_Autoshipping (for displaying shipping costs in cart even when no shipping address is entered yet, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/versandkosten-im-warenkorb-anzeigen.html))
 - Phoenix_CashOnDelivery (Payment Method)
 - Mage_Debit (Payment Method)
-- IntegerNet_RemoveCustomerAccountLinks (for hiding unneeded links in customer account)
+- IntegerNet_RemoveCustomerAccountLinks (for hiding unneeded links in customer account, see [this German blog entry](http://www.integer-net.de/benutzerkonto-magento-deaktivieren-von-menupunkten/))
 - AvS_AdminNotificationAdvanced (for better handling of notifications, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/magento-verbesserte-benachrichtigungen-im-admin-bereich.html))
 - AvS_ScopeHint (to show conflicts in configuration, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/warnung-bei-ueberschriebenen-konfigurations-optionen-kostenloses-magento-modul.html))
 
@@ -29,7 +29,6 @@ On top, some core modules are disabled which are not needed for typical German S
 - Mage_Usa
 - Mage_PaypalUk
 - Mage_GoogleCheckout
-- Mage_Tag
 - Mage_ProductAlert
 - Mage_Authorizenet
 - Mage_Centinel
@@ -54,7 +53,7 @@ Uninstallation
 
 Support
 -------
-If you have any issues with this extension, open an issue on [GitHub](https://github.com/avstudnitz/GDM/issues).
+If you have any issues with this extension, open an issue on [GitHub](https://github.com/integer-net/GermanStoreConfig/issues).
 
 Contribution
 ------------
