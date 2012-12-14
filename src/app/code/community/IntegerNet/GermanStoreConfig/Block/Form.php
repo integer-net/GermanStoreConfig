@@ -57,7 +57,7 @@ class IntegerNet_GermanStoreConfig_Block_Form extends Mage_Adminhtml_Block_Widge
                 'type' => 'select',
                 'source_model' => 'adminhtml/system_config_source_country',
                 'name' => 'general__imprint__country',
-                'label' => Mage::helper('germansetup')->__('Country'),
+                'label' => Mage::helper('adminhtml')->__('Country'),
             ),
             array(
                 'type' => 'text',
