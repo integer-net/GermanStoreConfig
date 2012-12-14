@@ -48,31 +48,49 @@
                     </germanstoreconfig>
                 </observers>
             </controller_action_predispatch_install_index_index>
-            <controller_action_predispatch_install_wizard_config>
+            <controller_action_predispatch_install_wizard_begin>
                 <observers>
-                    <germanstoreconfig>
+                    <germanstoreconfig_theme>
                         <type>singleton</type>
                         <class>germanstoreconfig/observer</class>
                         <method>predispatchInstallWizard</method>
-                    </germanstoreconfig>
+                    </germanstoreconfig_theme>
+                </observers>
+            </controller_action_predispatch_install_wizard_begin>
+            <controller_action_predispatch_install_wizard_locale>
+                <observers>
+                    <germanstoreconfig_theme>
+                        <type>singleton</type>
+                        <class>germanstoreconfig/observer</class>
+                        <method>predispatchInstallWizard</method>
+                    </germanstoreconfig_theme>
+                </observers>
+            </controller_action_predispatch_install_wizard_locale>
+            <controller_action_predispatch_install_wizard_config>
+                <observers>
+                    <germanstoreconfig_theme>
+                        <type>singleton</type>
+                        <class>germanstoreconfig/observer</class>
+                        <method>predispatchInstallWizard</method>
+                    </germanstoreconfig_theme>
                 </observers>
             </controller_action_predispatch_install_wizard_config>
             <controller_action_predispatch_install_wizard_administrator>
                 <observers>
-                    <germanstoreconfig>
+                    <germanstoreconfig_theme>
                         <type>singleton</type>
                         <class>germanstoreconfig/observer</class>
                         <method>predispatchInstallWizard</method>
-                    </germanstoreconfig>
+                    </germanstoreconfig_theme>
                 </observers>
             </controller_action_predispatch_install_wizard_administrator>
             <controller_action_predispatch_install_wizard_end>
                 <observers>
-                    <germanstoreconfig>
+                    <germanstoreconfig_theme>
                         <type>singleton</type>
                         <class>germanstoreconfig/observer</class>
                         <method>predispatchInstallWizard</method>
-                    </germanstoreconfig>
+                    </germanstoreconfig_theme>
                 </observers>
             </controller_action_predispatch_install_wizard_end>
         </events>
@@ -264,5 +282,8 @@
                 <merge_css_files>0</merge_css_files>
             </css>
         </dev>
+        <germanstoreconfig>
+            <url>http://de.magentoappfactory.com/deutsche-shopkonfiguration-fuer-magento-ce.html</url>
+        </germanstoreconfig>
     </default>
 </config>

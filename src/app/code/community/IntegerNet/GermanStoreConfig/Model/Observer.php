@@ -78,7 +78,7 @@ class IntegerNet_GermanStoreConfig_Model_Observer
             $htmlBeforeDivider = substr($html, 0, $dividerPos);
             $htmlAfterDivider = substr($html, $dividerPos);
 
-            $linkUrl = '';
+            $linkUrl = Mage::getStoreConfig('germanstoreconfig/url');
             $logoUrl = $this->_getLogoUrl($block);
             $logoAlt = Mage::helper('germanstoreconfig')->__('German Store Configuration for Magento CE');
 
