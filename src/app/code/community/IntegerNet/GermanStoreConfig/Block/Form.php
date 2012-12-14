@@ -36,6 +36,7 @@ class IntegerNet_GermanStoreConfig_Block_Form extends Mage_Adminhtml_Block_Widge
                 'type' => 'text',
                 'name' => 'general__imprint__company_second',
                 'label' => Mage::helper('germansetup')->__('Company 2'),
+                'optional' => true,
             ),
             array(
                 'type' => 'text',
@@ -67,6 +68,7 @@ class IntegerNet_GermanStoreConfig_Block_Form extends Mage_Adminhtml_Block_Widge
                 'type' => 'text',
                 'name' => 'general__imprint__fax',
                 'label' => Mage::helper('germansetup')->__('Fax'),
+                'optional' => true,
             ),
             array(
                 'type' => 'text',
@@ -82,6 +84,7 @@ class IntegerNet_GermanStoreConfig_Block_Form extends Mage_Adminhtml_Block_Widge
                 'type' => 'text',
                 'name' => 'general__imprint__tax_number',
                 'label' => Mage::helper('germansetup')->__('Tax number'),
+                'optional' => true,
             ),
             array(
                 'type' => 'text',
@@ -92,26 +95,31 @@ class IntegerNet_GermanStoreConfig_Block_Form extends Mage_Adminhtml_Block_Widge
                 'type' => 'text',
                 'name' => 'general__imprint__court',
                 'label' => Mage::helper('germansetup')->__('Register court'),
+                'optional' => true,
             ),
             array(
                 'type' => 'text',
                 'name' => 'general__imprint__financial_office',
                 'label' => Mage::helper('germansetup')->__('Financial office'),
+                'optional' => true,
             ),
             array(
                 'type' => 'text',
                 'name' => 'general__imprint__ceo',
                 'label' => Mage::helper('germansetup')->__('CEO'),
+                'optional' => true,
             ),
             array(
                 'type' => 'text',
                 'name' => 'general__imprint__owner',
                 'label' => Mage::helper('germansetup')->__('Owner'),
+                'optional' => true,
             ),
             array(
                 'type' => 'text',
                 'name' => 'general__imprint__register_number',
                 'label' => Mage::helper('germansetup')->__('Register number'),
+                'optional' => true,
             ),
             array(
                 'type' => 'text',

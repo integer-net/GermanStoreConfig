@@ -45,6 +45,11 @@
                                 <input type="text" name="field[<?php echo $field['name'] ?>]" id="field_<?php echo $field['label'] ?>"class="input-text" value="<?php echo $this->getValue($field['name']) ?>" />
                                 <?php endif ?>
                             </td>
+                            <td class="comment">
+                                <?php if (isset($field['optional']) && $field['optional']): ?>
+                                    (<?php echo $this->__('optional') ?>)
+                                <?php endif ?>
+                            </td>
                         </tr>
                     <?php endforeach ?>
                     </tbody>
@@ -66,6 +71,7 @@
                             <td class="value">
                                 <input type="text" name="paypal_email" id="field_paypal_email"class="input-text" value="<?php echo Mage::getStoreConfig('paypal/general/business_account') ?>" />
                             </td>
+                            <td class="comment">(<?php echo $this->__('optional') ?>)</td>
                         </tr>
                     </tbody>
                 </table>
