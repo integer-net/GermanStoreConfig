@@ -216,9 +216,9 @@
             <checkmo>
                 <active>0</active>
             </checkmo>
-            <checkmo>
+            <free>
                 <title>Kostenfrei</title>
-            </checkmo>
+            </free>
             <banktransfer>
                 <active>1</active>
                 <title>Vorkasse</title>

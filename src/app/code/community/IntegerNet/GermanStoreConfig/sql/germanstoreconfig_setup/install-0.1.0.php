@@ -18,9 +18,4 @@ if (file_exists($attributesSqlFilename)) {
     }
 }
 
-// remove all polls
-$installer->run("
-    DELETE FROM {$this->getTable('poll')};
-");
-
 $installer->endSetup();
