@@ -83,7 +83,7 @@ class IntegerNet_GermanStoreConfig_Model_Observer
             $logoAlt = Mage::helper('germanstoreconfig')->__('German Store Configuration for Magento CE');
 
             $newHtml = '<a href="' . $linkUrl . '" target="_blank">';
-            $newHtml .= '<img class="logo" src="' . $logoUrl . '" alt="' . $logoAlt . '';
+            $newHtml .= '<img class="logo" src="' . $logoUrl . '" alt="' . $logoAlt . '" />';
             $newHtml .= '</a>';
 
             $transport->setHtml($htmlBeforeDivider . $newHtml . $htmlAfterDivider);
