@@ -88,6 +88,17 @@
                 </germanstoreconfig>
             </modules>
         </translate>
+        <events>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <germanstoreconfig>
+                        <type>singleton</type>
+                        <class>germanstoreconfig/observer</class>
+                        <method>afterAdminhtmlBlockHtml</method>
+                    </germanstoreconfig>
+                </observers>
+            </core_block_abstract_to_html_after>
+        </events>
     </adminhtml>
 
     <admin>
@@ -238,6 +249,9 @@
             <startup>
                 <page>system/germanstoreconfig</page>
             </startup>
+            <germanstoreconfig>
+                <display_logo>1</display_logo>
+            </germanstoreconfig>
         </admin>
         <dev>
             <log>
