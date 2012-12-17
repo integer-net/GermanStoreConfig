@@ -27,9 +27,6 @@
         <Mage_Centinel>
             <active>false</active>
         </Mage_Centinel>
-        <Mage_Compiler>
-            <active>false</active>
-        </Mage_Compiler>
         <Mage_XmlConnect>
             <active>false</active>
         </Mage_XmlConnect>
