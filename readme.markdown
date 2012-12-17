@@ -29,10 +29,8 @@ On top, some core modules are disabled which are not needed for typical German S
 - Mage_Usa
 - Mage_PaypalUk
 - Mage_GoogleCheckout
-- Mage_ProductAlert
 - Mage_Authorizenet
 - Mage_Centinel
-- Mage_Compiler
 - Mage_XmlConnect
 
 Requirements
