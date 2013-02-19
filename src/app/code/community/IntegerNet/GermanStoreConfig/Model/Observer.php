@@ -5,6 +5,11 @@ class IntegerNet_GermanStoreConfig_Model_Observer
      * Set theme to "germanstoreconfig" with fallback to "default"
      *
      * @param Varien_Event_Observer $observer
+     * @event controller_action_predispatch_install_wizard_begin
+     * @event controller_action_predispatch_install_wizard_locale
+     * @event controller_action_predispatch_install_wizard_config
+     * @event controller_action_predispatch_install_wizard_administrator
+     * @event controller_action_predispatch_install_wizard_end
      */
     public function predispatchInstallWizard($observer)
     {
@@ -15,6 +20,8 @@ class IntegerNet_GermanStoreConfig_Model_Observer
      * Set default Timezone and Currency
      *
      * @param Varien_Event_Observer $observer
+     * @event controller_action_predispatch_install_wizard_index
+     * @event controller_action_predispatch_install_index_index
      */
     public function predispatchInstallStart($observer)
     {
@@ -27,6 +34,7 @@ class IntegerNet_GermanStoreConfig_Model_Observer
      *
      * @param Varien_Event_Observer $observer
      * @return void
+     * @event core_collection_abstract_load_after
      */
     public function afterLoadCollection($observer)
     {
@@ -59,35 +67,6 @@ class IntegerNet_GermanStoreConfig_Model_Observer
             }
         }
         return false;
-    }
-
-    /**
-     * Adds GermanStoreConfig Logo to adminhtml header
-     *
-     * @param Varien_Event_Observer $observer
-     */
-    public function afterAdminhtmlBlockHtml($observer)
-    {
-        $block = $observer->getBlock();
-        if ($block instanceof Mage_Adminhtml_Block_Page_Header && Mage::getStoreConfigFlag('admin/germanstoreconfig/display_logo')) {
-
-            $transport = $observer->getTransport();
-            $html = $transport->getHtml();
-            $divider = '<div class="header-right">';
-            $dividerPos = strpos($html, $divider);
-            $htmlBeforeDivider = substr($html, 0, $dividerPos);
-            $htmlAfterDivider = substr($html, $dividerPos);
-
-            $linkUrl = Mage::getStoreConfig('germanstoreconfig/url');
-            $logoUrl = $this->_getLogoUrl($block);
-            $logoAlt = Mage::helper('germanstoreconfig')->__('German Store Configuration for Magento CE');
-
-            $newHtml = '<a href="' . $linkUrl . '" target="_blank">';
-            $newHtml .= '<img class="logo" src="' . $logoUrl . '" alt="' . $logoAlt . '" style="margin-left: 0;" />';
-            $newHtml .= '</a>';
-
-            $transport->setHtml($htmlBeforeDivider . $newHtml . $htmlAfterDivider);
-        }
     }
 
     /**

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="header">
+            <action method="setTemplate">
+                <template>germanstoreconfig/header.phtml</template>
+            </action>
+            <block type="germanstoreconfig/logo" name="germanstoreconfig.logo" as="logo" template="germanstoreconfig/logo.phtml" />
+        </reference>
+    </default>
+</layout>
