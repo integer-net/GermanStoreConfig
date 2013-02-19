@@ -31,13 +31,14 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
         $this->_title($helper->__('System'))
             ->_title($helper->__('German Store Configuration for Magento CE'));
 
-        $this->loadLayout()
-            ->_addBreadcrumb($helper->__('German Store Configuration for Magento CE'), $helper->__('German Store Configuration for Magento CE'));
-
         if (Mage::getStoreConfigFlag('admin/germanstoreconfig/display_menu')) {
-            $this->getLayout()->_setActiveMenu('germanstoreconfig/dashboard/form');
+            $this->loadLayout()
+                ->_addBreadcrumb($helper->__('German Store Configuration for Magento CE'), $helper->__('German Store Configuration for Magento CE'))
+                ->_setActiveMenu('germanstoreconfig/configuration');
         } else {
-            $this->getLayout()->_setActiveMenu('system/germanstoreconfig');
+            $this->loadLayout()
+                ->_addBreadcrumb($helper->__('German Store Configuration for Magento CE'), $helper->__('German Store Configuration for Magento CE'))
+                ->_setActiveMenu('system/germanstoreconfig');
         }
 
         $this->getLayout()
@@ -126,6 +127,9 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
                     $fieldData['general__imprint__iban'],
                     $fieldData['general__imprint__swift']
                 ));
+                $this->_setConfigData('debitpayment/bankaccount/account_owner', $fieldData['general__imprint__bank_account_owner']);
+                $this->_setConfigData('debitpayment/bankaccount/routing_number', $fieldData['general__imprint__bank_code_number']);
+                $this->_setConfigData('debitpayment/bankaccount/account_number', $fieldData['general__imprint__bank_account']);
 
                 $defaultStore = Mage::getModel('core/store')->load('Default Store View', 'name');
                 if ($defaultStore->getId()) {
