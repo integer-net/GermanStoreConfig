@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <layout>
     <default>
+        <reference name="root">
+            <action method="unsetChild"><name>menu</name></action>
+            <block type="germanstoreconfig/page_menu" name="menu" as="menu"></block>
+        </reference>
         <reference name="header">
             <action method="setTemplate">
                 <template>germanstoreconfig/header.phtml</template>

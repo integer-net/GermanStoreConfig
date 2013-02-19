@@ -265,6 +265,7 @@
             </startup>
             <germanstoreconfig>
                 <display_logo>1</display_logo>
+                <display_menu>1</display_menu>
             </germanstoreconfig>
         </admin>
         <dev>

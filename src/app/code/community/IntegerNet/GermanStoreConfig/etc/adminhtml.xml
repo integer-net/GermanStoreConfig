@@ -10,6 +10,13 @@
                 </germanstoreconfig>
             </children>
         </system>
+        <germanstoreconfig translate="title">
+            <title>German Store Configuration for Magento CE</title>
+            <sort_order>11</sort_order>
+            <action>adminhtml/germanstoreconfig</action>
+            <class>germanstoreconfig</class>
+            <ifconfig>admin/germanstoreconfig/display_menu</ifconfig>
+        </germanstoreconfig>
     </menu>
     <acl>
         <resources>
@@ -23,6 +30,10 @@
                             </germanstoreconfig>
                         </children>
                     </system>
+                    <germanstoreconfig translate="title">
+                        <title>German Store Configuration for Magento CE</title>
+                        <sort_order>11</sort_order>
+                    </germanstoreconfig>
                 </children>
             </admin>
         </resources>
