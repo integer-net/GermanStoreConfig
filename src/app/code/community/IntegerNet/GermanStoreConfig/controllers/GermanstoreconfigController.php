@@ -1,21 +1,44 @@
 <?php
 class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Adminhtml_Controller_Action
 {
-    /**
-     * Basic action: setup form
-     *
-     * @return void
-     */
     public function indexAction()
     {
         $helper = Mage::helper('germanstoreconfig');
 
         $this->_title($helper->__('System'))
-            ->_title($helper->__('German Distribution for Magento'));
+            ->_title($helper->__('German Store Configuration for Magento CE'));
 
         $this->loadLayout()
             ->_setActiveMenu('system/germanstoreconfig')
-            ->_addBreadcrumb($helper->__('German Distribution for Magento'), $helper->__('German Distribution for Magento'));
+            ->_addBreadcrumb($helper->__('German Store Configuration for Magento CE'), $helper->__('German Store Configuration for Magento CE'));
+
+        $this->getLayout()
+            ->getBlock('content')
+            ->append($this->getLayout()->createBlock('adminhtml/template'));
+
+        $this->renderLayout();
+    }
+
+    /**
+     * Basic action: setup form
+     *
+     * @return void
+     */
+    public function formAction()
+    {
+        $helper = Mage::helper('germanstoreconfig');
+
+        $this->_title($helper->__('System'))
+            ->_title($helper->__('German Store Configuration for Magento CE'));
+
+        $this->loadLayout()
+            ->_addBreadcrumb($helper->__('German Store Configuration for Magento CE'), $helper->__('German Store Configuration for Magento CE'));
+
+        if (Mage::getStoreConfigFlag('admin/germanstoreconfig/display_menu')) {
+            $this->getLayout()->_setActiveMenu('germanstoreconfig/dashboard/form');
+        } else {
+            $this->getLayout()->_setActiveMenu('system/germanstoreconfig');
+        }
 
         $this->getLayout()
             ->getBlock('content')

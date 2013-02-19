@@ -261,7 +261,7 @@
                 <session_cookie_lifetime>36000</session_cookie_lifetime>
             </security>
             <startup>
-                <page>system/germanstoreconfig</page>
+                <page>system/germanstoreconfig/form</page>
             </startup>
             <germanstoreconfig>
                 <display_logo>1</display_logo>

@@ -6,16 +6,62 @@
                 <germanstoreconfig translate="title">
                     <title>German Store Configuration for Magento CE</title>
                     <sort_order>11</sort_order>
-                    <action>adminhtml/germanstoreconfig</action>
+                    <action>adminhtml/germanstoreconfig/form</action>
                 </germanstoreconfig>
             </children>
         </system>
-        <germanstoreconfig translate="title">
+        <germanstoreconfig translate="title" module="germanstoreconfig">
             <title>German Store Configuration for Magento CE</title>
             <sort_order>11</sort_order>
             <action>adminhtml/germanstoreconfig</action>
             <class>germanstoreconfig</class>
             <ifconfig>admin/germanstoreconfig/display_menu</ifconfig>
+            <children>
+                <dashboard translate="title" module="germanstoreconfig">
+                    <title>Dashboard</title>
+                    <sort_order>10</sort_order>
+                    <action>adminhtml/germanstoreconfig</action>
+                    <children>
+                        <partner translate="title">
+                            <title>Partners</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/germanstoreconfig/partner</action>
+                        </partner>
+                        <recommendations translate="title">
+                            <title>Recommendations</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/germanstoreconfig/recommendations</action>
+                        </recommendations>
+                        <form translate="title">
+                            <title>Configuration Form</title>
+                            <sort_order>30</sort_order>
+                            <action>adminhtml/germanstoreconfig/form</action>
+                        </form>
+                    </children>
+                </dashboard>
+                <germansetup translate="title">
+                    <title>German Setup</title>
+                    <sort_order>20</sort_order>
+                    <action>adminhtml/germanstoreconfig_germansetup</action>
+                    <children>
+                        <partner translate="title">
+                            <title>Extension Setup</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/germanstoreconfig_germansetup</action>
+                        </partner>
+                        <recommendations translate="title">
+                            <title>Tax Settings</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/germanstoreconfig_germansetup/tax</action>
+                        </recommendations>
+                        <form translate="title">
+                            <title>Checkout Agreements</title>
+                            <sort_order>30</sort_order>
+                            <action>adminhtml/germanstoreconfig_germansetup/agreements</action>
+                        </form>
+                    </children>
+                </germansetup>
+            </children>
         </germanstoreconfig>
     </menu>
     <acl>
