@@ -8,8 +8,8 @@
                     <frontend_type>text</frontend_type>
                     <sort_order>900</sort_order>
                     <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
                     <fields>
                         <display_logo translate="label">
                             <label>Display Logo in Header</label>
@@ -17,8 +17,8 @@
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
                         </display_logo>
                         <display_menu translate="label">
                             <label>Display Entry in Menu</label>
@@ -26,9 +26,18 @@
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
                         </display_menu>
+                        <datatransfer translate="label">
+                            <label>Data Transfer</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>germanstoreconfig/source_datatransfer</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </datatransfer>
                     </fields>
                 </germanstoreconfig>
             </groups>

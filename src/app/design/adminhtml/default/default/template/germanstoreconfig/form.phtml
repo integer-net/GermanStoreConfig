@@ -34,7 +34,7 @@
                                 <select name="field[<?php echo $field['name'] ?>]" id="field_<?php echo $field['label'] ?>" style="width:150px !important;">
                                     <?php $value = $this->getValue($field['name']) ?>
                                     <?php foreach(Mage::getSingleton($field['source_model'])->toOptionArray() as $option): ?>
-                                    <option value="<?php echo $option['value'] ?>"<?php if($option['value'] == $value): ?> selected="selected"<?php endif ?>>
+                                    <option value="<?php echo $option['value'] ?>"<?php if($option['value'] == $value): ?> checked="checked"<?php endif ?>>
                                         <?php echo $option['label'] ?>
                                     </option>
                                     <?php endforeach ?>
@@ -69,9 +69,63 @@
                         <tr>
                             <td class="label"><label for="field_paypal_email"><?php echo $this->__('PayPal Merchant Account Email Address') ?></label></td>
                             <td class="value">
-                                <input type="text" name="paypal_email" id="field_paypal_email"class="input-text" value="<?php echo Mage::getStoreConfig('paypal/general/business_account') ?>" />
+                                <input type="text" name="paypal_email" id="field_paypal_email" class="input-text" value="<?php echo Mage::getStoreConfig('paypal/general/business_account') ?>" />
                             </td>
                             <td class="comment">(<?php echo $this->__('optional') ?>)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Data Transfer') ?></h4>
+            <div class="form-buttons"></div>
+        </div>
+
+        <div class="fieldset" id="group_datatransfer">
+            <div class="hor-scroll">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <tr>
+                            <td class="label" rowspan="3"><label for="field_paypal_email"><?php echo $this->__('Allow Data Transfer') ?></label></td>
+                            <td class="value">
+                                <input
+                                    type="radio"
+                                    name="field[admin__germanstoreconfig__datatransfer]"
+                                    id="field_datatransfer_none"
+                                    value="<?php echo IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_NONE ?>"
+                                    <?php if(Mage::getStoreConfig('admin/germanstoreconfig/datatransfer') == IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_NONE): ?>checked="checked"<?php endif ?>
+                                />
+                                <label for="field_datatransfer_none"><?php echo $this->__('No Data Transfer') ?></label>
+                            </td>
+                            <td class="comment"></td>
+                        </tr>
+                        <tr>
+                            <td class="value">
+                                <input
+                                    type="radio"
+                                    name="field[admin__germanstoreconfig__datatransfer]"
+                                    id="field_datatransfer_basic"
+                                    value="<?php echo IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_BASIC ?>"
+                                    <?php if(Mage::getStoreConfig('admin/germanstoreconfig/datatransfer') == IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_BASIC): ?>checked="checked"<?php endif ?>
+                                />
+                                <label for="field_datatransfer_basic"><?php echo $this->__('Minimum Data Transfer (basic)') ?></label>
+                            </td>
+                            <td class="comment"></td>
+                        </tr>
+                        <tr>
+                            <td class="value">
+                                <input
+                                    type="radio"
+                                    name="field[admin__germanstoreconfig__datatransfer]"
+                                    id="field_datatransfer_advanced"
+                                    value="<?php echo IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_ADVANCED ?>"
+                                    <?php if(Mage::getStoreConfig('admin/germanstoreconfig/datatransfer') == IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_ADVANCED): ?>checked="checked"<?php endif ?>
+                                />
+                                <label for="field_datatransfer_advanced"><?php echo $this->__('Optimum Data Transfer (advanced)') ?></label>
+                            </td>
+                            <td class="comment"></td>
                         </tr>
                     </tbody>
                 </table>

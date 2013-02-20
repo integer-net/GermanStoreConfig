@@ -266,6 +266,7 @@
             <germanstoreconfig>
                 <display_logo>1</display_logo>
                 <display_menu>1</display_menu>
+                <datatransfer>1</datatransfer>
             </germanstoreconfig>
         </admin>
         <dev>
