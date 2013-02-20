@@ -1,0 +1,63 @@
+<?php
+$_qsearch = $this->getRequest()->getParam('qsearch');
+$_website = $this->getRequest()->getParam('website');
+$_store = $this->getRequest()->getParam('store');
+$_section = $this->getRequest()->getParam('section');
+?>
+<label for="treynolds_qconfig_box" >
+        <?php echo $this->__('Quick Search'); ?>
+</label>
+<div class="treynolds_qconfig_box_wrap">
+    <input type="text" onkeyup="qconfig_onkeyup(event);" onkeydown="qconfig_onkeydown(event)" value="<?php echo $this->escapeHtml($this->getRequest()->getParam('qsearch')); ?>" id="treynolds_qconfig_box" class="treynolds_qconfig_box">
+    <div class="treynolds_qconfig_no_results">
+        <?php echo $this->__('No Matches'); ?>
+
+    </div>
+</div>
+
+<a class="treynolds_qconfig_clear" id="treynolds_qconfig_clear" style="display:none" href="#" onclick="qconfig_clear(); return false;">
+    <div class="treynolds_qconfig_loading"></div>
+    &nbsp;
+</a>
+<script type="text/javascript">
+    var qconfig;
+    function qconfig_onkeydown(event){
+        $('treynolds_qconfig_clear').show();
+    }
+    function qconfig_onkeyup(event){
+        //27 is the key code for the ESC key.
+        if(event.which == 27 || event.keyCode == 27){
+            qconfig_clear();
+        }
+        else {
+            var target = (event.currentTarget) ? event.currentTarget : event.srcElement ;
+            qconfig.onkeyup(target);
+        }
+
+    }
+    function qconfig_clear(){
+        qconfig.onescape();
+    }
+    document.observe('dom:loaded',
+            function(){
+                qconfig = new Qconfig(
+                        '<?php echo $this->escapeHtml($this->getUrl('adminhtml/qconfig/search')); ?>',
+                        '<?php echo $this->escapeHtml($_website); ?>',
+                        '<?php echo $this->escapeHtml($_store); ?>',
+                        '<?php echo $this->escapeHtml($_section); ?>'
+                );
+
+                $$('#system_config_tabs dd a').each(function(link){
+                    $(link).observe('click', function(event){
+                        window.location = link.readAttribute('href').replace(/(\?.*$)/,'')+'?qsearch='+$('treynolds_qconfig_box').getValue();
+                        Event.stop(event);
+                    });
+
+                });
+                <?php if(Mage::app()->getRequest()->getParam('qsearch')): ?>
+                qconfig.handle_success(<?php echo Mage::helper('core')->jsonEncode(Mage::helper('qconfig')->getQuickSearchResults($_qsearch, $_section, $_website, $_store));?>, null, null);
+                qconfig.updateclearbutton();
+                <?php endif; ?>
+            }
+    );
+</script>

@@ -24,6 +24,7 @@ A few useful and preconfigured modules are shipped with the distribution:
 - IntegerNet_RemoveCustomerAccountLinks (for hiding unneeded links in customer account, see [this German blog entry](http://www.integer-net.de/benutzerkonto-magento-deaktivieren-von-menupunkten/))
 - AvS_AdminNotificationAdvanced (for better handling of notifications, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/magento-verbesserte-benachrichtigungen-im-admin-bereich.html))
 - AvS_ScopeHint (to show conflicts in configuration, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/warnung-bei-ueberschriebenen-konfigurations-optionen-kostenloses-magento-modul.html))
+- Treynolds_Qconfig (to provide a quick search for the system configuration)
 
 On top, some core modules are disabled which are not needed for typical German Shops:
 - Mage_Usa
