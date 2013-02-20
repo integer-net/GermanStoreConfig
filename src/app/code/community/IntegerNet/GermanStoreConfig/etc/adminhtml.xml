@@ -11,7 +11,7 @@
             </children>
         </system>
         <germanstoreconfig translate="title" module="germanstoreconfig">
-            <title>German Store Configuration for Magento CE</title>
+            <title>Magento DE</title>
             <sort_order>11</sort_order>
             <action>adminhtml/germanstoreconfig</action>
             <class>germanstoreconfig</class>
