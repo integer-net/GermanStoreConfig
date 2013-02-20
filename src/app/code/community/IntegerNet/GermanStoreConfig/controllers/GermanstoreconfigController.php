@@ -164,6 +164,10 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
         $this->_setConfigData('general/region/state_required', '');
         $this->_setConfigData('general/region/display_all', 0);
         $this->_setConfigData('admin/startup/page', 'dashboard');
+
+        if (!Mage::getStoreConfig('germanstoreconfig/installation_id')) {
+            $this->_setConfigData('germanstoreconfig/installation_id', md5(Mage::getBaseUrl()));
+        }
     }
 
     /**

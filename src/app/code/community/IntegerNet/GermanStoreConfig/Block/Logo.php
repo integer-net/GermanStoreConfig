@@ -15,7 +15,12 @@ class IntegerNet_GermanStoreConfig_Block_Logo extends Mage_Adminhtml_Block_Templ
      */
     public function getLinkUrl()
     {
-        return Mage::getStoreConfig('germanstoreconfig/url');
+        $localeCode = Mage::app()->getLocale()->getLocaleCode();
+        if (strpos($localeCode, 'de_') === 0) {
+            return Mage::getStoreConfig('germanstoreconfig/appfactory_url_de');
+        } else {
+            return Mage::getStoreConfig('germanstoreconfig/appfactory_url_en');
+        }
     }
 
     /**

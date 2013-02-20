@@ -281,7 +281,9 @@
             </css>
         </dev>
         <germanstoreconfig>
-            <url>http://de.magentoappfactory.com/deutsche-shopkonfiguration-fuer-magento-ce.html</url>
+            <appfactory_url_de>http://de.magentoappfactory.com/deutsche-shopkonfiguration-fuer-magento-ce.html</appfactory_url_de>
+            <appfactory_url_en>http://www.magentoappfactory.com/german-store-configuration-for-magento-ce.html</appfactory_url_en>
+            <tracking_url>http://magento-de.master.local/germanstoreconfig/tracking</tracking_url>
         </germanstoreconfig>
     </default>
 </config>

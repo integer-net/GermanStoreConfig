@@ -11,5 +11,8 @@
             </action>
             <block type="germanstoreconfig/logo" name="germanstoreconfig.logo" as="logo" template="germanstoreconfig/logo.phtml" />
         </reference>
+        <reference name="before_body_end">
+            <block type="germanstoreconfig/tracking" name="germanstoreconfig.tracking" template="germanstoreconfig/tracking.phtml" after="*" />
+        </reference>
     </default>
 </layout>
