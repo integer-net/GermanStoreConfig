@@ -166,7 +166,10 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
         $this->_setConfigData('admin/startup/page', 'dashboard');
 
         if (!Mage::getStoreConfig('germanstoreconfig/installation_id')) {
+
             $this->_setConfigData('germanstoreconfig/installation_id', md5(Mage::getBaseUrl()));
+            $installationDate = new Zend_Date();
+            $this->_setConfigData('germanstoreconfig/installation_date', $installationDate->get(Zend_Date::ISO_8601));
         }
     }
 
