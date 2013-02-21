@@ -1,7 +1,7 @@
 <?php
 /**
- * @see IntegerNet_GDM_Block_Form
- * @var $this IntegerNet_GDM_Block_Form
+ * @see IntegerNet_GermanStoreConfig_Block_Form
+ * @var $this IntegerNet_GermanStoreConfig_Block_Form
  */
 ?>
 
@@ -34,7 +34,7 @@
                                 <select name="field[<?php echo $field['name'] ?>]" id="field_<?php echo $field['label'] ?>" style="width:150px !important;">
                                     <?php $value = $this->getValue($field['name']) ?>
                                     <?php foreach(Mage::getSingleton($field['source_model'])->toOptionArray() as $option): ?>
-                                    <option value="<?php echo $option['value'] ?>"<?php if($option['value'] == $value): ?> checked="checked"<?php endif ?>>
+                                    <option value="<?php echo $option['value'] ?>"<?php if($option['value'] == $value): ?> selected="selected"<?php endif ?>>
                                         <?php echo $option['label'] ?>
                                     </option>
                                     <?php endforeach ?>

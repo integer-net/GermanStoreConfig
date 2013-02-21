@@ -59,20 +59,30 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
      */
     public function saveAction()
     {
-        $this->_deactivateCache();
+        if (!Mage::getStoreConfig('germanstoreconfig/is_initialized')) {
+            $this->_deactivateCache();
+        }
 
         $this->_updateConfigData();
 
-        $this->_markNotificationsAsRead();
+        if (!Mage::getStoreConfig('germanstoreconfig/is_initialized')) {
 
-        $this->_runGermanSetup();
+            $this->_markNotificationsAsRead();
 
-        $this->_reindexAll();
+            $this->_runGermanSetup();
 
-        Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Magento was prepared successfully.'));
+            $this->_reindexAll();
 
-        // Set a config flag to indicate that the setup has been initialized.
-        $this->_setConfigData('germanstoreconfig/is_initialized', 1);
+            Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Magento was prepared successfully.'));
+
+            // Set a config flag to indicate that the setup has been initialized.
+            $this->_setConfigData('germanstoreconfig/is_initialized', 1);
+
+        } else {
+
+            Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Your data was saved successfully.'));
+        }
+
 
         $this->_redirect('');
     }
@@ -165,7 +175,7 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
         $this->_setConfigData('general/region/display_all', 0);
         $this->_setConfigData('admin/startup/page', 'dashboard');
 
-        if (!Mage::getStoreConfig('germanstoreconfig/installation_id')) {
+        if (!Mage::getStoreConfig('germanstoreconfig/is_initialized')) {
 
             $this->_setConfigData('germanstoreconfig/installation_id', md5(Mage::getBaseUrl()));
             date_default_timezone_set(Mage::getStoreConfig('general/locale/timezone'));
