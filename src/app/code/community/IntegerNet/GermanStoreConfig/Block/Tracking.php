@@ -16,10 +16,10 @@ class IntegerNet_GermanStoreConfig_Block_Tracking extends Mage_Adminhtml_Block_T
 
             case IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_ADVANCED:
 
-                $params['gdm_version'] = (string)Mage::app()->getConfig()->getNode('modules/IntegerNet_GermanStoreConfig/version');
-                $params['magento_version'] = (string)Mage::getVersion();
                 $params['installation_date'] = Mage::getStoreConfig('germanstoreconfig/installation_date');
                 $params['installation_url'] = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
+                $params['gsc_version'] = (string)Mage::app()->getConfig()->getNode('modules/IntegerNet_GermanStoreConfig/version');
+                $params['magento_version'] = (string)Mage::getVersion();
                 $params['shop_name'] = Mage::getStoreConfig('general/imprint/shop_name');
                 $params['company_first'] = Mage::getStoreConfig('general/imprint/company_first');
                 $params['company_second'] = Mage::getStoreConfig('general/imprint/company_second');
@@ -56,7 +56,7 @@ class IntegerNet_GermanStoreConfig_Block_Tracking extends Mage_Adminhtml_Block_T
      */
     public function showTracking()
     {
-        if (Mage::getStoreConfig('germanstoreconfig/installation_id')) {
+        if (!Mage::getStoreConfig('germanstoreconfig/installation_id')) {
             return false;
         }
 
@@ -69,6 +69,7 @@ class IntegerNet_GermanStoreConfig_Block_Tracking extends Mage_Adminhtml_Block_T
             return true;
         }
 
+        date_default_timezone_set(Mage::getStoreConfig('general/locale/timezone'));
         $lastTransferDateObject = new Zend_Date();
         $lastTransferDateObject->set($lastTransferDate, Zend_Date::ISO_8601);
 
