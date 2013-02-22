@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ikonoshirt_CustomAdminNotifications>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_AdminNotification />
+            </depends>
+        </Ikonoshirt_CustomAdminNotifications>
+    </modules>
+</config>
