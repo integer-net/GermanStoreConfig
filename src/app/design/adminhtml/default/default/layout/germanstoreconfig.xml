@@ -15,4 +15,10 @@
             <block type="germanstoreconfig/tracking" name="germanstoreconfig.tracking" template="germanstoreconfig/tracking.phtml" after="*" />
         </reference>
     </default>
+
+    <adminhtml_germanstoreconfig_news>
+        <reference name="content">
+            <block type="germanstoreconfig/news" name="germanstoreconfig.news" template="germanstoreconfig/news.phtml" />
+        </reference>
+    </adminhtml_germanstoreconfig_news>
 </layout>

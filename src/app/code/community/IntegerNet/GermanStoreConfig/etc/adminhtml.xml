@@ -32,6 +32,11 @@
                             <sort_order>20</sort_order>
                             <action>adminhtml/germanstoreconfig/recommendations</action>
                         </recommendations>
+                        <news translate="title">
+                            <title>News</title>
+                            <sort_order>30</sort_order>
+                            <action>adminhtml/germanstoreconfig/news</action>
+                        </news>
                     </children>
                 </dashboard>
                 <germansetup translate="title">

@@ -267,4 +267,18 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
 
         $cache->saveOptions($newOptions);
     }
+
+    public function newsAction()
+    {
+        $helper = Mage::helper('germanstoreconfig');
+
+        $this->_title($helper->__('German Store Configuration for Magento CE'))
+            ->_title($helper->__('News'));
+
+        $this->loadLayout()
+            ->_setActiveMenu('germanstoreconfig/news')
+            ->_addBreadcrumb($helper->__('News'), $helper->__('News'));
+
+        $this->renderLayout();
+    }
 }
