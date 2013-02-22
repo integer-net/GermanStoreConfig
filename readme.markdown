@@ -25,6 +25,7 @@ A few useful and preconfigured modules are shipped with the distribution:
 - AvS_AdminNotificationAdvanced (for better handling of notifications, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/magento-verbesserte-benachrichtigungen-im-admin-bereich.html))
 - AvS_ScopeHint (to show conflicts in configuration, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/warnung-bei-ueberschriebenen-konfigurations-optionen-kostenloses-magento-modul.html))
 - Treynolds_Qconfig (to provide a quick search for the system configuration)
+- Ikonoshirt_CustomAdminNotifications (to allow integration of additional news feeds)
 
 On top, some core modules are disabled which are not needed for typical German Shops:
 - Mage_Usa
@@ -81,4 +82,4 @@ Thanks to
 - the [FireGento team](https://github.com/firegento) for [GermanSetup](https://github.com/firegento/firegento-germansetup) and [FireGento_Pdf](https://github.com/firegento/firegento-pdf)
 - Rico Neitzel and Daniel Sasse for the [German Language Pack](https://github.com/riconeitzel/German_LocalePack_de_DE)
 - [Phoenix Media](http://www.phoenix-media.eu) and [ITABS](http://www.itabs.de) for the payment modules
-- Fabian Blechschmidt for [ideas regarding the default configuration](https://github.com/Schrank/DefaultDeveloperConfig)
+- Fabian Blechschmidt for [ideas regarding the default configuration](https://github.com/Schrank/DefaultDeveloperConfig) and his [module for allowing additional admin news feeds](https://github.com/ikonoshirt/CustomAdminNotifications)
