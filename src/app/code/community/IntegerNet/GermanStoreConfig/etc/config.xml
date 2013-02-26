@@ -264,6 +264,8 @@
                 <shippingallowspecific>1</shippingallowspecific>
                 <shippingspecificcountry>DE</shippingspecificcountry>
                 <inlandcosts>2</inlandcosts>
+                <customtext>Bei Zahlung per Nachnahme erhebt der Zusteller zusätzlich 2,00 €
+                    Übermittlungsentgelt vor Ort.</customtext>
             </cashondelivery>
         </payment>
         <admin>

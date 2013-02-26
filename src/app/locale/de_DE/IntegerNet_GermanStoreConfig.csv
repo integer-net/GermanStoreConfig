@@ -4,7 +4,7 @@
 "Shop Data","Shop-Daten"
 "Magento was prepared successfully.","Magento wurde erfolgreich vorbereitet."
 "Your data was saved successfully.","Ihre Daten wurden erfolgreich gespeichert."
-"After completion of this order, please transfer the order amount to: %s, Account %s, Bank number %s, %s (IBAN %s, SWIFT %s)","Bitte überweisen Sie den Bestellbetrag nach Abschluss dieser Bestellung an: %s, Kto. %s, BLZ %s, %s (IBAN %s, SWIFT %s)."
+"After completion of this order, please transfer the order amount to: %s, Account %s, Bank number %s, %s (IBAN %s, SWIFT %s)","Unsere Bankverbindung: %s, Kto. %s, BLZ %s, %s (IBAN %s, SWIFT %s)."
 "PayPal Merchant Account Email Address","Email-Adresse des PayPal-Händleraccounts"
 "Default Category","Standard-Kategorie"
 "Display Logo in Header","Logo im Header anzeigen"
