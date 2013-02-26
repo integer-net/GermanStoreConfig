@@ -180,6 +180,12 @@
                 <date_fields_order>d,m,y</date_fields_order>
             </custom_options>
         </catalog>
+        <sales>
+            <reorder>
+                <allow>0</allow>
+                <hide_sidebar_box>1</hide_sidebar_box>
+            </reorder>
+        </sales>
         <removecustomeraccountlinks>
             <settings>
                 <remove>recurring_profiles,billing_agreements,tags,OAuth Customer Tokens</remove>
