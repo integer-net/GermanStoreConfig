@@ -123,3 +123,5 @@
 "You could enable this option to use web server rewrites functionality for improved search engines optimization.","Sie können für eine verbesserte Suchmaschinenunterstützung die folgende Option für serverseitige URL-Rewrites aktivieren."
 "You're All Set","Das war es schon, alles eingerichtet!"
 "You're All Set!","Das war es schon, alles eingerichtet!"
+"Please go to <a href=""%s"" target=""_blank"">Backend</a> now in order to complete the preconfiguration.","Bitte gehen Sie jetzt zum <a href=""%s"" target=""_blank"">AdminPanel</a>, um die Vorkonfiguration abzuschließen."
+"German Store Configuration for Magento CE","Deutsche Shopkonfiguration für Magento CE"
