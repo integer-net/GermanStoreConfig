@@ -36,6 +36,10 @@ class IntegerNet_GermanStoreConfig_Block_Page_Menu extends Mage_Adminhtml_Block_
                 continue;
             }
 
+            if ($child->unlessconfig && Mage::getStoreConfigFlag((string)$child->unlessconfig)) {
+                continue;
+            }
+
             $menuArr = array();
 
             $menuArr['label'] = $this->_getHelperValue($child);

@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Der Modulprogrammierer - Vinai Kopp, Rico Neitzel GbR
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   DerModPro
+ * @package    DerModPro_BasePrice
+ * @copyright  Copyright (c) 2009 Der Modulprogrammierer - Vinai Kopp, Rico Neitzel GbR http://der-modulprogrammierer.de/
+ * @copyright  Copyright (c) 2012 Netresearch GmbH 
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <sections>
+        <catalog translate="label" module="catalog"> 
+			<show_in_store>1</show_in_store>
+            <groups>
+                <baseprice translate="label">
+                    <label>Baseprice Extension</label>
+                    <sort_order>755</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <disable_ext translate="label">
+                            <label>Disable BasePrice Extension</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </disable_ext>
+                        <frontend_label translate="label">
+                            <label>Frontend Label</label>
+                            <comment>What the customer sees</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </frontend_label>
+                        <short_label translate="label">
+                            <label>Short frontend Label</label>
+                            <comment>What the customer sees in the product list view (if configured)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </short_label>
+                        <base_price_incl_tax translate="label">
+                            <label>Calculate the base price based on the product price including tax</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </base_price_incl_tax>
+                        <default_base_price_unit translate="label">
+                            <label>The default packaging unit to use on products for the base price (can be set on a product level, too)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>baseprice/config_source_baseprice_unit</source_model>
+                            <backend_model>baseprice/config_data_baseprice_unit</backend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_base_price_unit>
+                        <default_base_price_base_unit translate="label">
+                            <label>The default reference unit for the base price (can be set on a product level, too)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>baseprice/config_source_baseprice_unit</source_model>
+                            <backend_model>baseprice/config_data_baseprice_unit</backend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_base_price_base_unit>
+                        <default_base_price_base_amount translate="label">
+                            <label>The default reference amount for the reference unit (can be set on a product level, too)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </default_base_price_base_amount>
+                        <auto_append_base_price translate="label">
+                            <label>Automatically append the baseprice block to the price on the product view</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </auto_append_base_price>
+                    </fields>
+                </baseprice>				
+            </groups>
+        </catalog>
+    </sections>
+</config>

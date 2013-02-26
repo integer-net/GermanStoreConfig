@@ -179,6 +179,10 @@
                 <time_format>24h</time_format>
                 <date_fields_order>d,m,y</date_fields_order>
             </custom_options>
+            <baseprice>
+                <base_price_incl_tax>1</base_price_incl_tax>
+                <frontend_label>entspricht {{baseprice}} pro {{reference_amount}} {{reference_unit}}</frontend_label>
+            </baseprice>
         </catalog>
         <sales>
             <reorder>

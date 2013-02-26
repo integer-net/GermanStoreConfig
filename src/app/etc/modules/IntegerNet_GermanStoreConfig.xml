@@ -6,6 +6,7 @@
             <codePool>community</codePool>
             <depends>
                 <FireGento_GermanSetup />
+                <DerModPro_BasePrice />
                 <PRWD_Autoshipping />
                 <Phoenix_CashOnDelivery />
                 <IntegerNet_RemoveCustomerAccountLinks />

@@ -85,9 +85,22 @@
                         </setup>
                     </children>
                 </autoshipping>
+                <baseprice translate="title">
+                    <title>Base Price</title>
+                    <sort_order>60</sort_order>
+                    <action>adminhtml/germanstoreconfig_baseprice</action>
+                    <unlessconfig>catalog/baseprice/disable_ext</unlessconfig>
+                    <children>
+                        <setup translate="title">
+                            <title>Extension Setup</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/germanstoreconfig_baseprice</action>
+                        </setup>
+                    </children>
+                </baseprice>
                 <cashondelivery translate="title">
                     <title>Cash On Delivery</title>
-                    <sort_order>60</sort_order>
+                    <sort_order>70</sort_order>
                     <action>adminhtml/germanstoreconfig_cashondelivery</action>
                     <children>
                         <setup translate="title">
@@ -99,7 +112,7 @@
                 </cashondelivery>
                 <debit translate="title">
                     <title>Debit</title>
-                    <sort_order>70</sort_order>
+                    <sort_order>80</sort_order>
                     <action>adminhtml/germanstoreconfig_debit</action>
                     <children>
                         <setup translate="title">
@@ -116,7 +129,7 @@
                 </debit>
                 <removecustomeraccountlinks translate="title" module="germanstoreconfig">
                     <title>Remove Customer Account Links</title>
-                    <sort_order>80</sort_order>
+                    <sort_order>90</sort_order>
                     <action>adminhtml/germanstoreconfig_removecustomeraccountlinks</action>
                     <children>
                         <setup translate="title">
@@ -131,7 +144,6 @@
                     <sort_order>190</sort_order>
                     <action>adminhtml/germanstoreconfig/form</action>
                 </configuration>
-
             </children>
         </germanstoreconfig>
     </menu>
