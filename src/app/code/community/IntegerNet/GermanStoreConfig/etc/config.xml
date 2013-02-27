@@ -138,13 +138,22 @@
         <events>
             <core_collection_abstract_load_after>
                 <observers>
-                    <mymodule_collection_load_after>
+                    <integernet_germanstoreconfig>
                         <type>singleton</type>
                         <class>germanstoreconfig/observer</class>
                         <method>afterLoadCollection</method>
-                    </mymodule_collection_load_after>
+                    </integernet_germanstoreconfig>
                 </observers>
             </core_collection_abstract_load_after>
+            <cms_page_load_after>
+                <observers>
+                    <integernet_germanstoreconfig>
+                        <type>singleton</type>
+                        <class>germanstoreconfig/observer</class>
+                        <method>afterLoadCmsPage</method>
+                    </integernet_germanstoreconfig>
+                </observers>
+            </cms_page_load_after>
         </events>
     </frontend>
 
@@ -161,6 +170,7 @@
             </store_information>
             <imprint>
                 <country>DE</country>
+                <display_copyright>1</display_copyright>
             </imprint>
         </general>
         <design>

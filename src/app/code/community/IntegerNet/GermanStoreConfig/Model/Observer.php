@@ -84,4 +84,21 @@ class IntegerNet_GermanStoreConfig_Model_Observer
             return $block->getSkinUrl('images/logo-germanstoreconfig-en.gif');
         }
     }
+
+    /**
+     * @param Varien_Event_Observer $observer
+     * @event cms_page_load_after
+     */
+    public function afterLoadCmsPage(Varien_Event_Observer $observer)
+    {
+        /** @var $page Mage_Cms_Model_Page */
+        $page = $observer->getObject();
+        if ($page->getIdentifier() == 'impressum' && Mage::getStoreConfigFlag('general/imprint/display_copyright')) {
+            $copyrightHtml = Mage::app()->getLayout()
+                ->createBlock('core/template', 'copyright')
+                ->setTemplate('germanstoreconfig/copyright.phtml')
+                ->toHtml();
+            $page->setContent($page->getContent() . $copyrightHtml);
+        }
+    }
 }

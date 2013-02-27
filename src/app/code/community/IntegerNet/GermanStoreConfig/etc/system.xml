@@ -42,5 +42,22 @@
                 </germanstoreconfig>
             </groups>
         </admin>
+        <general>
+            <groups>
+                <imprint>
+                    <fields>
+                        <display_copyright translate="label">
+                            <label>Display Copyright Notice in Imprint</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_copyright>
+                    </fields>
+                </imprint>
+            </groups>
+        </general>
     </sections>
 </config>
