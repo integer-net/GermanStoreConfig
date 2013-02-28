@@ -18,11 +18,11 @@
                                     <sort_order>10</sort_order>
                                     <action>adminhtml/germanstoreconfig/partner</action>
                                 </partner>
-                                <recommendations translate="title">
-                                    <title>Recommendations</title>
+                                <suggestions translate="title">
+                                    <title>Suggestions</title>
                                     <sort_order>20</sort_order>
-                                    <action>adminhtml/germanstoreconfig/recommendations</action>
-                                </recommendations>
+                                    <action>adminhtml/germanstoreconfig/suggestions</action>
+                                </suggestions>
                                 <news translate="title">
                                     <title>News</title>
                                     <sort_order>30</sort_order>
@@ -156,11 +156,11 @@
                             <sort_order>10</sort_order>
                             <action>adminhtml/germanstoreconfig/partner</action>
                         </partner>
-                        <recommendations translate="title">
-                            <title>Recommendations</title>
+                        <suggestions translate="title">
+                            <title>Suggestions</title>
                             <sort_order>20</sort_order>
-                            <action>adminhtml/germanstoreconfig/recommendations</action>
-                        </recommendations>
+                            <action>adminhtml/germanstoreconfig/suggestions</action>
+                        </suggestions>
                         <news translate="title">
                             <title>News</title>
                             <sort_order>30</sort_order>

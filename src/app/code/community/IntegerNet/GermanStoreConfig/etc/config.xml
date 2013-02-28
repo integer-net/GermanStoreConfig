@@ -320,6 +320,8 @@
             <integernet_url_en>http://www.integer-net.de/</integernet_url_en>
             <tracking_url>http://magento-de.master.local/germanstoreconfig/tracking</tracking_url>
             <newsfeed_url>http://magento-de.master.local/media/germanstoreconfig/feed.xml</newsfeed_url>
+            <iframe_url_prefix>https://www.nr-apps.com/n/magento-de/</iframe_url_prefix>
+            <iframe_url_suffix>.html</iframe_url_suffix>
         </germanstoreconfig>
         <ikonoshirt>
             <custom_rss_feeds>

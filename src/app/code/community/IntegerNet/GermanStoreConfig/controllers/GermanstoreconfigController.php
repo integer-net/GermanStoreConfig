@@ -6,15 +6,82 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
         $helper = Mage::helper('germanstoreconfig');
 
         $this->_title($helper->__('System'))
-            ->_title($helper->__('German Store Configuration for Magento CE'));
+            ->_title($helper->__('German Store Configuration for Magento CE'))
+            ->_title($helper->__('Dashboard'));
 
         $this->loadLayout()
-            ->_setActiveMenu('system/germanstoreconfig')
-            ->_addBreadcrumb($helper->__('German Store Configuration for Magento CE'), $helper->__('German Store Configuration for Magento CE'));
+            ->_setActiveMenu('system/germanstoreconfig/dashboard/partner')
+            ->_addBreadcrumb($helper->__('Dashboard - German Store Configuration for Magento CE'), $helper->__('Dashboard - German Store Configuration for Magento CE'));
+
+        $iframeUrl = Mage::getStoreConfig('germanstoreconfig/iframe_url_prefix')
+            . $this->_getLanguageUrlPart()
+            . '/dashboard'
+            . Mage::getStoreConfig('germanstoreconfig/iframe_url_suffix');
 
         $this->getLayout()
             ->getBlock('content')
-            ->append($this->getLayout()->createBlock('adminhtml/template'));
+            ->append(
+                $this->getLayout()
+                    ->createBlock('adminhtml/template')
+                    ->setTemplate('germanstoreconfig/iframe.phtml')
+                    ->setIframeUrl($iframeUrl)
+            );
+
+        $this->renderLayout();
+    }
+
+    public function partnerAction()
+    {
+        $helper = Mage::helper('germanstoreconfig');
+
+        $this->_title($helper->__('System'))
+            ->_title($helper->__('German Store Configuration for Magento CE'))
+            ->_title($helper->__('Partners'));
+
+        $this->loadLayout()
+            ->_setActiveMenu('system/germanstoreconfig/dashboard/partner')
+            ->_addBreadcrumb($helper->__('Partners - German Store Configuration for Magento CE'), $helper->__('Partners - German Store Configuration for Magento CE'));
+
+        $iframeUrl = Mage::getStoreConfig('germanstoreconfig/iframe_url_prefix')
+            . $this->_getLanguageUrlPart()
+            . '/exclusive-partners'
+            . Mage::getStoreConfig('germanstoreconfig/iframe_url_suffix');
+        $this->getLayout()
+            ->getBlock('content')
+            ->append(
+                $this->getLayout()
+                    ->createBlock('adminhtml/template')
+                    ->setTemplate('germanstoreconfig/iframe.phtml')
+                    ->setIframeUrl($iframeUrl)
+            );
+
+        $this->renderLayout();
+    }
+
+    public function suggestionsAction()
+    {
+        $helper = Mage::helper('germanstoreconfig');
+
+        $this->_title($helper->__('System'))
+            ->_title($helper->__('German Store Configuration for Magento CE'))
+            ->_title($helper->__('Suggestions'));
+
+        $this->loadLayout()
+            ->_setActiveMenu('system/germanstoreconfig/dashboard/partner')
+            ->_addBreadcrumb($helper->__('Suggestions - German Store Configuration for Magento CE'), $helper->__('Suggestions - German Store Configuration for Magento CE'));
+
+        $iframeUrl = Mage::getStoreConfig('germanstoreconfig/iframe_url_prefix')
+            . $this->_getLanguageUrlPart()
+            . '/suggestions'
+            . Mage::getStoreConfig('germanstoreconfig/iframe_url_suffix');
+        $this->getLayout()
+            ->getBlock('content')
+            ->append(
+                $this->getLayout()
+                    ->createBlock('adminhtml/template')
+                    ->setTemplate('germanstoreconfig/iframe.phtml')
+                    ->setIframeUrl($iframeUrl)
+            );
 
         $this->renderLayout();
     }
@@ -280,5 +347,18 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
             ->_addBreadcrumb($helper->__('News'), $helper->__('News'));
 
         $this->renderLayout();
+    }
+
+    /**
+     * @return string
+     */
+    protected function _getLanguageUrlPart()
+    {
+        $localeCode = Mage::app()->getLocale()->getLocaleCode();
+        if (strpos($localeCode, 'de_') === 0) {
+            return 'de';
+        } else {
+            return 'en';
+        }
     }
 }
