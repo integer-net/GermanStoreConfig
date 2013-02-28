@@ -32,9 +32,9 @@ class IntegerNet_GermanStoreConfig_Block_Logo extends Mage_Adminhtml_Block_Templ
     {
         $localeCode = Mage::app()->getLocale()->getLocaleCode();
         if (strpos($localeCode, 'de_') === 0) {
-            return $this->getSkinUrl('images/logo-germanstoreconfig-de.gif');
+            return $this->getSkinUrl('germanstoreconfig/logo-germanstoreconfig-de.png');
         } else {
-            return $this->getSkinUrl('images/logo-germanstoreconfig-en.gif');
+            return $this->getSkinUrl('germanstoreconfig/logo-germanstoreconfig-de.png');
         }
     }
 

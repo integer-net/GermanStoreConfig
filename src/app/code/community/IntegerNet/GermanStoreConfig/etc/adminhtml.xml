@@ -4,9 +4,10 @@
         <system>
             <children>
                 <germanstoreconfig translate="title">
-                    <title>German Store Configuration for Magento CE</title>
+                    <title>Magento DE</title>
                     <sort_order>11</sort_order>
                     <action>adminhtml/germanstoreconfig/form</action>
+                    <class>germanstoreconfig</class>
                     <children>
                         <dashboard translate="title" module="germanstoreconfig">
                             <title>Dashboard</title>

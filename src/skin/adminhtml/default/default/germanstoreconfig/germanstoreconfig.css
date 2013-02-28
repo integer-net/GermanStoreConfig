@@ -1,0 +1,12 @@
+#nav li.germanstoreconfig > a {
+    background: url('magento-de_flag.png') no-repeat 8px 4px !important;
+}
+#nav ul li.germanstoreconfig > a {
+    background: url('magento-de_flag.png') no-repeat 13px 4px !important;
+}
+#nav li.germanstoreconfig > a span {
+    padding-left: 20px;
+}
+#nav ul li.germanstoreconfig > a span {
+    padding-left: 35px;
+}

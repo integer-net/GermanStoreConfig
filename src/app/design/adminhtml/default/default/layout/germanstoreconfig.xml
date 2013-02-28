@@ -5,6 +5,9 @@
             <action method="unsetChild"><name>menu</name></action>
             <block type="germanstoreconfig/page_menu" name="menu" as="menu" />
         </reference>
+        <reference name="head">
+            <action method="addCss"><name>germanstoreconfig/germanstoreconfig.css</name></action>
+        </reference>
         <reference name="header">
             <action method="setTemplate">
                 <template>germanstoreconfig/header.phtml</template>
