@@ -5,12 +5,11 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
     {
         $helper = Mage::helper('germanstoreconfig');
 
-        $this->_title($helper->__('System'))
-            ->_title($helper->__('German Store Configuration for Magento CE'))
+        $this->_title($helper->__('German Store Configuration for Magento CE'))
             ->_title($helper->__('Dashboard'));
 
         $this->loadLayout()
-            ->_setActiveMenu('system/germanstoreconfig/dashboard/partner')
+            ->_setActiveMenu('germanstoreconfig/dashboard')
             ->_addBreadcrumb($helper->__('Dashboard - German Store Configuration for Magento CE'), $helper->__('Dashboard - German Store Configuration for Magento CE'));
 
         $iframeUrl = Mage::getStoreConfig('germanstoreconfig/iframe_url_prefix')
@@ -34,12 +33,11 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
     {
         $helper = Mage::helper('germanstoreconfig');
 
-        $this->_title($helper->__('System'))
-            ->_title($helper->__('German Store Configuration for Magento CE'))
+        $this->_title($helper->__('German Store Configuration for Magento CE'))
             ->_title($helper->__('Partners'));
 
         $this->loadLayout()
-            ->_setActiveMenu('system/germanstoreconfig/dashboard/partner')
+            ->_setActiveMenu('germanstoreconfig/dashboard/partner')
             ->_addBreadcrumb($helper->__('Partners - German Store Configuration for Magento CE'), $helper->__('Partners - German Store Configuration for Magento CE'));
 
         $iframeUrl = Mage::getStoreConfig('germanstoreconfig/iframe_url_prefix')
@@ -62,12 +60,11 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
     {
         $helper = Mage::helper('germanstoreconfig');
 
-        $this->_title($helper->__('System'))
-            ->_title($helper->__('German Store Configuration for Magento CE'))
+        $this->_title($helper->__('German Store Configuration for Magento CE'))
             ->_title($helper->__('Suggestions'));
 
         $this->loadLayout()
-            ->_setActiveMenu('system/germanstoreconfig/dashboard/partner')
+            ->_setActiveMenu('germanstoreconfig/dashboard/suggestions')
             ->_addBreadcrumb($helper->__('Suggestions - German Store Configuration for Magento CE'), $helper->__('Suggestions - German Store Configuration for Magento CE'));
 
         $iframeUrl = Mage::getStoreConfig('germanstoreconfig/iframe_url_prefix')
