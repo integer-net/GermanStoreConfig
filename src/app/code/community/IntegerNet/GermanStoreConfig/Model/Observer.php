@@ -95,7 +95,7 @@ class IntegerNet_GermanStoreConfig_Model_Observer
         $page = $observer->getObject();
         if ($page->getIdentifier() == 'impressum' && Mage::getStoreConfigFlag('general/imprint/display_copyright')) {
             $copyrightHtml = Mage::app()->getLayout()
-                ->createBlock('core/template', 'copyright')
+                ->createBlock('germanstoreconfig/frontend_copyright', 'copyright')
                 ->setTemplate('germanstoreconfig/copyright.phtml')
                 ->toHtml();
             $page->setContent($page->getContent() . $copyrightHtml);

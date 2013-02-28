@@ -1,7 +1,8 @@
-<?php /** @var $this Mage_Core_Block_Template */ ?>
+<?php /** @var $this IntegerNet_GermanStoreConfig_Block_Frontend_Copyright */ ?>
 
 <p>
-    <?php echo $this->__('powered by <a href="%s" target="_blank">Netresearch App Factory</a> &amp; <a href="%s" target="_blank">integer_net</a>',
-        'http://www.nr-apps.com/store/',
-        'http://www.integer-net.de') ?>
+    <?php echo Mage::helper('germanstoreconfig')->__('<a href="%s" target="_blank">Magento DE</a> is a project of the Magento community powered by <a href="%s" target="_blank">Netresearch App Factory</a> &amp; <a href="%s" target="_blank">integer_net</a>',
+        $this->getMagentoDEUrl(),
+        $this->getAppFactoryUrl(),
+        $this->getIntegerNetUrl()) ?>
 </p>
