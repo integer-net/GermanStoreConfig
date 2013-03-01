@@ -163,6 +163,15 @@
                     </integernet_germanstoreconfig>
                 </observers>
             </cms_page_load_after>
+            <checkout_additional_information>
+                <observers>
+                    <integernet_germanstoreconfig>
+                        <type>singleton</type>
+                        <class>germanstoreconfig/observer</class>
+                        <method>addCheckoutAdditionalInformation</method>
+                    </integernet_germanstoreconfig>
+                </observers>
+            </checkout_additional_information>
         </events>
     </frontend>
 

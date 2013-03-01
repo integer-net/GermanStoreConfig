@@ -86,6 +86,8 @@ class IntegerNet_GermanStoreConfig_Model_Observer
     }
 
     /**
+     * Add copyright notice to end of imprint cms page
+     *
      * @param Varien_Event_Observer $observer
      * @event cms_page_load_after
      */
@@ -99,6 +101,34 @@ class IntegerNet_GermanStoreConfig_Model_Observer
                 ->setTemplate('germanstoreconfig/copyright.phtml')
                 ->toHtml();
             $page->setContent($page->getContent() . $copyrightHtml);
+        }
+    }
+
+    /**
+     * Add additional text to checkout review page if "cash on delivery" payment method is selected
+     *
+     * @param Varien_Event_Observer $observer
+     * @event checkout_additional_information
+     */
+    public function addCheckoutAdditionalInformation(Varien_Event_Observer $observer)
+    {
+        /** @var $quote Mage_Sales_Model_Quote */
+        $quote = Mage::getSingleton('checkout/session')->getQuote();
+        if ($quote->getPayment()->getMethod() == 'cashondelivery') {
+
+            $customText = $quote->getPayment()->getMethodInstance()->getCustomText();
+
+            if ($customText) {
+                $additionalObject = $observer->getAdditional();
+                $text = (string)$additionalObject->getText();
+
+                if ($text) {
+                    $text .= '<br />';
+                }
+
+                $text .= $customText;
+                $additionalObject->setText($text);
+            }
         }
     }
 }
