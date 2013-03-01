@@ -79,7 +79,7 @@
         </div>
 
         <div class="entry-edit-head">
-            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Data Transfer') ?></h4>
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Help to improve Magento DE - data transfer') ?></h4>
             <div class="form-buttons"></div>
         </div>
 
@@ -89,37 +89,41 @@
                     <tbody>
                         <tr>
                             <td colspan="2">
-                                <p><?php echo $this->__('Vielen Dank, dass Sie sich für die Installation von Magento DE entschieden haben. ') ?></p>
-                                <p><?php echo $this->__('Magento DE ist ein Projekt von der Community für die Community. Die deutsche Shopkonfiguration für die Magento Community Edition wurde erstellt, um den Einstieg in Magento so einfach wie möglich zu gestalten. Initiiert wurde das Projekt von der Netresearch App Factory. Für den Lead der Umsetzung sind mit integer_net erfahrene und engagierte Entwickler im Boot, die gemeinsam mit der Community die wichtigsten und besten Exensions für die Anpassung an den deutschen Markt integriert haben.') ?></p>
-                                <p><?php echo $this->__('Mit Ihrer Zustimmung der Übermittlung von Nutzungs- und Kontaktdaten durch Magento DE, können Sie Entwickler & Community-Partner aktiv dabei unterstützen, die Verbreitung von Magento DE zu verfolgen, die Installation weiterzuentwickeln und stetig zu verbessern. Somit profitieren auch Sie und vielen weitere Händler von einem aktuellen und attraktiven System Magento DE und regelmäßigen Anpassungen für den deutschen Markt.') ?></p>
-                                <p><?php echo $this->__('Selbstverständlich können Sie selbst entscheiden, welche Umfang an Daten Sie für die Übertragung zulassen und inwieweit Sie damit die Weiterentwicklung von Magento DE unterstützen. Das Projekt Magento DE ist generell nur an Daten zur Nutzung der Installation und ggf. Kontaktdaten aus Ihrem offiziellen Impressum interessiert. Es erfolgt keine darüber hinausgehende Erhebung von Daten.') ?></p>
-                                <p><?php echo $this->__('Vielen Dank im Voraus für Ihre Mithilfe.') ?></p>
+                                <p><?php echo $this->__('Magento DE ist a project from the community, for the community. The German shop configuration for the Magento Community Edition has been created to make the entry to Magento as easy as possible. This project has been initiated by the Netresearch App Factory. The implementation is being lead by integer_net and their experienced developers, who integratet the best and most important extensions for the German market together with the community.') ?></p>
+                                <p><?php echo $this->__('Your consent for transferring usage and contact details through Magento DE enables the developers and community partners to further distribute, develop, and continually improve Magento DE. This way, you and many other merchants can profit from an up-to-date and attractive Magento DE system plus frequent adaptions for the German market.') ?></p>
+                                <p><?php echo $this->__('Of course, you can decide what data you wish to be transmitted. In general, this project is only interested in information about the use of the system and, were indicated, contact details from your imprint. No further information or data will be transmitted.') ?></p>
+                                <p><?php echo $this->__('Thank you very much in advance for your help.') ?></p>
                             </td>
                         </tr>
                         <tr>
                             <td class="value">
                                 <input
-                                    type="radio"
-                                    name="field[admin__germanstoreconfig__datatransfer]"
-                                    id="field_datatransfer_none"
-                                    value="<?php echo IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_NONE ?>"
-                                    <?php if(Mage::getStoreConfig('admin/germanstoreconfig/datatransfer') == IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_NONE): ?>checked="checked"<?php endif ?>
+                                        type="radio"
+                                        name="field[admin__germanstoreconfig__datatransfer]"
+                                        id="field_datatransfer_none"
+                                        value="<?php echo IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_NONE ?>"
+                                        <?php if(Mage::getStoreConfig('admin/germanstoreconfig/datatransfer') == IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_NONE): ?>checked="checked"<?php endif ?>
                                 />
-                                <label for="field_datatransfer_none"><?php echo $this->__('I don\'t want any data transfer.') ?></label>
+                            </td>
+                            <td class="value">
+                                <label for="field_datatransfer_none"><?php echo $this->__('I wish no information to be transmitted.') ?></label>
                             </td>
                             <td class="comment"></td>
                         </tr>
                         <tr>
                             <td class="value">
                                 <input
-                                    type="radio"
-                                    name="field[admin__germanstoreconfig__datatransfer]"
-                                    id="field_datatransfer_basic"
-                                    value="<?php echo IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_BASIC ?>"
-                                    <?php if(Mage::getStoreConfig('admin/germanstoreconfig/datatransfer') == IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_BASIC): ?>checked="checked"<?php endif ?>
+                                        type="radio"
+                                        name="field[admin__germanstoreconfig__datatransfer]"
+                                        id="field_datatransfer_basic"
+                                        value="<?php echo IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_BASIC ?>"
+                                        <?php if(Mage::getStoreConfig('admin/germanstoreconfig/datatransfer') == IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_BASIC): ?>checked="checked"<?php endif ?>
                                 />
-                                <label for="field_datatransfer_basic"><?php echo $this->__('Ich helfe mit, die Verbreitung von Magento DE zu beobachten und bin damit einverstanden, dass folgende Daten zur reinen Überprüfung der Reichweite von Magento DE übertragen werden:') ?></label><br />
-                                <ul style="list-style: disc outside; margin-left: 30px;">
+                            </td>
+                            <td class="value">
+                                <label for="field_datatransfer_basic"><?php echo $this->__('I want to help monitor the distribution of Magento DE and therefore agree on transmitting only the information necessary to accomplish this, thereby supporting the project.') ?></label><br />
+                                <p id="datatransfer_basic_information_link"><a style="cursor: pointer;" onclick="$('datatransfer_basic_information_list').show(); $('datatransfer_basic_information_link').hide();"><?php echo $this->__('What information will be transmitted?') ?></a></p>
+                                <ul style="list-style: disc outside; margin-left: 30px; display: none;" id="datatransfer_basic_information_list">
                                     <li><?php echo $this->__('Server IP') ?></li>
                                     <li><?php echo $this->__('Request Date') ?></li>
                                 </ul>
@@ -129,32 +133,40 @@
                         <tr>
                             <td class="value">
                                 <input
-                                    type="radio"
-                                    name="field[admin__germanstoreconfig__datatransfer]"
-                                    id="field_datatransfer_advanced"
-                                    value="<?php echo IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_ADVANCED ?>"
-                                    <?php if(Mage::getStoreConfig('admin/germanstoreconfig/datatransfer') == IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_ADVANCED): ?>checked="checked"<?php endif ?>
+                                        type="radio"
+                                        name="field[admin__germanstoreconfig__datatransfer]"
+                                        id="field_datatransfer_advanced"
+                                        value="<?php echo IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_ADVANCED ?>"
+                                        <?php if(Mage::getStoreConfig('admin/germanstoreconfig/datatransfer') == IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_ADVANCED): ?>checked="checked"<?php endif ?>
                                 />
-                                <label for="field_datatransfer_advanced"><?php echo $this->__('Ich helfe mit, die Verbreitung von Magento DE zu beobachten und möchte von den exklusiven Vorteils-Angeboten der NR App Factory & Ihrer Partner profitieren.') ?></label><br />
-                                <p><?php echo $this->__('Konkrete Angebote könnten beispielsweise sein:') ?></p>
-                                <ul style="list-style: disc outside; margin-left: 30px;">
-                                    <li><?php echo $this->__('Vorteilskonditionen beim Kauf von Extensions oder Supportleistungen im NAF Store nr.apps.com') ?></li>
-                                    <li><?php echo $this->__('Vorkaufsrecht und Sonderkonditionen auf Magento-Branchen-Event-Tickets wie z.B. Meet-Magento &amp; Developers-Paradise') ?></li>
-                                    <li><?php echo $this->__('Vorkaufsrecht und Sonderkonditionen auf Magento-Schulungs-Veranstaltungen wie z.B. NR Campus') ?></li>
-                                    <li><?php echo $this->__('Ausweis als Nutzer inkl. Backlink für Ihre Domain auf nr-apps.com') ?></li>
-                                    <li><?php echo $this->__('und viele mehr') ?></li>
+                            </td>
+                            <td class="value">
+                                <label for="field_datatransfer_advanced"><?php echo $this->__('I want to help monitor the distribution of Magento DE and also want to profit from exclusive offers from the NR App Factory and their partners.') ?></label><br />
+                                <p id="datatransfer_advanced_offer_link"><a style="cursor: pointer;" onclick="$('datatransfer_advanced_offer_list').show(); $('datatransfer_advanced_offer_text').show(); $('datatransfer_advanced_offer_link').hide();"><?php echo $this->__('This could be your exclusive offers') ?></a></p>
+                                <p id="datatransfer_advanced_offer_text" style="display: none;"><?php echo $this->__('Offers could be for example:') ?></p>
+                                <ul id="datatransfer_advanced_offer_list" style="list-style: disc outside; margin-left: 30px; display: none;">
+                                    <li><?php echo $this->__('Special conditions when purchasing extensions or services from the NAF store nr.apps.com') ?></li>
+                                    <li><?php echo $this->__('Purchase options and special conditions for Magento event tickes, e.g. Meet Magento or Developers Paradise') ?></li>
+                                    <li><?php echo $this->__('Purchase options and special conditions for Magento education tickets, e.g. NR Campus') ?></li>
+                                    <li><?php echo $this->__('Showing your shop name and a link to your domain on nr-apps.com') ?></li>
+                                    <li><?php echo $this->__('and many more') ?></li>
                                 </ul>
-                                <p><?php echo $this->__('Ihre persönlichen Vorteilsangebote und aktuelle Informationen rund um Magento DE entnehmen Sie bitte dem aktuellen Newsfeed Ihres Systems.') ?></p>
-                                <p><?php echo $this->__('Ich erkläre mich damit einverstanden, dass folgende Kontaktdaten zur Überprüfung der Reichweite von Magento DE übertragen werden und unterstütze somit aktiv das Projekt:') ?></p>
-                                <ul style="list-style: disc outside; margin-left: 30px;">
+                                <p><?php echo $this->__('For your personal offers and information about Magento DE, please see the newsfeed of your system.') ?></p>
+                                <p><?php echo $this->__('I agree to help monitor the distribution of Magento DE and therefore agree on transmitting the information necessary to accomplish this, thereby supporting the project.') ?></p>
+                                <p id="datatransfer_advanced_information_link"><a style="cursor: pointer;" onclick="$('datatransfer_advanced_information_list').show(); $('datatransfer_advanced_information_link').hide();"><?php echo $this->__('What information will be transmitted?') ?></a></p>
+                                <ul style="list-style: disc outside; margin-left: 30px; display: none;" id="datatransfer_advanced_information_list">
                                     <li><?php echo $this->__('Server IP') ?></li>
                                     <li><?php echo $this->__('Request Date') ?></li>
-                                    <li><?php echo $this->__('Magento-Version') ?></li>
-                                    <li><?php echo $this->__('Impressum-Daten: Shop Name, Firma, Straße, PLZ, Ort, Land, Telefon, Fax, Email, Website, Geschäftsführer, Inhaber') ?></li>
+                                    <li><?php echo $this->__('Magento Version') ?></li>
+                                    <li><?php echo $this->__('Imprint Datas: Shop Name, Company, Street, ZIP, City, Country, Telephone, Fax, Email, Website, CEO, Owner') ?></li>
                                 </ul><br/>
-                                <p><?php echo $this->__('<a href="%s" target="_blank">Netresearch App Factory</a>', 'http://de.nr-apps.com/store/datenschutz/') ?></p>
                             </td>
                             <td class="comment"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <p><?php echo $this->__('Further information on data privacy can be found <a href="%s" target="_blank">here</a>.', 'http://de.nr-apps.com/store/datenschutz/') ?></p>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
