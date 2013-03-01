@@ -1,7 +1,10 @@
+#checkout-review-table tfoot tr {
+    background-color: #FBFAF6 !important;
+}
 
-
-#checkout-review-table tr.odd {
-    background-color: #EEEDED;
+#checkout-review-table tr.odd,
+#checkout-review-table tr.even {
+    background-color: #FBFAF6;
 }
 
 #checkout-review-table td.last {
@@ -9,6 +12,10 @@
 }
 #checkout-review-table td.last .price {
     font-weight: bold;
+}
+
+#checkout-review-submit {
+    background-color: #FBFAF6;
 }
 
 #opc-review .additional-information {
