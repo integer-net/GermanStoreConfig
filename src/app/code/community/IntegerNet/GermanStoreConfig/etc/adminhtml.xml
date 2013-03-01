@@ -8,6 +8,7 @@
                     <sort_order>11</sort_order>
                     <action>adminhtml/germanstoreconfig/form</action>
                     <class>germanstoreconfig</class>
+                    <unlessconfig>admin/germanstoreconfig/display_menu</unlessconfig>
                     <children>
                         <dashboard translate="title" module="germanstoreconfig">
                             <title>Dashboard</title>
