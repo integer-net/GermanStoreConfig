@@ -1,14 +1,18 @@
 <?php /** @var $this IntegerNet_GermanStoreConfig_Block_News */ ?>
 
-<?php foreach($this->getNewsItems() as $newsItem): ?>
+<?php if (sizeof($this->getNewsItems())): ?>
+    <?php foreach($this->getNewsItems() as $newsItem): ?>
 
-    <div class="news-item">
-        <p class="news-date"><?php echo $newsItem->getDate() ?></p>
-        <h2><?php echo $newsItem->getTitle() ?></h2>
-        <div class="news-description"><?php echo $newsItem->getDescription() ?></div>
-        <?php if ($newsItem->getLink()): ?>
-        <p class="news-link"><a href="<?php echo $newsItem->getLink() ?>"><?php echo $this->__('Read more') ?></a></p>
-        <?php endif ?>
-    </div>
+        <div class="news-item">
+            <p class="news-date"><?php echo $newsItem->getDate() ?></p>
+            <h2><?php echo $newsItem->getTitle() ?></h2>
+            <div class="news-description"><?php echo $newsItem->getDescription() ?></div>
+            <?php if ($newsItem->getLink()): ?>
+            <p class="news-link"><a href="<?php echo $newsItem->getLink() ?>"><?php echo $this->__('Read more') ?></a></p>
+            <?php endif ?>
+        </div>
 
-<?php endforeach ?>
+    <?php endforeach ?>
+<?php else: ?>
+    <p><?php echo $this->__('News cannot be displayed at the moment. Please try again later.') ?></p>
+<?php endif ?>
