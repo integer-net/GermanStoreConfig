@@ -335,7 +335,7 @@
         <ikonoshirt>
             <custom_rss_feeds>
                 <feeds>
-                    <germanstoreconfig>http://magento-de.master.local/media/germanstoreconfig/feed.xml</germanstoreconfig>
+                    <germanstoreconfig>http://www.nr-apps.com/store/media/germanstoreconfig/feed.xml</germanstoreconfig>
                 </feeds>
             </custom_rss_feeds>
         </ikonoshirt>
