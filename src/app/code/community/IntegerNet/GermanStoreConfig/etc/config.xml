@@ -306,6 +306,7 @@
             <germanstoreconfig>
                 <display_logo>1</display_logo>
                 <display_menu>1</display_menu>
+                <display_dashboard_block>1</display_dashboard_block>
                 <datatransfer>1</datatransfer>
             </germanstoreconfig>
         </admin>

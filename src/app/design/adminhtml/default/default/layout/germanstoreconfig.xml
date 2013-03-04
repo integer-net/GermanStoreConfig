@@ -19,9 +19,15 @@
         </reference>
     </default>
 
-    <adminhtml_germanstoreconfig_news>
-        <reference name="content">
-            <block type="germanstoreconfig/news" name="germanstoreconfig.news" template="germanstoreconfig/news.phtml" />
+    <adminhtml_dashboard_index>
+        <reference name="dashboard">
+            <action method="unsetChild"><name>sales</name></action>
+            <block type="adminhtml/text_list" name="dashboard.sales" as="sales">
+                <block type="germanstoreconfig/dashboard_widget" name="dashboard.sales.germanstoreconfig"
+                    template="germanstoreconfig/dashboard/widget.phtml"/>
+                <block type="adminhtml/dashboard_sales" name="dashboard.sales.sales"/>
+            </block>
         </reference>
-    </adminhtml_germanstoreconfig_news>
+    </adminhtml_dashboard_index>
+
 </layout>
