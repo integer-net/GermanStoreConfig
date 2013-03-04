@@ -2,7 +2,7 @@
 
 class IntegerNet_GermanStoreConfig_Block_Tracking extends Mage_Adminhtml_Block_Template
 {
-    const DAYS_BETWEEN_TRACKING_REQUESTS = 0; /** @todo change to 30 */
+    const DAYS_BETWEEN_TRACKING_REQUESTS = 30;
 
     /**
      * Generate Tracking URL including encoded parameters
