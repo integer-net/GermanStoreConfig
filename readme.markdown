@@ -4,7 +4,7 @@ A preconfigured Magento CE installation for German Merchants
 
 Facts
 -----
-- version: 0.1.0 (beta)
+- version: 1.0.0
 - [On GitHub](https://github.com/integer-net/GermanStoreConfig)
 - [direct download link](https://github.com/integer-net/GermanStoreConfig/archive/master.zip)
 
@@ -74,11 +74,11 @@ Licence
 
 Copyright
 ---------
-(c) 2012 integer_net GmbH
+(c) 2012-2013 integer_net GmbH
 
 Thanks to
 ---------
-- [Magento Inc.](http://www.magentocommerce.com/) for Magento Community Edition
+- [Magento Inc.](http://www.magentocommerce.com/) for the Magento Community Edition
 - Thomas Fleck and the [magento app factory](http://www.magentoappfactory.com) for ideas, cooperation, marketing and support
 - the [FireGento team](https://github.com/firegento) for [GermanSetup](https://github.com/firegento/firegento-germansetup) and [FireGento_Pdf](https://github.com/firegento/firegento-pdf)
 - Rico Neitzel and Daniel Sasse for the [German Language Pack](https://github.com/riconeitzel/German_LocalePack_de_DE)
