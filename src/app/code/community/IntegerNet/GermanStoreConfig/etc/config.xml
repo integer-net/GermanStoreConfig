@@ -2,7 +2,7 @@
 <config>
     <modules>
         <IntegerNet_GermanStoreConfig>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </IntegerNet_GermanStoreConfig>
     </modules>
     <global>
@@ -307,7 +307,7 @@
                 <display_logo>1</display_logo>
                 <display_menu>1</display_menu>
                 <display_dashboard_block>1</display_dashboard_block>
-                <datatransfer>1</datatransfer>
+                <datatransfer>0</datatransfer>
             </germanstoreconfig>
         </admin>
         <dev>
