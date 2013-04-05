@@ -1,10 +1,10 @@
-German Store Configuration for Magento CE
+Magento DE - German Store Configuration for Magento CE
 =====================
 A preconfigured Magento CE installation for German Merchants
 
 Facts
 -----
-- version: 1.0.0
+- version: 1.1.0
 - [On GitHub](https://github.com/integer-net/GermanStoreConfig)
 - [direct download link](https://github.com/integer-net/GermanStoreConfig/archive/master.zip)
 
@@ -24,7 +24,7 @@ A few useful and preconfigured modules are shipped with the distribution:
 - Mage_Debit (Payment Method)
 - IntegerNet_RemoveCustomerAccountLinks (for hiding unneeded links in customer account, see [this German blog entry](http://www.integer-net.de/benutzerkonto-magento-deaktivieren-von-menupunkten/))
 - AvS_AdminNotificationAdvanced (for better handling of notifications, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/magento-verbesserte-benachrichtigungen-im-admin-bereich.html))
-- AvS_ScopeHint (to show conflicts in configuration, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/warnung-bei-ueberschriebenen-konfigurations-optionen-kostenloses-magento-modul.html))
+- AvS_ScopeHint (to show conflicts in configuration, products and categories, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/warnung-bei-ueberschriebenen-konfigurations-optionen-kostenloses-magento-modul.html))
 - Treynolds_Qconfig (to provide a quick search for the system configuration)
 - Ikonoshirt_CustomAdminNotifications (to allow integration of additional news feeds)
 
