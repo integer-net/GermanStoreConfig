@@ -129,6 +129,8 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
 
         $this->_updateConfigData();
 
+        $this->_createStores();
+
         if (!Mage::getStoreConfig('germanstoreconfig/is_initialized')) {
 
             $this->_markNotificationsAsRead();
@@ -205,17 +207,24 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
                 $this->_setConfigData('debitpayment/bankaccount/routing_number', $fieldData['general__imprint__bank_code_number']);
                 $this->_setConfigData('debitpayment/bankaccount/account_number', $fieldData['general__imprint__bank_account']);
 
-                $defaultStore = Mage::getModel('core/store')->load('Default Store View', 'name');
+                $defaultStore = Mage::app()->getDefaultStoreView();
                 if ($defaultStore->getId()) {
-                    $defaultStore->setName('Deutsch')->setCode('de')->save();
+                    $defaultStore
+                        ->setName(Mage::getStoreConfig('germanstoreconfig/default_language/name'))
+                        ->setCode(Mage::getStoreConfig('germanstoreconfig/default_language/code'))
+                        ->save();
                 }
-                $defaultStoreGroup = Mage::getModel('core/store_group')->load('Main Website Store', 'name');
+                $defaultStoreGroup = $defaultStore->getGroup();
                 if ($defaultStoreGroup->getId()) {
-                    $defaultStoreGroup->setName($fieldData['general__imprint__shop_name'])->save();
+                    $defaultStoreGroup
+                        ->setName($fieldData['general__imprint__shop_name'])
+                        ->save();
                 }
-                $defaultWebsite = Mage::getModel('core/website')->load('Main Website', 'name');
+                $defaultWebsite = $defaultStore->getWebsite();
                 if ($defaultWebsite->getId()) {
-                    $defaultWebsite->setName($fieldData['general__imprint__shop_name'])->save();
+                    $defaultWebsite
+                        ->setName($fieldData['general__imprint__shop_name'])
+                        ->save();
                 }
                 $defaultCategory = Mage::getModel('catalog/category')
                     ->getCollection()
@@ -270,12 +279,68 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
      *
      * @param string $key
      * @param string|int $value
+     * @param string $scope
+     * @param int $scopeId
      */
-    protected function _setConfigData($key, $value)
+    protected function _setConfigData($key, $value, $scope = 'default', $scopeId = 0)
     {
-        Mage::getModel('eav/entity_setup', 'core_setup')->setConfigData($key, $value);
+        Mage::getModel('eav/entity_setup', 'core_setup')->setConfigData($key, $value, $scope, $scopeId);
     }
 
+    /**
+     * Create Stores with different languages
+     */
+    public function _createStores()
+    {
+        if ($this->getRequest()->isPost()) {
+
+            $languageData = $this->getRequest()->getParam('language');
+            if (is_array($languageData)) {
+                $i = 0;
+                $storeCreated = false;
+                foreach ($languageData as $localeCode => $value) {
+                    if ($value != 1) {
+                        continue;
+                    }
+
+                    $storeCreated = $this->_createStore($localeCode, $i) || $storeCreated;
+                }
+
+                if ($storeCreated) {
+                    $this->_setConfigData('web/url/use_store', 1);
+                }
+            }
+        }
+    }
+
+    /**
+     * @param string $localeCode (i.e. en_US or fr_FR)
+     * @param int $i
+     * @return boolean
+     */
+    protected function _createStore($localeCode, &$i)
+    {
+        $languageCode = array_shift(explode('_', $localeCode));
+        /** @var $store Mage_Core_Model_Store */
+        $store = Mage::getModel('core/store');
+        $store->load($languageCode, 'code');
+        if ($store->getId()) {
+            $this->_getSession()->addNotice($this->__('Store "%s" already exists.', $languageCode));
+            return false;
+        }
+        $store
+            ->setCode($languageCode)
+            ->setName($this->__(Mage::getStoreConfig('germanstoreconfig/available_languages/' . $localeCode)))
+            ->setWebsiteId(Mage::app()->getDefaultStoreView()->getWebsiteId())
+            ->setGroupId(Mage::app()->getDefaultStoreView()->getGroupId())
+            ->setIsActive(1)
+            ->setSortOrder(++$i)
+            ->save();
+
+        $this->_setConfigData('general/locale/code', $localeCode, 'stores', $store->getId());
+
+        return true;
+    }
 
     /**
      * Reindex all indices

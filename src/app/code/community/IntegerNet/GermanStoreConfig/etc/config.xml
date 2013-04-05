@@ -332,6 +332,15 @@
             <newsfeed_url>http://www.nr-apps.com/store/media/germanstoreconfig/feed.xml</newsfeed_url>
             <iframe_url_prefix>https://www.nr-apps.com/n/magento-de/</iframe_url_prefix>
             <iframe_url_suffix>.html</iframe_url_suffix>
+            <default_language>
+                <code>de</code>
+                <name>Deutsch</name>
+            </default_language>
+            <available_languages>
+                <en_US>English</en_US>
+                <!--<fr_FR>Français</fr_FR>-->
+                <!--<it_IT>Italiano</it_IT>-->
+            </available_languages>
         </germanstoreconfig>
         <ikonoshirt>
             <custom_rss_feeds>

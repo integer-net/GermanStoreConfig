@@ -78,6 +78,34 @@
             </div>
         </div>
 
+        <?php if (sizeof($this->getAdditionalLanguages())): ?>
+        <div class="entry-edit-head">
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Store Languages') ?></h4>
+            <div class="form-buttons"></div>
+        </div>
+
+        <div class="fieldset" id="group_paypal">
+            <div class="hor-scroll">
+                <table cellspacing="0" class="form-list">
+                    <tbody>
+                        <tr>
+                            <td class="label"><label for="field_paypal_email"><?php echo $this->__('Create Additional Store Languages') ?></label></td>
+                            <td class="value">
+                                <?php foreach($this->getAdditionalLanguages() as $languageCode => $languageName): ?>
+                                <input type="checkbox" name="language[<?php echo $languageCode ?>]" id="field_language_<?php echo $languageCode ?>" class="checkbox" value="1" />
+                                <label for="field_language_<?php echo $languageCode ?>"><?php echo $this->__($languageName) ?></label>
+                                <br />
+                                <?php endforeach ?>
+                                (<?php echo $this->__('German language will be created automatically.') ?>)
+                            </td>
+                            <td class="comment"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <?php endif ?>
+
         <div class="entry-edit-head">
             <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Help to improve Magento DE - data transfer') ?></h4>
             <div class="form-buttons"></div>

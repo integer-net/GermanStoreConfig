@@ -160,4 +160,12 @@ class IntegerNet_GermanStoreConfig_Block_Form extends Mage_Adminhtml_Block_Widge
 
         return Mage::getStoreConfig($fieldCode);
     }
+
+    /**
+     * @return array
+     */
+    public function getAdditionalLanguages()
+    {
+        return Mage::getStoreConfig('germanstoreconfig/available_languages');
+    }
 }

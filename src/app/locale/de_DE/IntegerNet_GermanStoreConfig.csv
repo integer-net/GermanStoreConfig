@@ -12,6 +12,13 @@
 "Your data was saved successfully.","Ihre Daten wurden erfolgreich gespeichert."
 "After completion of this order, please transfer the order amount to: %s, Account %s, Bank number %s, %s (IBAN %s, SWIFT %s)","Unsere Bankverbindung: %s, Kto. %s, BLZ %s, %s (IBAN %s, SWIFT %s)."
 "PayPal Merchant Account Email Address","Email-Adresse des PayPal-Händleraccounts"
+"Store Languages","Shop-Sprachen"
+"Create Additional Store Languages","Zusätzliche Sprachen anlegen"
+"German","Deutsch"
+"English","English"
+"Français","Français"
+"Italiano","Italiano"
+"German language will be created automatically.","Deutsch wird als Standardsprache automatisch angelegt."
 "Default Category","Standard-Kategorie"
 "Display Logo in Header","Logo im Header anzeigen"
 "Display Entry in Menu","Menü-Eintrag anzeigen"
@@ -47,6 +54,7 @@
 "Further information on data privacy can be found <a href=""%s"" target=""_blank"">here</a>.","Weitere Informationen zum Datenschutz finden Sie <a href=""%s"" target=""_blank"">hier</a>"
 
 "News cannot be displayed at the moment. Please try again later.","Nachrichten können im Moment nicht abgerufen werden. Bitte versuchen Sie es später erneut."
+"Store ""%s"" already exists.","Der Shop ""%s"" existiert bereits."
 
 "FireGento German Setup","FireGento German Setup"
 "Extension Setup","Extension-Setup"
