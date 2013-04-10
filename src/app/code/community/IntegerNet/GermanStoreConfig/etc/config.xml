@@ -229,9 +229,6 @@
             </options>
         </persistent>
         <sales_pdf>
-            <invoice>
-                <engine>firegento_pdf/invoice</engine>
-            </invoice>
             <firegento_pdf>
                 <show_footer>1</show_footer>
                 <engine>firegento_pdf/engine_invoice_default</engine>
