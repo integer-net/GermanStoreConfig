@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -26,7 +26,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -68,19 +68,9 @@ class FireGento_Pdf_Sales_OrderController extends Mage_Sales_OrderController
             $currentArea = Mage::getDesign()->getArea();
             Mage::getDesign()->setArea('adminhtml');
 
-            $engine = Mage::getStoreConfig('sales_pdf/invoice/engine');
-            if ($engine) {
-                $pdf = Mage::getModel($engine);
-                if ($pdf && $pdf->test()) {
-                    $pdf = $pdf->getPdf($invoices);
-                    $this->_prepareDownloadResponse('invoice' . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s') .
-                        '.pdf', $pdf->render(), 'application/pdf');
-                }
-            } else {
-                $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf($invoices);
-                $this->_prepareDownloadResponse('invoice' . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s') .
-                    '.pdf', $pdf->render(), 'application/pdf');
-            }
+            $pdf = Mage::getModel('sales/order_pdf_invoice')->getPdf($invoices);
+            $this->_prepareDownloadResponse('invoice' . Mage::getSingleton('core/date')->date('Y-m-d_H-i-s') .
+                '.pdf', $pdf->render(), 'application/pdf');
 
             // Restore area.
             Mage::getDesign()->setArea($currentArea);

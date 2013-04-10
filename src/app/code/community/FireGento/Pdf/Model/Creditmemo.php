@@ -15,7 +15,7 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
@@ -26,13 +26,20 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
  */
 class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setMode('creditmemo');
+    }
+
     /**
      * Return PDF document
      *
@@ -46,10 +53,12 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
 
         $pdf = new Zend_Pdf();
         $this->_setPdf($pdf);
+
         $style = new Zend_Pdf_Style();
         $this->_setFontBold($style, 10);
 
-        $this->pagecounter = 1;
+        // pagecounter is 0 at the beginning, because it is incremented in newPage()
+        $this->pagecounter = 0;
 
         foreach ($creditmemos as $creditmemo) {
             if ($creditmemo->getStoreId()) {
@@ -57,7 +66,9 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
                 Mage::app()->setCurrentStore($creditmemo->getStoreId());
             }
             $page  = $this->newPage();
+
             $order = $creditmemo->getOrder();
+
             // Add logo
             $this->insertLogo($page, $creditmemo->getStore());
 
@@ -69,19 +80,12 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
             $this->y = 705;
             $this->_insertSenderAddessBar($page);
 
-//            /* Add head */
-//            $this->insertOrder(
-//                $page,
-//                $order,
-//                Mage::getStoreConfigFlag(self::XML_PATH_SALES_PDF_CREDITMEMO_PUT_ORDER_ID, $order->getStoreId())
-//            );
-
             // Add head
             $this->y = 592;
             $this->insertHeader($page, $order, $creditmemo);
 
             // Add footer
-            $this->_addFooter($page);
+            $this->_addFooter($page, $creditmemo->getStore());
 
             /* Add table head */
             $this->_setFontRegular($page, 9);
@@ -89,6 +93,7 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
             $this->_drawHeader($page);
 
             $this->y -=20;
+
             $position = 0;
 
             /* Add body */
@@ -106,9 +111,14 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
             $page->drawLine($this->margin['left'], $this->y + 5, $this->margin['right'], $this->y + 5);
 
             /* Add totals */
-            $this->insertTotals($page, $creditmemo);
+            $page = $this->insertTotals($page, $creditmemo);
+
+            /* add note */
+            $page = $this->_insertNote($page, $order, $creditmemo);
         }
+
         $this->_afterGetPdf();
+
         if ($creditmemo->getStoreId()) {
             Mage::app()->getLocale()->revert();
         }
@@ -118,7 +128,7 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
     /**
      * Draw table header for product items
      *
-     * @param  Zend_Pdf_Page $page
+     * @param Zend_Pdf_Page $page
      * @return void
      */
     protected function _drawHeader(Zend_Pdf_Page $page)
@@ -147,4 +157,143 @@ class FireGento_Pdf_Model_Creditmemo extends FireGento_Pdf_Model_Abstract
         $totalLabel = Mage::helper('firegento_pdf')->__('Total');
         $page->drawText($totalLabel, $this->margin['right'] - 10 - $this->widthForStringUsingFontSize($totalLabel, $font, 10),     $this->y, $this->encoding);
     }
+
+    /**
+     * ...
+     *
+     * @param Zend_Pdf_Page $page Current page object of Zend_Pdf
+     * @param array $draw
+     * @param array $pageSettings
+     * @return Zend_Pdf_Page
+     */
+    public function drawLineBlocks(Zend_Pdf_Page $page, array $draw, array $pageSettings = array())
+    {
+        foreach ($draw as $itemsProp) {
+            if (!isset($itemsProp['lines']) || !is_array($itemsProp['lines'])) {
+                Mage::throwException(Mage::helper('sales')->__('Invalid draw line data. Please define "lines" array'));
+            }
+            $lines  = $itemsProp['lines'];
+            $height = isset($itemsProp['height']) ? $itemsProp['height'] : 10;
+
+            if (empty($itemsProp['shift'])) {
+                $shift = 0;
+                foreach ($lines as $line) {
+                    $maxHeight = 0;
+                    foreach ($line as $column) {
+                        $lineSpacing = !empty($column['height']) ? $column['height'] : $height;
+                        if (!is_array($column['text'])) {
+                            $column['text'] = array($column['text']);
+                        }
+                        $top = 0;
+                        foreach ($column['text'] as $part) {
+                            $top += $lineSpacing;
+                        }
+
+                        $maxHeight = $top > $maxHeight ? $top : $maxHeight;
+                    }
+                    $shift += $maxHeight;
+                }
+                $itemsProp['shift'] = $shift;
+            }
+
+            if ($this->y - $itemsProp['shift'] < 100) {
+                $page = $this->newPage($pageSettings);
+            }
+
+            foreach ($lines as $line) {
+                $maxHeight = 0;
+                foreach ($line as $column) {
+                    $fontSize  = empty($column['font_size']) ? 7 : $column['font_size'];
+                    if (!empty($column['font_file'])) {
+                        $font = Zend_Pdf_Font::fontWithPath($column['font_file']);
+                        $page->setFont($font, $fontSize);
+                    }
+                    else {
+                        $fontStyle = empty($column['font']) ? 'regular' : $column['font'];
+                        switch ($fontStyle) {
+                            case 'bold':
+                                $font = $this->_setFontBold($page, $fontSize);
+                                break;
+                            case 'italic':
+                                $font = $this->_setFontItalic($page, $fontSize);
+                                break;
+                            default:
+                                $font = $this->_setFontRegular($page, $fontSize);
+                                break;
+                        }
+                    }
+
+                    if (!is_array($column['text'])) {
+                        $column['text'] = array($column['text']);
+                    }
+
+                    $lineSpacing = !empty($column['height']) ? $column['height'] : $height;
+                    $top = 0;
+                    foreach ($column['text'] as $part) {
+                        $feed = $column['feed'];
+                        $textAlign = empty($column['align']) ? 'left' : $column['align'];
+                        $width = empty($column['width']) ? 0 : $column['width'];
+                        switch ($textAlign) {
+                            case 'right':
+                                if ($width) {
+                                    $feed = $this->getAlignRight($part, $feed, $width, $font, $fontSize);
+                                }
+                                else {
+                                    $feed = $feed - $this->widthForStringUsingFontSize($part, $font, $fontSize);
+                                }
+                                break;
+                            case 'center':
+                                if ($width) {
+                                    $feed = $this->getAlignCenter($part, $feed, $width, $font, $fontSize);
+                                }
+                                break;
+                        }
+                        $page->drawText($part, $feed, $this->y-$top, 'UTF-8');
+                        $top += $lineSpacing;
+                    }
+
+                    $maxHeight = $top > $maxHeight ? $top : $maxHeight;
+                }
+                $this->y -= $maxHeight;
+            }
+        }
+
+        return $page;
+    }
+
+    /**
+     * Initialize renderer process.
+     *
+     * @param string $type
+     * @return void
+     */
+    protected function _initRenderer($type)
+    {
+        parent::_initRenderer($type);
+
+        $this->_renderers['default'] = array(
+            'model' => 'firegento_pdf/items_default',
+            'renderer' => null
+        );
+        $this->_renderers['grouped'] = array(
+            'model' => 'firegento_pdf/items_grouped',
+            'renderer' => null
+        );
+        $this->_renderers['bundle'] = array(
+            'model' => 'firegento_pdf/items_bundle',
+            'renderer' => null
+        );
+    }
+
+    /**
+     * Return status of the engine.
+     *
+     * @return bool
+     */
+    public function test()
+    {
+        return true;
+    }
+
 }
+
