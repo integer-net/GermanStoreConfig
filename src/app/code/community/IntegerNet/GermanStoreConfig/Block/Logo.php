@@ -43,6 +43,6 @@ class IntegerNet_GermanStoreConfig_Block_Logo extends Mage_Adminhtml_Block_Templ
      */
     public function getLogoAlt()
     {
-        return Mage::helper('germanstoreconfig')->__('German Store Configuration for Magento CE');
+        return Mage::helper('germanstoreconfig')->__(Mage::getStoreConfig('germanstoreconfig/module_title'));
     }
 }

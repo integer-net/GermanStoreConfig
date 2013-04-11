@@ -25,8 +25,8 @@ class IntegerNet_GermanStoreConfig_Model_Observer
      */
     public function predispatchInstallStart($observer)
     {
-        Mage::getSingleton('install/session')->setTimezone('Europe/Berlin');
-        Mage::getSingleton('install/session')->setCurrency('EUR');
+        Mage::getSingleton('install/session')->setTimezone(Mage::getStoreConfig('germanstoreconfig/timezone'));
+        Mage::getSingleton('install/session')->setCurrency(Mage::getStoreConfig('germanstoreconfig/currency'));
     }
 
     /**

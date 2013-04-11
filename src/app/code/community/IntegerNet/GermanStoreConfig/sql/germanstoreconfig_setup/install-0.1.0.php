@@ -6,7 +6,7 @@ $installer = $this;
 $installer->startSetup();
 
 // translate attribute labels
-$attributesSqlFilename = Mage::getBaseDir('locale') . DS . 'de_DE' . DS . 'sql_translation' . DS . 'attributes.sql';
+$attributesSqlFilename = Mage::getBaseDir('locale') . DS . Mage::getStoreConfig('general/locale/code') . DS . 'sql_translation' . DS . 'attributes.sql';
 
 if (file_exists($attributesSqlFilename)) {
 
