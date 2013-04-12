@@ -375,7 +375,7 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
      */
     protected function _runGermanSetup()
     {
-        Mage::getSingleton('germansetup/setup')->setup();
+        Mage::getSingleton('germansetup/setup')->setup(array('country' => strtolower(Mage::getStoreConfig('germanstoreconfig/country'))));
     }
 
     /**

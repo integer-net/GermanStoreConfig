@@ -339,6 +339,7 @@
                 <!--<fr_FR>Français</fr_FR>-->
                 <!--<it_IT>Italiano</it_IT>-->
             </available_languages>
+            <country>DE</country>
             <currency>EUR</currency>
             <timezone>Europe/Berlin</timezone>
             <module_title>Magento DE</module_title>
