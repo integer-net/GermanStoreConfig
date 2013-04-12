@@ -303,7 +303,7 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
                         continue;
                     }
 
-                    $storeCreated = $this->_createStore($localeCode, $i) || $storeCreated;
+                    $storeCreated = $this->_createStore($localeCode, $i++) || $storeCreated;
                 }
 
                 if ($storeCreated) {
@@ -315,12 +315,12 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
 
     /**
      * @param string $localeCode (i.e. en_US or fr_FR)
-     * @param int $i
+     * @param int $sortOrder
      * @return boolean
      */
-    protected function _createStore($localeCode, &$i)
+    protected function _createStore($localeCode, $sortOrder)
     {
-        $languageCode = array_shift(explode('_', $localeCode));
+        $languageCode = current(explode('_', $localeCode));
         /** @var $store Mage_Core_Model_Store */
         $store = Mage::getModel('core/store');
         $store->load($languageCode, 'code');
@@ -334,7 +334,7 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
             ->setWebsiteId(Mage::app()->getDefaultStoreView()->getWebsiteId())
             ->setGroupId(Mage::app()->getDefaultStoreView()->getGroupId())
             ->setIsActive(1)
-            ->setSortOrder(++$i)
+            ->setSortOrder($sortOrder)
             ->save();
 
         $this->_setConfigData('general/locale/code', $localeCode, 'stores', $store->getId());
