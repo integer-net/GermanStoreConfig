@@ -1,11 +1,12 @@
 <?php
 
 /**
- * PRWD Auto Shipping Module
+ * Auto Shipping Module
  *
  * NOTICE OF LICENSE
  *
-  Copyright (C) 2009 PRWD (http://www.prwd.co.uk)
+    Copyright (C) 2009 PRWD (http://www.prwd.co.uk)
+    Copyright (C) 2013 integer_net GmbH (http://www.integer-net.de)
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,25 +22,18 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
-class PRWD_Autoshipping_Helper_Data extends Mage_Core_Helper_Abstract
+class IntegerNet_Autoshipping_Block_Country extends Mage_Directory_Block_Data
 {
-
-  const XML_PATH_ENABLED     = 'autoshipping/settings/enabled';
-  const XML_PATH_COUNTRY     = 'autoquote/settings/country_id';
-
-
-	
-	public function isEnabled()
+    public function __construct()
     {
-        return Mage::getStoreConfig( self::XML_PATH_ENABLED );
+        $this->setTemplate('checkout/cart/country.phtml');
     }
 
-    public function isCountry_id()
+    /**
+     * @return string
+     */
+    public function getSelectedCountryId()
     {
-        return Mage::getStoreConfig( self::XML_PATH_COUNTRY );
+        return Mage::getSingleton('checkout/session')->getQuote()->getShippingAddress()->getCountryId();
     }
-
-
 }
-

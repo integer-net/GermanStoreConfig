@@ -2,9 +2,9 @@
 
 <config>
     <modules>
-        <PRWD_Autoshipping>
+        <IntegerNet_Autoshipping>
             <active>true</active>
             <codePool>community</codePool>
-        </PRWD_Autoshipping>
+        </IntegerNet_Autoshipping>
     </modules>
 </config>

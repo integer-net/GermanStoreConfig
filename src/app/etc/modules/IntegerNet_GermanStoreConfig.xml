@@ -7,7 +7,7 @@
             <depends>
                 <FireGento_GermanSetup />
                 <DerModPro_BasePrice />
-                <PRWD_Autoshipping />
+                <IntegerNet_Autoshipping />
                 <Phoenix_CashOnDelivery />
                 <IntegerNet_RemoveCustomerAccountLinks />
             </depends>
