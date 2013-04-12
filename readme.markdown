@@ -19,7 +19,7 @@ A few useful and preconfigured modules are shipped with the distribution:
 - FireGento_GermanSetup (for base settings and adjustments for the German market; will be called on form submit)
 - FireGento_Pdf (to create better PDF invoices)
 - DerModPro_BasePrice (for displaying the price per base unit, required in many cases according to German Laws)
-- PRWD_Autoshipping (for displaying shipping costs in cart even when no shipping address is entered yet, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/versandkosten-im-warenkorb-anzeigen.html))
+- IntegerNet_Autoshipping (for displaying shipping costs in cart even when no shipping address is entered yet, see [this German blog entry](http://www.avs-webentwicklung.de/nc/blog/artikel/versandkosten-im-warenkorb-anzeigen.html))
 - Phoenix_CashOnDelivery (Payment Method)
 - Mage_Debit (Payment Method)
 - IntegerNet_RemoveCustomerAccountLinks (for hiding unneeded links in customer account, see [this German blog entry](http://www.integer-net.de/benutzerkonto-magento-deaktivieren-von-menupunkten/))
