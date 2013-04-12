@@ -6,7 +6,7 @@ class IntegerNet_GermanStoreConfig_Block_Form extends Mage_Adminhtml_Block_Widge
     {
         parent::__construct();
         $this->setTemplate('germanstoreconfig/form.phtml');
-        $this->setTitle(Mage::helper('germanstoreconfig') ->__('German Distribution for Magento'));
+        $this->setTitle(Mage::helper('germanstoreconfig') ->__(Mage::getStoreConfig('germanstoreconfig/module_title')));
     }
 
     /**
