@@ -38,6 +38,7 @@ class IntegerNet_GermanStoreConfig_Block_Tracking extends Mage_Adminhtml_Block_T
             case IntegerNet_GermanStoreConfig_Model_Source_Datatransfer::DATATRANSFER_BASIC:
 
                 $params['installation_id'] = Mage::getStoreConfig('germanstoreconfig/installation_id');
+                $params['package_type'] = Mage::getStoreConfig('germanstoreconfig/module_code');
                 $params['server_ip'] = Mage::app()->getRequest()->getServer('SERVER_ADDR');
                 $params['transfer_type'] = Mage::getStoreConfig('admin/germanstoreconfig/datatransfer');
         }

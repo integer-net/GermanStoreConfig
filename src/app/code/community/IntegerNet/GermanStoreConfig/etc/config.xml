@@ -343,6 +343,7 @@
             <currency>EUR</currency>
             <timezone>Europe/Berlin</timezone>
             <module_title>Magento DE</module_title>
+            <module_code>magento_de</module_code>
         </germanstoreconfig>
         <ikonoshirt>
             <custom_rss_feeds>
