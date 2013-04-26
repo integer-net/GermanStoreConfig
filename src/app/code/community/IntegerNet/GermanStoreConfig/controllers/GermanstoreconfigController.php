@@ -242,6 +242,12 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
                 $this->_setConfigData('payment/paypal_standard/title', 'PayPal');
                 $this->_setConfigData('payment/paypal_standard/sort_order', 10);
             }
+            $this->_setConfigData('ikonoshirt/custom_rss_feeds/feeds/germanstoreconfig',
+                Mage::getStoreConfig('germanstoreconfig/feed_url_prefix')
+                    . Mage::getStoreConfig('germanstoreconfig/module_code')
+                    . '_'
+                    . $fieldData['admin__germanstoreconfig__datatransfer']
+                    . '.xml');
         }
 
         $this->_setConfigData('general/region/state_required', '');
