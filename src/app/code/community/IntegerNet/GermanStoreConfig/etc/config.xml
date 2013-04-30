@@ -346,12 +346,5 @@
             <module_title>Magento DE</module_title>
             <module_code>magento_de</module_code>
         </germanstoreconfig>
-        <ikonoshirt>
-            <custom_rss_feeds>
-                <feeds>
-                    <germanstoreconfig>http://www.nr-apps.com/store/media/germanstoreconfig/feed.xml</germanstoreconfig>
-                </feeds>
-            </custom_rss_feeds>
-        </ikonoshirt>
     </default>
 </config>
