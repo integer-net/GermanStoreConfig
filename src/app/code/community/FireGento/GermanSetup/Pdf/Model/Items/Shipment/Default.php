@@ -15,27 +15,31 @@
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
  */
 /**
- * Creditmemo default item model rewrite.
+ * Shipment default item model.
  *
  * @category  FireGento
  * @package   FireGento_Pdf
  * @author    FireGento Team <team@firegento.com>
- * @copyright 2012 FireGento Team (http://www.firegento.de). All rights served.
+ * @copyright 2013 FireGento Team (http://www.firegento.de). All rights served.
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  * @version   $Id:$
  * @since     0.1.0
  */
-class FireGento_Pdf_Model_Items_Creditmemo_Default extends Mage_Sales_Model_Order_Pdf_Items_Creditmemo_Default
+class FireGento_Pdf_Model_Items_Shipment_Default extends Mage_Sales_Model_Order_Pdf_Items_Shipment_Default
 {
-    public function draw($position = 1)
+    /**
+     * Draw item line.
+     *
+     * @return void
+     */
+    public function draw()
     {
-        $order  = $this->getOrder();
         $item   = $this->getItem();
         $pdf    = $this->getPdf();
         $page   = $this->getPage();
@@ -43,33 +47,29 @@ class FireGento_Pdf_Model_Items_Creditmemo_Default extends Mage_Sales_Model_Orde
 
         $fontSize = 9;
 
-        // draw Position Number
-        $lines[0]= array(array(
-            'text'  => $position,
-            'feed'  => $pdf->margin['left'] + 10,
-            'align' => 'right',
+        // draw SKU
+        $lines[0] = array(array(
+            'text' => Mage::helper('core/string')->str_split($this->getSku($item), 20),
+            'feed' => 45,
+            'width' => 85,
             'font_size' => $fontSize
         ));
 
-        // draw SKU
-        $lines[0][] = array(
-            'text'  => Mage::helper('core/string')->str_split($this->getSku($item), 30),
-            'feed'  => $pdf->margin['left'] + 25,
-            'font_size' => $fontSize
-        );
-
         // draw Product name
-        $lines[0][]= array(
-            'text' => Mage::helper('core/string')->str_split($item->getName(), 30, true, true),
-            'feed' => $pdf->margin['left'] + 120,
+        $lines[0][] = array(
+            'text'  => Mage::helper('core/string')->str_split($item->getName(), 70, true, true),
+            'feed'  => 150,
+            'align' => 'left',
+            'width' => 375,
             'font_size' => $fontSize
         );
 
         // draw QTY
         $lines[0][] = array(
-            'text'  => $item->getQty() * 1,
-            'feed'  => $pdf->margin['right'] - 120,
-            'align' => 'right',
+            'text'  => $item->getQty()*1,
+            'feed'  => 505,
+            'align' => 'left',
+            'width' => 10,
             'font_size' => $fontSize
         );
 
@@ -96,30 +96,6 @@ class FireGento_Pdf_Model_Items_Creditmemo_Default extends Mage_Sales_Model_Orde
                 }
             }
         }
-
-        // draw Price
-        $lines[0][] = array(
-            'text'  => $order->formatPriceTxt($item->getPrice()),
-            'feed'  => $pdf->margin['right'] - 160,
-            'align' => 'right',
-            'font_size' => $fontSize
-        );
-
-        // draw Tax
-        $lines[0][] = array(
-            'text'  => $order->formatPriceTxt($item->getTaxAmount()),
-            'feed'  => $pdf->margin['right'] - 60,
-            'align' => 'right',
-            'font_size' => $fontSize
-        );
-
-        // draw Subtotal
-        $lines[0][] = array(
-            'text' => $order->formatPriceTxt(($item->getPrice() * $item->getQty() * 1) + $item->getTaxAmount()),
-            'feed'  => $pdf->margin['right'] - 10,
-            'align' => 'right',
-            'font_size' => $fontSize
-        );
 
         $lineBlock = array(
             'lines'  => $lines,
