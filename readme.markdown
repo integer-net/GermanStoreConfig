@@ -4,7 +4,7 @@ A preconfigured Magento CE installation for German Merchants
 
 Facts
 -----
-- version: 1.2.0
+- version: 1.2.1
 - [On GitHub](https://github.com/integer-net/GermanStoreConfig)
 - [direct download link](https://github.com/integer-net/GermanStoreConfig/archive/master.zip)
 
