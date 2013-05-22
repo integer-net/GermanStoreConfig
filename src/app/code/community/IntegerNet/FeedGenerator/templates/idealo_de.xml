@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<feedgenerator>
+    <templates>
+        <template>
+            <identifier>idealo.de</identifier>
+            <version><![CDATA[0.1.0]]></version>
+            <name><![CDATA[idealo.de]]></name>
+            <type>csv</type>
+            <header><![CDATA[Artikelnummer im Shop;EAN / Barcodenummer;Original Herstellerartikelnummer;Herstellername;Produktname;Produktgruppe im Shop (möglichst als Pfad ausgehend von der Wurzelkategorie);Preis (Brutto);Lieferzeit;ProduktURL;BildURL_1 (großes Bild);BildURL_2 (großes Bild);BildURL_3 (großes Bild);BildURL_4;BildURL_5;Vorkasse;Vorkasse / Paypal Österreich (optional wenn Listung auf idealo.at gewünscht / weitere Zahlarten in separaten Spalten möglich);Nachnahme;Kreditkarte (z.B. nur bis 1000 EUR);Paypal;Sofortüberweisung;Bankeinzug;Rechnung;Moneybookers;Click & Buy;Giropay;Versandkosten Kommentar (max. 100 Zeichen);Produktbeschreibung (max. 1000 Zeichen);Grundpreis (Produktabhängig)]]></header>
+            <body><![CDATA[{{var sku}};{{var ean}};{{var manufacturer_sku}};{{var manufacturer}};{{var name}};{{var category_path}};{{var price}};{{var delivery_time}};{{var url}};{{var image}};{{var additional_image_1}};{{var additional_image_2}};{{var additional_image_3}};{{var additional_image_4}};{{var shipping_cost_prepayment}};;{{var shipping_cost_cash_on_delivery}};{{var shipping_cost_credit_card}};{{var shipping_cost_paypal}};;{{var shipping_cost_debit}};{{var shipping_cost_invoice}};;;;;{{var description}};{{if base_price}}{{var base_price}} {{var currency_code}} / {{var base_price_base_amount}} {{var base_price_base_unit}}{{/if}}]]></body>
+            <footer><![CDATA[]]></footer>
+            <eol><![CDATA[\n]]></eol>
+            <quote_symbol><![CDATA[;]]></quote_symbol>
+            <quote_symbol_replacement><![CDATA[,]]></quote_symbol_replacement>
+            <charset>utf-8</charset>
+            <include_header>1</include_header>
+            <allowed_product_types>all</allowed_product_types>
+            <configurable_export_type>export_parent</configurable_export_type>
+        </template>
+    </templates>
+</feedgenerator>
