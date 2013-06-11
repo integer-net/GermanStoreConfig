@@ -106,11 +106,11 @@
         </layout>
         <translate>
             <modules>
-                <germanstoreconfig>
+                <IntegerNet_GermanStoreConfig>
                     <files>
                         <default>IntegerNet_GermanStoreConfig.csv</default>
                     </files>
-                </germanstoreconfig>
+                </IntegerNet_GermanStoreConfig>
             </modules>
         </translate>
     </adminhtml>
@@ -137,11 +137,11 @@
         </layout>
         <translate>
             <modules>
-                <germanstoreconfig>
+                <IntegerNet_GermanStoreConfig>
                     <files>
                         <default>IntegerNet_GermanStoreConfig.csv</default>
                     </files>
-                </germanstoreconfig>
+                </IntegerNet_GermanStoreConfig>
             </modules>
         </translate>
         <events>
