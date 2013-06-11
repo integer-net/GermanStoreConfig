@@ -89,7 +89,7 @@ class IntegerNet_GermanStoreConfig_Block_Form extends Mage_Adminhtml_Block_Widge
             array(
                 'type' => 'text',
                 'name' => 'general__imprint__vat_id',
-                'label' => Mage::helper('germansetup')->__('USt.Nr.'),
+                'label' => Mage::helper('germansetup')->__('VAT-ID'),
             ),
             array(
                 'type' => 'text',
