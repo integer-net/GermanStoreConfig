@@ -30,4 +30,24 @@ class IntegerNet_GermanStoreConfig_Block_Frontend_Copyright extends Mage_Core_Bl
             return Mage::getStoreConfig('germanstoreconfig/integernet_url_en');
         }
     }
+
+    public function getLimeSodaUrl()
+    {
+        $localeCode = Mage::app()->getLocale()->getLocaleCode();
+        if (strpos($localeCode, 'de_') === 0) {
+            return Mage::getStoreConfig('germanstoreconfig/limesoda_url_de');
+        } else {
+            return Mage::getStoreConfig('germanstoreconfig/limesoda_url_en');
+        }
+    }
+
+    public function getOpenstreamUrl()
+    {
+        $localeCode = Mage::app()->getLocale()->getLocaleCode();
+        if (strpos($localeCode, 'de_') === 0) {
+            return Mage::getStoreConfig('germanstoreconfig/openstream_url_de');
+        } else {
+            return Mage::getStoreConfig('germanstoreconfig/openstream_url_en');
+        }
+    }
 }

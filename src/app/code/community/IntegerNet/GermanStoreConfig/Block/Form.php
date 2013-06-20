@@ -82,14 +82,15 @@ class IntegerNet_GermanStoreConfig_Block_Form extends Mage_Adminhtml_Block_Widge
             ),
             array(
                 'type' => 'text',
-                'name' => 'general__imprint__tax_number',
-                'label' => Mage::helper('germansetup')->__('Tax number'),
+                'name' => 'general__imprint__vat_id',
+                'label' => Mage::helper('germansetup')->__('VAT-ID'),
                 'optional' => true,
             ),
             array(
                 'type' => 'text',
-                'name' => 'general__imprint__vat_id',
-                'label' => Mage::helper('germansetup')->__('VAT-ID'),
+                'name' => 'general__imprint__tax_number',
+                'label' => Mage::helper('germansetup')->__('Tax number'),
+                'optional' => true,
             ),
             array(
                 'type' => 'text',

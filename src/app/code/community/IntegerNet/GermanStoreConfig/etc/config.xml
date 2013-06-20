@@ -327,6 +327,10 @@
             <magentode_url_en>http://www.nr-apps.com/store/magento-de.html</magentode_url_en>
             <integernet_url_de>http://www.integer-net.de</integernet_url_de>
             <integernet_url_en>http://www.integer-net.de</integernet_url_en>
+            <limesoda_url_de>http://www.limesoda.com/</limesoda_url_de>
+            <limesoda_url_en>http://www.limesoda.com/</limesoda_url_en>
+            <openstream_url_de>http://www.openstream.ch/</openstream_url_de>
+            <openstream_url_en>http://www.openstream.ch/e</openstream_url_en>
             <tracking_url>http://www.nr-apps.com/store/germanstoreconfig/tracking</tracking_url>
             <newsfeed_url>http://www.nr-apps.com/store/media/germanstoreconfig/feed.xml</newsfeed_url>
             <iframe_url_prefix>https://www.nr-apps.com/n/magento-de/</iframe_url_prefix>
@@ -347,5 +351,8 @@
             <module_title>Magento DE</module_title>
             <module_code>magento_de</module_code>
         </germanstoreconfig>
+        <germansetup>
+            <default_country>de</default_country>
+        </germansetup>
     </default>
 </config>
