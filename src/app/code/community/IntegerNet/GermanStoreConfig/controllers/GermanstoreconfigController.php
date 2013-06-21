@@ -344,6 +344,7 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
             ->save();
 
         $this->_setConfigData('general/locale/code', $localeCode, 'stores', $store->getId());
+        $this->_setConfigData('general/locale/code_fallback', $localeCode, 'stores', $store->getId());
 
         return true;
     }
