@@ -1,0 +1,10 @@
+{
+   "name": "integer-net/GermanStoreConfig",
+   "license": ["OSL-3.0"],
+   "type": "magento-module",
+   "description": "Magento DE - A preconfigured Magento CE installation for German Merchants",
+   "homepage": "https://github.com/integer-net/GermanStoreConfig",
+   "require": {
+      "magento-hackathon/magento-composer-installer": "*"
+   }
+}
