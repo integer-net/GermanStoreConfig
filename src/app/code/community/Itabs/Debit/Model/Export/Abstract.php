@@ -19,7 +19,7 @@
  * @author    Rouven Alexander Rieker <rouven.rieker@itabs.de>
  * @copyright 2008-2013 ITABS GmbH / Rouven Alexander Rieker (http://www.itabs.de)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @version   1.0.0
+ * @version   1.0.2
  * @link      http://www.magentocommerce.com/magento-connect/debitpayment.html
  */
 /**
@@ -30,7 +30,7 @@
  * @author    Rouven Alexander Rieker <rouven.rieker@itabs.de>
  * @copyright 2008-2013 ITABS GmbH / Rouven Alexander Rieker (http://www.itabs.de)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @version   1.0.0
+ * @version   1.0.2
  * @link      http://www.magentocommerce.com/magento-connect/debitpayment.html
  */
 class Itabs_Debit_Model_Export_Abstract extends Varien_Object
@@ -68,7 +68,7 @@ class Itabs_Debit_Model_Export_Abstract extends Varien_Object
     /**
      * Check if there are orders available for export..
      *
-     * @return void
+     * @return Itabs_Debit_Model_Mysql4_Orders_Collection|false
      */
     protected function _hasOrdersToExport()
     {
@@ -85,9 +85,13 @@ class Itabs_Debit_Model_Export_Abstract extends Varien_Object
 
         // Check if collection coontains orders
         if ($collection->count() == 0) {
-            $this->_getSession()->addError($this->_getDebitHelper()->__('No orders to export.'));
+            Mage::getSingleton('adminhtml/session')->addError(
+                $this->_getDebitHelper()->__('No orders to export.')
+            );
+
             return false;
         }
+
         return $collection;
     }
 }
