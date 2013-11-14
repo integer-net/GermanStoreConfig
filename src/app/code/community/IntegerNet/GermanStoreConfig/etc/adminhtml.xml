@@ -138,139 +138,143 @@
                 </germanstoreconfig>
             </children>
         </system>
-        <germanstoreconfig translate="title" module="germanstoreconfig">
-            <title>Magento DE</title>
-            <sort_order>11</sort_order>
-            <action>adminhtml/germanstoreconfig</action>
-            <class>germanstoreconfig</class>
-            <ifconfig>admin/germanstoreconfig/display_menu</ifconfig>
+        <dashboard>
             <children>
-                <dashboard translate="title" module="germanstoreconfig">
-                    <title>Dashboard</title>
-                    <sort_order>10</sort_order>
+                <germanstoreconfig translate="title" module="germanstoreconfig">
+                    <title>Magento DE</title>
+                    <sort_order>11</sort_order>
                     <action>adminhtml/germanstoreconfig</action>
-                </dashboard>
-                <partner translate="title">
-                    <title>Partners</title>
-                    <sort_order>20</sort_order>
-                    <action>adminhtml/germanstoreconfig/partner</action>
-                </partner>
-                <suggestions translate="title">
-                    <title>Suggestions</title>
-                    <sort_order>30</sort_order>
-                    <action>adminhtml/germanstoreconfig/suggestions</action>
-                </suggestions>
-                <news translate="title">
-                    <title>News</title>
-                    <sort_order>40</sort_order>
-                    <action>adminhtml/germanstoreconfig/news</action>
-                </news>
-                <modules translate="title">
-                    <title>Integrated Modules</title>
-                    <sort_order>50</sort_order>
+                    <class>germanstoreconfig</class>
+                    <ifconfig>admin/germanstoreconfig/display_menu</ifconfig>
                     <children>
-                        <germansetup translate="title">
-                            <title>FireGento German Setup</title>
+                        <dashboard translate="title" module="germanstoreconfig">
+                            <title>Dashboard</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/germanstoreconfig</action>
+                        </dashboard>
+                        <partner translate="title">
+                            <title>Partners</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/germanstoreconfig/partner</action>
+                        </partner>
+                        <suggestions translate="title">
+                            <title>Suggestions</title>
                             <sort_order>30</sort_order>
-                            <children>
-                                <setup translate="title">
-                                    <title>Extension Setup</title>
-                                    <sort_order>10</sort_order>
-                                    <action>adminhtml/germanstoreconfig_germansetup</action>
-                                </setup>
-                                <recommendations translate="title">
-                                    <title>Tax Settings</title>
-                                    <sort_order>20</sort_order>
-                                    <action>adminhtml/germanstoreconfig_germansetup/tax</action>
-                                </recommendations>
-                                <form translate="title">
-                                    <title>Checkout Agreements</title>
-                                    <sort_order>30</sort_order>
-                                    <action>adminhtml/germanstoreconfig_germansetup/agreements</action>
-                                </form>
-                            </children>
-                        </germansetup>
-                        <firegento_pdf translate="title">
-                            <title>FireGento PDF</title>
+                            <action>adminhtml/germanstoreconfig/suggestions</action>
+                        </suggestions>
+                        <news translate="title">
+                            <title>News</title>
                             <sort_order>40</sort_order>
-                            <children>
-                                <setup translate="title">
-                                    <title>Extension Setup</title>
-                                    <sort_order>10</sort_order>
-                                    <action>adminhtml/germanstoreconfig_firegentopdf</action>
-                                </setup>
-                            </children>
-                        </firegento_pdf>
-                        <autoshipping translate="title">
-                            <title>Autoshipping</title>
+                            <action>adminhtml/germanstoreconfig/news</action>
+                        </news>
+                        <modules translate="title">
+                            <title>Integrated Modules</title>
                             <sort_order>50</sort_order>
                             <children>
-                                <setup translate="title">
-                                    <title>Extension Setup</title>
-                                    <sort_order>10</sort_order>
-                                    <action>adminhtml/germanstoreconfig_autoshipping</action>
-                                </setup>
+                                <germansetup translate="title">
+                                    <title>FireGento German Setup</title>
+                                    <sort_order>30</sort_order>
+                                    <children>
+                                        <setup translate="title">
+                                            <title>Extension Setup</title>
+                                            <sort_order>10</sort_order>
+                                            <action>adminhtml/germanstoreconfig_germansetup</action>
+                                        </setup>
+                                        <recommendations translate="title">
+                                            <title>Tax Settings</title>
+                                            <sort_order>20</sort_order>
+                                            <action>adminhtml/germanstoreconfig_germansetup/tax</action>
+                                        </recommendations>
+                                        <form translate="title">
+                                            <title>Checkout Agreements</title>
+                                            <sort_order>30</sort_order>
+                                            <action>adminhtml/germanstoreconfig_germansetup/agreements</action>
+                                        </form>
+                                    </children>
+                                </germansetup>
+                                <firegento_pdf translate="title">
+                                    <title>FireGento PDF</title>
+                                    <sort_order>40</sort_order>
+                                    <children>
+                                        <setup translate="title">
+                                            <title>Extension Setup</title>
+                                            <sort_order>10</sort_order>
+                                            <action>adminhtml/germanstoreconfig_firegentopdf</action>
+                                        </setup>
+                                    </children>
+                                </firegento_pdf>
+                                <autoshipping translate="title">
+                                    <title>Autoshipping</title>
+                                    <sort_order>50</sort_order>
+                                    <children>
+                                        <setup translate="title">
+                                            <title>Extension Setup</title>
+                                            <sort_order>10</sort_order>
+                                            <action>adminhtml/germanstoreconfig_autoshipping</action>
+                                        </setup>
+                                    </children>
+                                </autoshipping>
+                                <baseprice translate="title">
+                                    <title>Base Price</title>
+                                    <sort_order>60</sort_order>
+                                    <unlessconfig>catalog/baseprice/disable_ext</unlessconfig>
+                                    <children>
+                                        <setup translate="title">
+                                            <title>Extension Setup</title>
+                                            <sort_order>10</sort_order>
+                                            <action>adminhtml/germanstoreconfig_baseprice</action>
+                                        </setup>
+                                    </children>
+                                </baseprice>
+                                <cashondelivery translate="title">
+                                    <title>Cash On Delivery</title>
+                                    <sort_order>70</sort_order>
+                                    <children>
+                                        <setup translate="title">
+                                            <title>Extension Setup</title>
+                                            <sort_order>10</sort_order>
+                                            <action>adminhtml/germanstoreconfig_cashondelivery</action>
+                                        </setup>
+                                    </children>
+                                </cashondelivery>
+                                <debit translate="title">
+                                    <title>Debit</title>
+                                    <sort_order>80</sort_order>
+                                    <children>
+                                        <setup translate="title">
+                                            <title>Extension Setup</title>
+                                            <sort_order>10</sort_order>
+                                            <action>adminhtml/germanstoreconfig_debit</action>
+                                        </setup>
+                                        <bankdatasetup translate="title">
+                                            <title>Bank Data Setup</title>
+                                            <sort_order>20</sort_order>
+                                            <action>adminhtml/germanstoreconfig_debit/bankdatasetup</action>
+                                        </bankdatasetup>
+                                    </children>
+                                </debit>
+                                <removecustomeraccountlinks translate="title" module="germanstoreconfig">
+                                    <title>Remove Customer Account Links</title>
+                                    <sort_order>90</sort_order>
+                                    <children>
+                                        <setup translate="title">
+                                            <title>Extension Setup</title>
+                                            <sort_order>10</sort_order>
+                                            <action>adminhtml/germanstoreconfig_removecustomeraccountlinks</action>
+                                        </setup>
+                                    </children>
+                                </removecustomeraccountlinks>
                             </children>
-                        </autoshipping>
-                        <baseprice translate="title">
-                            <title>Base Price</title>
-                            <sort_order>60</sort_order>
-                            <unlessconfig>catalog/baseprice/disable_ext</unlessconfig>
-                            <children>
-                                <setup translate="title">
-                                    <title>Extension Setup</title>
-                                    <sort_order>10</sort_order>
-                                    <action>adminhtml/germanstoreconfig_baseprice</action>
-                                </setup>
-                            </children>
-                        </baseprice>
-                        <cashondelivery translate="title">
-                            <title>Cash On Delivery</title>
-                            <sort_order>70</sort_order>
-                            <children>
-                                <setup translate="title">
-                                    <title>Extension Setup</title>
-                                    <sort_order>10</sort_order>
-                                    <action>adminhtml/germanstoreconfig_cashondelivery</action>
-                                </setup>
-                            </children>
-                        </cashondelivery>
-                        <debit translate="title">
-                            <title>Debit</title>
-                            <sort_order>80</sort_order>
-                            <children>
-                                <setup translate="title">
-                                    <title>Extension Setup</title>
-                                    <sort_order>10</sort_order>
-                                    <action>adminhtml/germanstoreconfig_debit</action>
-                                </setup>
-                                <bankdatasetup translate="title">
-                                    <title>Bank Data Setup</title>
-                                    <sort_order>20</sort_order>
-                                    <action>adminhtml/germanstoreconfig_debit/bankdatasetup</action>
-                                </bankdatasetup>
-                            </children>
-                        </debit>
-                        <removecustomeraccountlinks translate="title" module="germanstoreconfig">
-                            <title>Remove Customer Account Links</title>
-                            <sort_order>90</sort_order>
-                            <children>
-                                <setup translate="title">
-                                    <title>Extension Setup</title>
-                                    <sort_order>10</sort_order>
-                                    <action>adminhtml/germanstoreconfig_removecustomeraccountlinks</action>
-                                </setup>
-                            </children>
-                        </removecustomeraccountlinks>
+                        </modules>
+                        <configuration translate="title">
+                            <title>Configuration</title>
+                            <sort_order>190</sort_order>
+                            <action>adminhtml/germanstoreconfig/form</action>
+                        </configuration>
                     </children>
-                </modules>
-                <configuration translate="title">
-                    <title>Configuration</title>
-                    <sort_order>190</sort_order>
-                    <action>adminhtml/germanstoreconfig/form</action>
-                </configuration>
+                </germanstoreconfig>
             </children>
-        </germanstoreconfig>
+        </dashboard>
     </menu>
     <acl>
         <resources>
@@ -284,10 +288,14 @@
                             </germanstoreconfig>
                         </children>
                     </system>
-                    <germanstoreconfig translate="title">
-                        <title>German Store Configuration for Magento CE</title>
-                        <sort_order>11</sort_order>
-                    </germanstoreconfig>
+                    <dashboard>
+                        <children>
+                            <germanstoreconfig translate="title">
+                                <title>German Store Configuration for Magento CE</title>
+                                <sort_order>11</sort_order>
+                            </germanstoreconfig>
+                        </children>
+                    </dashboard>
                 </children>
             </admin>
         </resources>

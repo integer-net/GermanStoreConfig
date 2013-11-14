@@ -9,7 +9,7 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
             ->_title($helper->__('Dashboard'));
 
         $this->loadLayout()
-            ->_setActiveMenu('germanstoreconfig/dashboard')
+            ->_setActiveMenu('dashboard/germanstoreconfig/dashboard')
             ->_addBreadcrumb($helper->__('Dashboard'), $helper->__('Dashboard'));
 
         $iframeUrl = Mage::getStoreConfig('germanstoreconfig/iframe_url_prefix')
@@ -37,7 +37,7 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
             ->_title($helper->__('Partners'));
 
         $this->loadLayout()
-            ->_setActiveMenu('germanstoreconfig/dashboard/partner')
+            ->_setActiveMenu('dashboard/germanstoreconfig/dashboard/partner')
             ->_addBreadcrumb($helper->__('Partners'), $helper->__('Partners'));
 
         $iframeUrl = Mage::getStoreConfig('germanstoreconfig/iframe_url_prefix')
@@ -64,7 +64,7 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
             ->_title($helper->__('Suggestions'));
 
         $this->loadLayout()
-            ->_setActiveMenu('germanstoreconfig/dashboard/suggestions')
+            ->_setActiveMenu('dashboard/germanstoreconfig/dashboard/suggestions')
             ->_addBreadcrumb($helper->__('Suggestions'), $helper->__('Suggestions'));
 
         $iframeUrl = Mage::getStoreConfig('germanstoreconfig/iframe_url_prefix')
@@ -98,11 +98,11 @@ class IntegerNet_GermanStoreConfig_GermanstoreconfigController extends Mage_Admi
         if (Mage::getStoreConfigFlag('admin/germanstoreconfig/display_menu')) {
             $this->loadLayout()
                 ->_addBreadcrumb($helper->__(Mage::getStoreConfig('germanstoreconfig/module_title')), $helper->__(Mage::getStoreConfig('germanstoreconfig/module_title')))
-                ->_setActiveMenu('germanstoreconfig/configuration');
+                ->_setActiveMenu('dashboard/germanstoreconfig/configuration');
         } else {
             $this->loadLayout()
                 ->_addBreadcrumb($helper->__(Mage::getStoreConfig('germanstoreconfig/module_title')), $helper->__(Mage::getStoreConfig('germanstoreconfig/module_title')))
-                ->_setActiveMenu('system/germanstoreconfig');
+                ->_setActiveMenu('dashboard/system/germanstoreconfig');
         }
 
         $this->getLayout()
